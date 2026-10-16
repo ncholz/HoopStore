@@ -830,12 +830,20 @@ function applyLang() {
     b.setAttribute("aria-current", String(b.dataset.lang === lang));
   });
 
-  document
-    .querySelectorAll("[data-i18n]")
-    .forEach((el) => (el.textContent = t(el.dataset.i18n)));
-  document
-    .querySelectorAll("[data-i18n-aria]")
-    .forEach((el) => el.setAttribute("aria-label", t(el.dataset.i18nAria)));
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const val = t(el.dataset.i18n);
+    if (el.tagName === "INPUT") {
+      el.value = val;
+      el.setAttribute("title", val);
+    } else {
+      el.textContent = val;
+    }
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+    const val = t(el.dataset.i18nAria);
+    el.setAttribute("aria-label", val);
+    el.setAttribute("title", val);
+  });
   document
     .querySelectorAll(".card-media")
     .forEach((el) => (el.dataset.photo = t("photo")));
