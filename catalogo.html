@@ -12,17 +12,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
 </head>
 
-<header class="site-header">
+<body>
+
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+  <div class="announce" data-i18n="announce">Entrega gratuita desde 60 € · Envío en 24/48 h</div>
+
+  <header class="site-header">
     <div class="container header-in">
-      <a class="brand" href="index.html" aria-label="Hoop Store">
+      <a class="brand" href="index.html" aria-label="Hoop Store" title="Hoop Store">
         <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="70" height="64">
+        <span class="sr">Hoop Store</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Principal">
-        <a href="index.html" aria-current="page" data-i18n="nav_home">Inicio</a>
+        <a href="index.html" data-i18n="nav_home">Inicio</a>
         <a href="catalogo.html?categoria=zapatillas" data-i18n="nav_shoes">Zapatillas</a>
         <a href="catalogo.html?categoria=equipaciones" data-i18n="nav_kits">Equipaciones</a>
         <a href="catalogo.html?categoria=accesorios" data-i18n="nav_acc">Accesorios</a>
@@ -33,10 +38,10 @@
       <div class="utils">
         <div class="lang">
           <button class="icon-btn lang-btn" id="btnLang" type="button" aria-expanded="false" aria-controls="langMenu"
-            aria-label="Idioma" data-i18n-aria="a_lang">
+            aria-label="Idioma" title="Idioma" data-i18n-aria="a_lang">
             <span class="ico" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
@@ -53,10 +58,11 @@
           </ul>
         </div>
 
-        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" data-i18n-aria="a_fav">
+        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" title="Favoritos" data-i18n-aria="a_fav">
+          <span class="sr" data-i18n="a_fav">Favoritos</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path
                 d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
               </path>
@@ -65,20 +71,22 @@
           <span class="cart-count" id="favCount" hidden>0</span>
         </button>
 
-        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" data-i18n-aria="a_user">
+        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" title="Iniciar sesión" data-i18n-aria="a_user">
+          <span class="sr" data-i18n="a_user">Iniciar sesión</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </span>
         </button>
 
-        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" data-i18n-aria="a_cart">
+        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" title="Carrito" data-i18n-aria="a_cart">
+          <span class="sr" data-i18n="a_cart">Carrito</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -88,9 +96,10 @@
         </button>
 
         <button class="burger" id="btnMenu" type="button" aria-expanded="false" aria-controls="nav"
-          aria-label="Abrir menú">
+          aria-label="Abrir menú" title="Abrir menú">
+          <span class="sr">Abrir menú</span>
           <svg class="burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -102,7 +111,6 @@
 
   <main id="main" tabindex="-1">
 
-    <!-- Encabezado de Catálogo y Botones de Filtro -->
     <!-- Encabezado de Catálogo con Buscador y Deslizador de Precio -->
     <section class="catalog-header">
       <div class="container">
@@ -110,16 +118,19 @@
 
         <!-- Barra de herramientas: Buscador y Slider de Precio -->
         <div class="catalog-toolbar">
-          
+
           <!-- Buscador de artículos -->
           <div class="catalog-search-box">
+            <label class="sr" for="catalogSearch">Buscar productos</label>
             <span class="search-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </span>
-            <input type="search" id="catalogSearch" placeholder="Buscar por nombre (ej: Air Elite, camiseta...)" aria-label="Buscar productos">
+            <input type="search" id="catalogSearch" title="Buscar productos"
+              placeholder="Buscar por nombre (ej: Air Elite, camiseta...)" aria-label="Buscar productos">
           </div>
 
           <!-- Filtro con deslizador de precio Mín/Máx -->
@@ -131,11 +142,11 @@
             <div class="price-slider-wrap">
               <div class="slider-field">
                 <label for="priceMin">Mín</label>
-                <input type="range" id="priceMin" min="0" max="200" step="5" value="0">
+                <input type="range" id="priceMin" title="Precio mínimo" min="0" max="200" step="5" value="0">
               </div>
               <div class="slider-field">
                 <label for="priceMax">Máx</label>
-                <input type="range" id="priceMax" min="0" max="200" step="5" value="200">
+                <input type="range" id="priceMax" title="Precio máximo" min="0" max="200" step="5" value="200">
               </div>
             </div>
           </div>
@@ -162,7 +173,8 @@
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
             <div class="card-media" data-photo="Foto">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+                <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path
@@ -181,7 +193,8 @@
 
           <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
             <div class="card-media" data-photo="Foto">
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+                <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path
@@ -200,26 +213,31 @@
 
           <!-- EQUIPACIONES -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
-  <div class="card-media" data-photo="Foto">
-    <span class="badge sale" data-i18n="b_sale">Oferta</span>
-    <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-      </svg>
-    </button>
-  </div>
-  <div class="card-body">
-    <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
-    <h3 class="card-name">Camiseta Pro Match</h3>
-    <p class="price">59,95 € <span class="old">79,95 €</span></p>
-    <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
-  </div>
-</article>
+            <div class="card-media" data-photo="Foto">
+              <span class="badge sale" data-i18n="b_sale">Oferta</span>
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+                <span class="sr">Añadir a favoritos</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
+              <h3 class="card-name">Camiseta Pro Match</h3>
+              <p class="price">59,95 € <span class="old">79,95 €</span></p>
+              <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
+            </div>
+          </article>
 
           <!-- ACCESORIOS -->
           <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
             <div class="card-media" data-photo="Foto">
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+                <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path
@@ -240,7 +258,8 @@
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
             <div class="card-media" data-photo="Foto">
               <span class="badge nba">NBA</span>
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+                <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path
@@ -259,7 +278,7 @@
 
         </div>
 
-        <p class="empty-catalog" id="emptyMessage" hidden>No hay productos en esta categoría.</p>
+        <p class="empty-catalog" id="emptyMessage" hidden>No se han encontrado productos con estos filtros.</p>
       </div>
     </section>
 
@@ -273,10 +292,10 @@
           <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
-          <form class="news">
+          <form class="news" action="#" method="post">
             <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
-            <input id="newsEmail" type="email" required autocomplete="email" placeholder="tu@email.com">
-            <button type="submit" aria-label="Suscribirme" data-i18n-aria="a_subscribe">→</button>
+            <input id="newsEmail" type="email" title="Correo electrónico" required autocomplete="email" placeholder="tu@email.com">
+            <input type="submit" value="→" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
           </form>
         </div>
 
@@ -302,11 +321,49 @@
 
         <nav class="f-col" aria-label="Redes sociales">
           <h3 data-i18n="col_follow">Síguenos</h3>
-          <ul>
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a></li>
-            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
-            <li><a href="https://x.com/" target="_blank" rel="noopener">X / Twitter</a></li>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                <span class="sr">Instagram</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+                <span class="sr">TikTok</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+                <span class="sr">YouTube</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                  </path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X">
+                <span class="sr">X</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                </svg>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -321,14 +378,18 @@
   <!-- Diálogos -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
-      <form id="loginForm" class="dlg-form">
-        <label class="field"><span data-i18n="email">Correo electrónico</span><input type="email" id="loginEmail"
-            required autocomplete="email"></label>
-        <label class="field"><span data-i18n="password">Contraseña</span><input type="password" required
-            autocomplete="current-password"></label>
-        <button class="btn btn-primary" type="submit" data-i18n="login_btn">Entrar</button>
+      <form id="loginForm" class="dlg-form" action="#" method="post">
+        <div class="field">
+          <label for="loginEmail" data-i18n="email">Correo electrónico</label>
+          <input type="email" id="loginEmail" title="Correo electrónico" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="loginPassword" data-i18n="password">Contraseña</label>
+          <input type="password" id="loginPassword" title="Contraseña" required autocomplete="current-password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Entrar" title="Entrar" data-i18n="login_btn">
       </form>
       <div id="userIn" class="dlg-form" hidden>
         <p class="hello" id="userHello"></p>
@@ -341,7 +402,7 @@
 
   <dialog id="dlgFav" aria-labelledby="favTitleDlg">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
       <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos.</p>
       <ul class="fav-list" id="favList"></ul>
@@ -350,7 +411,7 @@
 
   <dialog id="dlgCart" aria-labelledby="cartTitle">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
       <div class="ship" id="cartShip">
         <p id="shipText"></p>
@@ -374,9 +435,6 @@
 
   <!-- Script base de la tienda -->
   <script src="javascript/script.js"></script>
-
-  <!-- Lógica de filtrado en el catálogo -->
-
 </body>
 
 </html>
