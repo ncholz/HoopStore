@@ -23,7 +23,6 @@
     <div class="container header-in">
       <a class="brand" href="index.html" aria-label="Hoop Store" title="Hoop Store">
         <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="70" height="64">
-        <span class="sr">Hoop Store</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Principal">
@@ -127,9 +126,9 @@
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <div class="ball"><i></i></div>
-          <span class="sticker"><span data-i18n="sticker_a">Envío gratis</span><small data-i18n="sticker_b">desde 60
-              €</small></span>
+          <div class="ball"><span class="ball-line"></span></div>
+          <span class="sticker"><span data-i18n="sticker_a">Envío gratis</span><span class="sticker-sub" data-i18n="sticker_b">desde 60
+              €</span></span>
         </div>
       </div>
     </section>
@@ -263,7 +262,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="f-brand">
-          <img src="../imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
+          <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
           <form class="news" action="#" method="post">
@@ -388,7 +387,9 @@
       <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
       <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos. Pulsa el corazón de un
         producto para guardarlo aquí.</p>
-      <ul class="fav-list" id="favList" hidden></ul>
+      <ul class="fav-list" id="favList" hidden>
+        <li hidden>-</li>
+      </ul>
     </div>
   </dialog>
 
@@ -401,7 +402,7 @@
 
       <div class="ship" id="cartShip">
         <p id="shipText"></p>
-        <div class="bar" id="shipBar"><i></i></div>
+        <div class="bar" id="shipBar"><span class="bar-fill"></span></div>
       </div>
 
       <div class="cart-empty-box" id="cartEmpty">
@@ -409,7 +410,9 @@
         <button class="btn btn-primary" type="button" data-close data-i18n="cart_continue">Seguir comprando</button>
       </div>
 
-      <ul class="fav-list" id="cartList" hidden></ul>
+      <ul class="fav-list" id="cartList" hidden>
+        <li hidden>-</li>
+      </ul>
 
       <div class="cart-foot" id="cartFoot">
         <p class="sum"><span data-i18n="subtotal">Subtotal</span><span id="sumSub"></span></p>
