@@ -164,9 +164,14 @@
     </section>
 
     <!-- Listado de Productos -->
-    <section class="block" style="padding-top: 16px;">
-      <div class="container">
-        <div class="grid" id="catalogGrid">
+    <!-- Listado de Productos -->
+<section class="block" style="padding-top: 16px;" aria-labelledby="productsHeading">
+  <div class="container">
+    <!-- Este H2 mantiene la jerarquía H1 -> H2 -> H3 sin alterar el diseño visual -->
+    <h2 class="sr" id="productsHeading">Productos del catálogo</h2>
+
+    <div class="grid" id="catalogGrid">
+      <!-- Aquí siguen tus <article class="card"> con sus <h3> -->
 
           <!-- ZAPATILLAS -->
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
