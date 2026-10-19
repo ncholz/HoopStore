@@ -570,13 +570,18 @@ function renderCartIcon(animate) {
 }
 
 function renderCart() {
-  $("cartEmpty").hidden = ids.length > 0;
-cartList.hidden = ids.length === 0;
   const ids = Object.keys(cart);
   cartList.textContent = "";
+  cartList.hidden = ids.length === 0;
   $("cartEmpty").hidden = ids.length > 0;
   $("cartFoot").hidden = ids.length === 0;
   $("cartShip").hidden = ids.length === 0;
+  if (ids.length === 0) {
+    const emptyLi = document.createElement("li");
+    emptyLi.hidden = true;
+    emptyLi.textContent = "-";
+    cartList.append(emptyLi);
+  }
 
   let subtotal = 0;
   ids.forEach((id) => {
@@ -692,8 +697,6 @@ favs = Array.isArray(favs) ? favs.filter((id) => products[id]) : [];
 
 function renderFavs() {
   // Corazones de las tarjetas
-  $("favEmpty").hidden = favs.length > 0;
-  favList.hidden = favs.length === 0;
   cards.forEach((card) => {
     const on = favs.includes(card.dataset.id);
     const btn = card.querySelector("[data-fav]");
@@ -707,7 +710,14 @@ function renderFavs() {
 
   // Lista del diálogo
   favList.textContent = "";
+  favList.hidden = favs.length === 0;
   $("favEmpty").hidden = favs.length > 0;
+  if (favs.length === 0) {
+    const emptyLi = document.createElement("li");
+    emptyLi.hidden = true;
+    emptyLi.textContent = "-";
+    favList.append(emptyLi);
+  }
   favs.forEach((id) => {
     const li = document.createElement("li");
     li.className = "fav-item";
