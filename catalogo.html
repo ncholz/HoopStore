@@ -23,7 +23,6 @@
     <div class="container header-in">
       <a class="brand" href="index.html" aria-label="Hoop Store" title="Hoop Store">
         <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="70" height="64">
-        <span class="sr">Hoop Store</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Principal">
@@ -405,7 +404,9 @@
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
       <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos.</p>
-      <ul class="fav-list" id="favList"></ul>
+      <ul class="fav-list" id="favList" hidden>
+        <li hidden>-</li>
+      </ul>
     </div>
   </dialog>
 
@@ -415,13 +416,15 @@
       <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
       <div class="ship" id="cartShip">
         <p id="shipText"></p>
-        <div class="bar" id="shipBar"><i></i></div>
+        <div class="bar" id="shipBar"><span class="bar-fill"></span></div>
       </div>
       <div class="cart-empty-box" id="cartEmpty">
         <p class="fav-empty" data-i18n="cart_empty">Tu carrito está vacío.</p>
         <button class="btn btn-primary" type="button" data-close data-i18n="cart_continue">Seguir comprando</button>
       </div>
-      <ul class="fav-list" id="cartList"></ul>
+      <ul class="fav-list" id="cartList" hidden>
+        <li hidden>-</li>
+      </ul>
       <div class="cart-foot" id="cartFoot">
         <p class="sum"><span data-i18n="subtotal">Subtotal</span><span id="sumSub"></span></p>
         <p class="sum"><span data-i18n="shipping">Envío</span><span id="sumShip"></span></p>
