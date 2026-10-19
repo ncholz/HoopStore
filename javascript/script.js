@@ -570,6 +570,8 @@ function renderCartIcon(animate) {
 }
 
 function renderCart() {
+  $("cartEmpty").hidden = ids.length > 0;
+cartList.hidden = ids.length === 0;
   const ids = Object.keys(cart);
   cartList.textContent = "";
   $("cartEmpty").hidden = ids.length > 0;
@@ -690,6 +692,8 @@ favs = Array.isArray(favs) ? favs.filter((id) => products[id]) : [];
 
 function renderFavs() {
   // Corazones de las tarjetas
+  $("favEmpty").hidden = favs.length > 0;
+  favList.hidden = favs.length === 0;
   cards.forEach((card) => {
     const on = favs.includes(card.dataset.id);
     const btn = card.querySelector("[data-fav]");
