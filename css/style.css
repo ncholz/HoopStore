@@ -1648,6 +1648,7 @@ dialog[open]::backdrop {
   }
   .hero-art {
     grid-column: 1 / -1;
+    width: 100%;
     max-width: 320px;
     margin-inline: auto;
   }
@@ -1664,7 +1665,10 @@ dialog[open]::backdrop {
     padding: 16px;
   }
   .tile h3 {
-    font-size: 19px;
+    font-size: clamp(14px, 4.1vw, 19px);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
   .tile::after {
     right: 12px;
@@ -1747,5 +1751,14 @@ dialog[open]::backdrop {
   .js .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .tile {
+    padding: 12px;
+  }
+  .tile h3 {
+    font-size: 13px;
   }
 }
