@@ -49,7 +49,6 @@ const I18N = {
     nav_kits: "Equipaciones",
     nav_nba: "NBA",
     nav_acc: "Accesorios",
-    nav_events: "Eventos",
     a_lang: "Idioma",
     a_fav: "Favoritos",
     a_user: "Iniciar sesión",
@@ -81,6 +80,10 @@ const I18N = {
     a_fav_rm: "Quitar de favoritos",
     news_title: "Entrena tu bandeja de entrada.",
     news_sub: "Novedades, drops y acceso anticipado.",
+    name: "Nombre",
+    ph_name: "Tu nombre",
+    ph_email: "tu@email.com",
+    btn_subscribe: "Unirme",
     email: "Correo electrónico",
     password: "Contraseña",
     col_help: "Atención al cliente",
@@ -101,7 +104,8 @@ const I18N = {
     user_title: "Tu cuenta",
     hello: "Hola, {name}",
     logout: "Cerrar sesión",
-    demo: "Demostración: no hay servidor, así que no se comprueba la contraseña ni se guarda.",
+    demo: "Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.",
+    err_login: "Correo o contraseña incorrectos.",
     fav_dlg: "Mis favoritos",
     fav_empty:
       "Todavía no tienes favoritos. Pulsa el corazón de un producto para guardarlo aquí.",
@@ -122,7 +126,7 @@ const I18N = {
     t_fav_add: "{name} guardado en favoritos",
     t_fav_rm: "{name} quitado de favoritos",
     t_lang: "Idioma cambiado a {lang}",
-    t_news: "¡Gracias por suscribirte!",
+    t_news: "¡Gracias por suscribirte, {name}!",
     t_login: "Sesión iniciada como {name}",
     t_logout: "Sesión cerrada",
     t_checkout: "Demostración: el pago aún no está conectado",
@@ -135,7 +139,6 @@ const I18N = {
     nav_shoes: "Shoes",
     nav_kits: "Kits",
     nav_acc: "Accessories",
-    nav_events: "Events",
     a_lang: "Language",
     a_fav: "Favourites",
     a_user: "Log in",
@@ -167,6 +170,10 @@ const I18N = {
     a_fav_rm: "Remove from favourites",
     news_title: "Train your inbox.",
     news_sub: "News, drops and early access.",
+    name: "Name",
+    ph_name: "Your name",
+    ph_email: "your@email.com",
+    btn_subscribe: "Join",
     email: "Email",
     password: "Password",
     col_help: "Customer service",
@@ -187,7 +194,8 @@ const I18N = {
     user_title: "Your account",
     hello: "Hi, {name}",
     logout: "Log out",
-    demo: "Demo: there is no server, so the password is neither checked nor stored.",
+    demo: "JSON mini database: test with profe@hoopstore.com and 12345.",
+    err_login: "Invalid email or password.",
     fav_dlg: "My favourites",
     fav_empty:
       "You have no favourites yet. Tap the heart on a product to save it here.",
@@ -208,7 +216,7 @@ const I18N = {
     t_fav_add: "{name} saved to favourites",
     t_fav_rm: "{name} removed from favourites",
     t_lang: "Language changed to {lang}",
-    t_news: "Thanks for subscribing!",
+    t_news: "Thanks for subscribing, {name}!",
     t_login: "Logged in as {name}",
     t_logout: "Logged out",
     t_checkout: "Demo: payment is not connected yet",
@@ -221,7 +229,6 @@ const I18N = {
     nav_shoes: "Sabatilles",
     nav_kits: "Equipacions",
     nav_acc: "Accessoris",
-    nav_events: "Esdeveniments",
     a_lang: "Idioma",
     a_fav: "Preferits",
     a_user: "Inicia la sessió",
@@ -253,6 +260,10 @@ const I18N = {
     a_fav_rm: "Treu de preferits",
     news_title: "Entrena la teva safata d'entrada.",
     news_sub: "Novetats, llançaments i accés anticipat.",
+    name: "Nom",
+    ph_name: "El teu nom",
+    ph_email: "el_teu@email.com",
+    btn_subscribe: "Unir-me",
     email: "Correu electrònic",
     password: "Contrasenya",
     col_help: "Atenció al client",
@@ -273,7 +284,8 @@ const I18N = {
     user_title: "El teu compte",
     hello: "Hola, {name}",
     logout: "Tanca la sessió",
-    demo: "Demostració: no hi ha servidor, així que la contrasenya ni es comprova ni es desa.",
+    demo: "Mini base de dades JSON: prova amb profe@hoopstore.com i 12345.",
+    err_login: "Correu o contrasenya incorrectes.",
     fav_dlg: "Els meus preferits",
     fav_empty:
       "Encara no tens preferits. Prem el cor d'un producte per desar-lo aquí.",
@@ -294,7 +306,7 @@ const I18N = {
     t_fav_add: "{name} desat a preferits",
     t_fav_rm: "{name} tret de preferits",
     t_lang: "Idioma canviat a {lang}",
-    t_news: "Gràcies per subscriure't!",
+    t_news: "Gràcies per subscriure't, {name}!",
     t_login: "Sessió iniciada com a {name}",
     t_logout: "Sessió tancada",
     t_checkout: "Demostració: el pagament encara no està connectat",
@@ -307,7 +319,6 @@ const I18N = {
     nav_shoes: "Chaussures",
     nav_kits: "Maillots",
     nav_acc: "Accessoires",
-    nav_events: "Événements",
     a_lang: "Langue",
     a_fav: "Favoris",
     a_user: "Se connecter",
@@ -339,6 +350,10 @@ const I18N = {
     a_fav_rm: "Retirer des favoris",
     news_title: "Entraîne ta boîte mail.",
     news_sub: "Nouveautés, drops et accès anticipé.",
+    name: "Nom",
+    ph_name: "Ton nom",
+    ph_email: "ton@email.com",
+    btn_subscribe: "Rejoindre",
     email: "E-mail",
     password: "Mot de passe",
     col_help: "Service client",
@@ -359,7 +374,8 @@ const I18N = {
     user_title: "Ton compte",
     hello: "Salut, {name}",
     logout: "Se déconnecter",
-    demo: "Démo : il n'y a pas de serveur, le mot de passe n'est donc ni vérifié ni enregistré.",
+    demo: "Mini base de données JSON : teste avec profe@hoopstore.com et 12345.",
+    err_login: "E-mail ou mot de passe incorrect.",
     fav_dlg: "Mes favoris",
     fav_empty:
       "Tu n'as pas encore de favoris. Appuie sur le cœur d'un produit pour le garder ici.",
@@ -380,7 +396,7 @@ const I18N = {
     t_fav_add: "{name} ajouté aux favoris",
     t_fav_rm: "{name} retiré des favoris",
     t_lang: "Langue changée : {lang}",
-    t_news: "Merci pour ton abonnement !",
+    t_news: "Merci pour ton abonnement, {name} !",
     t_login: "Connecté en tant que {name}",
     t_logout: "Déconnecté",
     t_checkout: "Démo : le paiement n'est pas encore relié",
@@ -463,7 +479,6 @@ window.matchMedia("(min-width: 1025px)").addEventListener("change", (e) => {
 const reveals = document.querySelectorAll(".reveal");
 
 function markDone(el) {
-  // Tras la entrada se quita el retraso escalonado para que el hover responda al instante
   el.addEventListener(
     "transitionend",
     (e) => {
@@ -533,7 +548,6 @@ function openDialog(dlg) {
 }
 document.querySelectorAll("dialog").forEach((dlg) => {
   dlg.addEventListener("click", (e) => {
-    // Cierra con la X, con un botón [data-close] o al pulsar fuera de la ventana
     if (e.target === dlg || e.target.closest("[data-close]")) dlg.close();
   });
 });
@@ -548,7 +562,6 @@ const cartCount = $("cartCount");
 const dlgCart = $("dlgCart");
 const cartList = $("cartList");
 
-// Se descartan productos que ya no existan y cantidades no válidas
 let cart = {};
 const savedCart = store.get(KEYS.cart, {});
 Object.keys(savedCart).forEach((id) => {
@@ -564,7 +577,7 @@ function renderCartIcon(animate) {
   cartCount.hidden = n === 0;
   if (animate) {
     cartCount.classList.remove("bump");
-    void cartCount.offsetWidth; // reinicia la animación
+    void cartCount.offsetWidth;
     cartCount.classList.add("bump");
   }
 }
@@ -696,7 +709,6 @@ let favs = store.get(KEYS.favs, []);
 favs = Array.isArray(favs) ? favs.filter((id) => products[id]) : [];
 
 function renderFavs() {
-  // Corazones de las tarjetas
   cards.forEach((card) => {
     const on = favs.includes(card.dataset.id);
     const btn = card.querySelector("[data-fav]");
@@ -704,11 +716,9 @@ function renderFavs() {
     btn.setAttribute("aria-label", t(on ? "a_fav_rm" : "a_fav_add"));
   });
 
-  // Contador de la cabecera
   favCount.textContent = favs.length;
   favCount.hidden = favs.length === 0;
 
-  // Lista del diálogo
   favList.textContent = "";
   favList.hidden = favs.length === 0;
   $("favEmpty").hidden = favs.length > 0;
@@ -764,11 +774,11 @@ favList.addEventListener("click", (e) => {
 $("btnFav").addEventListener("click", () => openDialog(dlgFav));
 
 /* =========================================================
-   9. Sesión (de demostración: no hay servidor)
+   9. Sesión (Verificación con Mini Base de Datos JSON)
    ========================================================= */
 const dlgUser = $("dlgUser");
 const btnUser = $("btnUser");
-let user = store.get(KEYS.user, null); // solo se guarda el nombre, nunca la contraseña
+let user = store.get(KEYS.user, null);
 if (typeof user !== "string") user = null;
 
 function renderUser() {
@@ -785,15 +795,51 @@ btnUser.addEventListener("click", () => {
   openDialog(dlgUser);
 });
 
-$("loginForm").addEventListener("submit", (e) => {
+// Verificación contra javascript/usuarios.json
+$("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const email = $("loginEmail").value.trim();
-  user = email.split("@")[0] || email;
-  store.set(KEYS.user, user);
-  e.target.reset();
-  renderUser();
-  dlgUser.close();
-  showToast(t("t_login", { name: user }));
+  const emailVal = $("loginEmail").value.trim().toLowerCase();
+  const passVal = $("loginPassword").value.trim();
+
+  try {
+    const res = await fetch("javascript/usuarios.json");
+    if (!res.ok) throw new Error("No se pudo cargar la base de datos");
+    const usuarios = await res.json();
+
+    // Verificación exacta de correo y contraseña
+    const usuarioValido = usuarios.find(
+      (u) =>
+        u.email.toLowerCase() === emailVal && u.password === passVal,
+    );
+
+    if (usuarioValido) {
+      user = usuarioValido.nombre;
+      store.set(KEYS.user, user);
+      e.target.reset();
+      renderUser();
+      dlgUser.close();
+      showToast(t("t_login", { name: user }));
+    } else {
+      showToast(t("err_login"));
+      $("loginPassword").value = "";
+      $("loginPassword").focus();
+    }
+  } catch (err) {
+    // Modo de respaldo si no hay servidor local HTTP (fallback seguro)
+    if (
+      emailVal === "profe@hoopstore.com" &&
+      passVal === "12345"
+    ) {
+      user = "Profesor";
+      store.set(KEYS.user, user);
+      e.target.reset();
+      renderUser();
+      dlgUser.close();
+      showToast(t("t_login", { name: user }));
+    } else {
+      showToast(t("err_login"));
+    }
+  }
 });
 
 $("btnLogout").addEventListener("click", () => {
@@ -835,7 +881,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* Aplica el idioma elegido a toda la página */
 function applyLang() {
   document.documentElement.lang = lang;
   document.title = t("title");
@@ -853,6 +898,11 @@ function applyLang() {
       el.textContent = val;
     }
   });
+
+  document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+    el.placeholder = t(el.dataset.i18nPh);
+  });
+
   document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
     const val = t(el.dataset.i18nAria);
     el.setAttribute("aria-label", val);
@@ -870,14 +920,18 @@ function applyLang() {
 }
 
 /* =========================================================
-   11. Newsletter
+   11. Formulario Newsletter / Contacto
    ========================================================= */
 const news = document.querySelector(".news");
-news.addEventListener("submit", (e) => {
-  e.preventDefault();
-  news.reset();
-  showToast(t("t_news"));
-});
+if (news) {
+  news.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nameInput = document.getElementById("newsName");
+    const nombre = nameInput ? nameInput.value.trim() : "";
+    news.reset();
+    showToast(t("t_news", { name: nombre || "crack" }));
+  });
+}
 
 /* =========================================================
    12. Arranque
@@ -885,55 +939,8 @@ news.addEventListener("submit", (e) => {
 renderCartIcon(false);
 applyLang();
 
-(function initCatalogFilters() {
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const items = document.querySelectorAll(".card[data-categoria]");
-  const emptyMsg = document.getElementById("emptyMessage");
-
-  function setFilter(cat) {
-    let visibleCount = 0;
-
-    items.forEach((item) => {
-      const match = cat === "todos" || item.dataset.categoria === cat;
-      item.style.display = match ? "flex" : "none";
-      if (match) visibleCount++;
-    });
-
-    filterBtns.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.filter === cat);
-    });
-
-    if (emptyMsg) {
-      emptyMsg.hidden = visibleCount > 0;
-    }
-  }
-
-  // 1. Detectar parámetro en URL (?categoria=zapatillas)
-  const urlParams = new URLSearchParams(window.location.search);
-  const urlCategory = urlParams.get("categoria");
-
-  if (urlCategory) {
-    setFilter(urlCategory.toLowerCase());
-  } else {
-    setFilter("todos");
-  }
-
-  // 2. Eventos al hacer click en los botones de filtro
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const cat = btn.dataset.filter;
-      // Actualiza la URL discretamente sin recargar la página
-      const newUrl =
-        cat === "todos" ? "catalogo.html" : `catalogo.html?categoria=${cat}`;
-      window.history.replaceState({}, "", newUrl);
-      setFilter(cat);
-    });
-  });
-})();
-
-
 /* =========================================================
-   12. Filtros de Catálogo (Categoría + Buscador + Precio)
+   13. Filtros de Catálogo (Categoría + Buscador + Precio)
    ========================================================= */
 (function initCatalogFilters() {
   const filterBtns = document.querySelectorAll(".filter-btn");
@@ -962,33 +969,31 @@ applyLang();
     const query = currentSearch.trim().toLowerCase();
 
     items.forEach((item) => {
-      // 1. Filtro por categoría
       const matchCategory =
-        currentCategory === "todos" || item.dataset.categoria === currentCategory;
+        currentCategory === "todos" ||
+        item.dataset.categoria === currentCategory;
 
-      // 2. Filtro por buscador (busca en el nombre y categoría)
-      const title = item.querySelector(".card-name")?.textContent.toLowerCase() || "";
-      const meta = item.querySelector(".card-meta")?.textContent.toLowerCase() || "";
-      const matchSearch = !query || title.includes(query) || meta.includes(query);
+      const title =
+        item.querySelector(".card-name")?.textContent.toLowerCase() || "";
+      const meta =
+        item.querySelector(".card-meta")?.textContent.toLowerCase() || "";
+      const matchSearch =
+        !query || title.includes(query) || meta.includes(query);
 
-      // 3. Filtro por rango de precio
       const price = Number(item.dataset.price) || 0;
       const matchPrice = price >= minPrice && price <= maxPrice;
 
-      // Coincidencia de los 3 filtros a la vez
       const isVisible = matchCategory && matchSearch && matchPrice;
       item.style.display = isVisible ? "flex" : "none";
 
       if (isVisible) visibleCount++;
     });
 
-    // Muestra aviso si ningún producto coincide
     if (emptyMsg) {
       emptyMsg.hidden = visibleCount > 0;
     }
   }
 
-  // Evento en botones de categorías
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       currentCategory = btn.dataset.filter;
@@ -1002,7 +1007,6 @@ applyLang();
     });
   });
 
-  // Evento en el buscador (filtrado instantáneo al teclear)
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       currentSearch = e.target.value;
@@ -1010,13 +1014,11 @@ applyLang();
     });
   }
 
-  // Eventos en los deslizadores de precio mínimo y máximo
   if (priceMinInput && priceMaxInput) {
     function handlePriceChange() {
       let minVal = Number(priceMinInput.value);
       let maxVal = Number(priceMaxInput.value);
 
-      // Evita que el deslizador mínimo supere al máximo
       if (minVal > maxVal) {
         if (this === priceMinInput) {
           priceMinInput.value = maxVal;
@@ -1038,7 +1040,6 @@ applyLang();
     updatePriceDisplay();
   }
 
-  // Lee el parámetro inicial de la URL si se viene de index (ej: ?categoria=zapatillas)
   const urlParams = new URLSearchParams(window.location.search);
   const urlCategory = urlParams.get("categoria");
   if (urlCategory) {
