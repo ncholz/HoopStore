@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de Cookies · Hoop Store</title>
+  <meta name="description" content="Información sobre el uso de cookies y almacenamiento local en Hoop Store.">
+  <meta name="theme-color" content="#111214">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="javascript/geo-schema.js" defer></script>
+</head>
+
+<body>
+
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+  <div class="announce" data-i18n="announce">Entrega gratuita desde 60 € · Envío en 24/48 h</div>
+
+  <header class="site-header">
+    <div class="container header-in">
+      <a class="brand" href="index.html" aria-label="Hoop Store" title="Hoop Store">
+        <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="70" height="64">
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="index.html" data-i18n="nav_home">Inicio</a>
+        <a href="catalogo.html?categoria=zapatillas" data-i18n="nav_shoes">Zapatillas</a>
+        <a href="catalogo.html?categoria=equipaciones" data-i18n="nav_kits">Equipaciones</a>
+        <a href="catalogo.html?categoria=accesorios" data-i18n="nav_acc">Accesorios</a>
+        <a href="catalogo.html?categoria=nba" data-i18n="nav_nba">NBA</a>
+      </nav>
+
+      <div class="utils">
+        <div class="lang">
+          <button class="icon-btn lang-btn" id="btnLang" type="button" aria-expanded="false" aria-controls="langMenu"
+            aria-label="Idioma" title="Idioma" data-i18n-aria="a_lang">
+            <span class="ico" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+            </span>
+            <span id="langLabel">ES</span>
+          </button>
+          <ul class="lang-menu" id="langMenu" hidden>
+            <li><button type="button" data-lang="es" aria-current="true">Español</button></li>
+            <li><button type="button" data-lang="en">English</button></li>
+            <li><button type="button" data-lang="ca">Català</button></li>
+            <li><button type="button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+
+        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" title="Favoritos"
+          data-i18n-aria="a_fav">
+          <span class="sr" data-i18n="a_fav">Favoritos</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg>
+          </span>
+          <span class="cart-count" id="favCount" hidden>0</span>
+        </button>
+
+        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" title="Iniciar sesión"
+          data-i18n-aria="a_user">
+          <span class="sr" data-i18n="a_user">Iniciar sesión</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+        </button>
+
+        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" title="Carrito"
+          data-i18n-aria="a_cart">
+          <span class="sr" data-i18n="a_cart">Carrito</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </span>
+          <span class="cart-count" id="cartCount" hidden>0</span>
+        </button>
+
+        <button class="burger" id="btnMenu" type="button" aria-expanded="false" aria-controls="nav"
+          aria-label="Abrir menú" title="Abrir menú">
+          <span class="sr">Abrir menú</span>
+          <svg class="burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="container legal-page" style="padding-block: 48px 80px; max-width: 900px;">
+      <h1 class="t-h2" style="margin-bottom: 24px;">Política de Cookies</h1>
+
+      <section style="display: grid; gap: 16px; margin-top: 32px;">
+        <h2>1. ¿Qué son las cookies y el almacenamiento local?</h2>
+        <p>Una cookie es un pequeño archivo que se almacena en el navegador del usuario al visitar una página. En Hoop
+          Store utilizamos tecnologías como <code>localStorage</code> para recordar tus preferencias de navegación sin
+          almacenar datos bancarios ni sensibles.</p>
+      </section>
+
+      <section style="display: grid; gap: 16px; margin-top: 32px;">
+        <h2>2. Cookies y datos técnicos utilizados</h2>
+        <ul style="padding-left: 20px; display: grid; gap: 8px;">
+          <li><strong>hoopstore-lang:</strong> Recuerda el idioma seleccionado (ES, EN, CA, FR).</li>
+          <li><strong>hoopstore-cart:</strong> Mantiene los productos añadidos a tu cesta durante la compra.</li>
+          <li><strong>hoopstore-favs:</strong> Guarda tu lista de productos favoritos marcados con corazón.</li>
+          <li><strong>hoopstore-user:</strong> Conserva tu sesión iniciada de manera local.</li>
+        </ul>
+      </section>
+
+      <section style="display: grid; gap: 16px; margin-top: 32px;">
+        <h2>3. Cómo deshabilitar las cookies</h2>
+        <p>Puedes restringir o eliminar las cookies y elementos locales mediante la configuración de tu navegador
+          (Chrome, Firefox, Safari, Edge). Ten en cuenta que si deshabilitas el almacenamiento local, el carrito y la
+          selección de idioma no podrán guardarse entre visitas.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer dark">
+    <div class="container">
+      <div class="footer-top">
+        <div class="f-brand">
+          <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
+          <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
+          <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
+          <form class="news" id="newsletterForm" action="#" method="post">
+            <div class="news-field">
+              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
+              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
+                placeholder="Tu nombre" data-i18n-ph="ph_name">
+            </div>
+            <div class="news-field">
+              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
+                placeholder="tu@email.com" data-i18n-ph="ph_email">
+            </div>
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme"
+              data-i18n-aria="a_subscribe">
+              <span data-i18n="btn_subscribe">Unirme</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+
+        <nav class="f-col" aria-label="Atención al cliente">
+          <h3 data-i18n="col_help">Atención al cliente</h3>
+          <ul>
+            <li><a href="#" data-i18n="help_center">Centro de ayuda</a></li>
+            <li><a href="#" data-i18n="shipping_link">Envíos y entregas</a></li>
+            <li><a href="#" data-i18n="returns">Cambios y devoluciones</a></li>
+            <li><a href="#" data-i18n="contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <nav class="f-col" aria-label="Información">
+          <h3 data-i18n="col_info">Información</h3>
+          <ul>
+            <li><a href="sobre-nosotros.html" data-i18n="about">Sobre Hoop Store</a></li>
+            <li><a href="aviso-legal.html" data-i18n="legal">Aviso legal</a></li>
+            <li><a href="politica-cookies.html" data-i18n="cookies">Cookies</a></li>
+            <li><a href="politica-privacidad.html" data-i18n="privacy">Política de privacidad</a></li>
+          </ul>
+        </nav>
+
+        <nav class="f-col" aria-label="Redes sociales">
+          <h3 data-i18n="col_follow">Síguenos</h3>
+          <ul class="social-links">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"
+                title="Instagram"><span class="sr">Instagram</span></a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"
+                title="TikTok"><span class="sr">TikTok</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="f-bottom">
+        <span data-i18n="rights">© 2026 Hoop Store. Todos los derechos reservados.</span>
+        <span data-i18n="secure">Pago seguro · Visa · Mastercard · Apple Pay · PayPal</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="javascript/script.js"></script>
+</body>
+
+</html>
