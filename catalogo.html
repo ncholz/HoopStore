@@ -12,6 +12,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .card-media.product-photo{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f4f4f2;min-height:250px;aspect-ratio:4/3}
+    .card-media.product-photo .product-image{display:block;width:100%;height:100%;min-height:250px;object-fit:contain;padding:18px;transition:transform .35s ease}
+    .card:hover .card-media.product-photo .product-image{transform:scale(1.045)}
+    .card-media.product-photo .badge,.card-media.product-photo .wish{z-index:2}
+    @media(max-width:600px){.card-media.product-photo,.card-media.product-photo .product-image{min-height:210px}}
+  </style>
+
 </head>
 
 <body>
@@ -131,7 +139,7 @@
               </svg>
             </span>
             <input type="search" id="catalogSearch" title="Buscar productos"
-              placeholder="Buscar por modelo (ej: Jordan, Spalding, NBA...)" aria-label="Buscar productos">
+              placeholder="Buscar por nombre (ej: Air Elite, camiseta...)" aria-label="Buscar productos">
           </div>
 
           <!-- Filtro con deslizador de precio Mín/Máx -->
@@ -166,17 +174,18 @@
     </section>
 
     <!-- Listado de Productos -->
+    <!-- Listado de Productos -->
     <section class="block" style="padding-top: 16px;" aria-labelledby="productsHeading">
       <div class="container">
+        <!-- Este H2 mantiene la jerarquía H1 -> H2 -> H3 sin alterar el diseño visual -->
         <h2 class="sr" id="productsHeading">Productos del catálogo</h2>
 
         <div class="grid" id="catalogGrid">
+          <!-- Aquí siguen tus <article class="card"> con sus <h3> -->
 
-          <!-- ZAPATILLAS 1: Air Jordan 1 High Banned -->
-          <article class="card reveal" data-id="p1" data-price="119.95" data-categoria="zapatillas">
-            <div class="card-media">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Air_Jordan_1_Banned.jpg"
-                alt="Fotografía de zapatillas Air Jordan 1 High rojas y negras" width="400" height="400" loading="lazy">
+          <!-- ZAPATILLAS -->
+          <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
+            <div class="card-media product-photo"><img class="product-image" src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto%2Cu_9ddf04c7-2a9a-4d76-add1-d15af8f0263d%2Cc_scale%2Cw_1.0%2Ch_1.0%2Cfl_layer_apply/38a7d191-627a-4496-80c1-290948b70677/LEBRON%2BWITNESS%2BIX.png" alt="Nike LeBron Witness 9" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -191,17 +200,14 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
-              <h3 class="card-name">Air Jordan 1 High "Banned"</h3>
-              <p class="price">119,95 €</p>
+              <h3 class="card-name">Nike LeBron Witness 9</h3>
+              <p class="price">99,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- ZAPATILLAS 2: Air Jordan IV Bred -->
-          <article class="card reveal" data-id="p5" data-price="139.99" data-categoria="zapatillas">
-            <div class="card-media">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Air_Jordan_IV.jpg"
-                alt="Fotografía de zapatillas Air Jordan IV negras y rojas" width="400" height="400" loading="lazy">
+          <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
+            <div class="card-media product-photo"><img class="product-image" src="https://assets.adidas.com/images/w_800%2Cf_auto%2Cq_auto/2ba8dcb6a40549eb91fcfd8f0c6855c9_9366/Zapatilla_Harden_Volume_9_Gris_JS1028_01_00_standard.jpg" alt="adidas Harden Volume 9" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
@@ -215,17 +221,15 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
-              <h3 class="card-name">Air Jordan IV "Bred"</h3>
-              <p class="price">139,99 €</p>
+              <h3 class="card-name">adidas Harden Volume 9</h3>
+              <p class="price">129,99 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- EQUIPACIONES: Equipación Reversible Club -->
+          <!-- EQUIPACIONES -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
-            <div class="card-media">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Basketball_jersey.jpg"
-                alt="Fotografía de equipación técnica de baloncesto sin mangas" width="400" height="400" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=85" alt="Equipación de baloncesto" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -240,17 +244,15 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
-              <h3 class="card-name">Equipación Reversible Club</h3>
+              <h3 class="card-name">Camiseta Pro Match</h3>
               <p class="price">59,95 € <span class="old">79,95 €</span></p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- ACCESORIOS: Balón Spalding TF-1000 -->
-          <article class="card reveal" data-id="p3" data-price="29.95" data-categoria="accesorios">
-            <div class="card-media">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png"
-                alt="Fotografía de balón de baloncesto oficial naranja con textura" width="400" height="400" loading="lazy">
+          <!-- ACCESORIOS -->
+          <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
+            <div class="card-media product-photo"><img class="product-image" src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=900&q=85" alt="Balón de baloncesto" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
@@ -264,17 +266,15 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_acc">Accesorios</p>
-              <h3 class="card-name">Balón Spalding TF-1000</h3>
-              <p class="price">29,95 €</p>
+              <h3 class="card-name">Balón Indoor/Outdoor</h3>
+              <p class="price">24,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- NBA: Camiseta NBA Icon Edition -->
+          <!-- NBA -->
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
-            <div class="card-media">
-              <img src="https://images.pexels.com/photos/2834917/pexels-photo-2834917.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Fotografía de jugador con camiseta oficial NBA en partido" width="400" height="400" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image" src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=900&q=85" alt="Camiseta NBA" loading="lazy">
               <span class="badge nba">NBA</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -289,7 +289,7 @@
             </div>
             <div class="card-body">
               <p class="card-meta">NBA</p>
-              <h3 class="card-name">Camiseta NBA Icon Edition</h3>
+              <h3 class="card-name">Camiseta Oficial NBA</h3>
               <p class="price">89,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
@@ -311,33 +311,13 @@
           <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
-          <form class="news" id="newsletterForm" action="#" method="post">
-            <div class="news-field">
-              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
-              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
-                placeholder="Tu nombre" data-i18n-ph="ph_name">
-            </div>
-            <div class="news-field">
-              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
-              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
-                placeholder="tu@email.com" data-i18n-ph="ph_email">
-            </div>
-            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme"
-              data-i18n-aria="a_subscribe">
-              <span data-i18n="btn_subscribe">Unirme</span>
-              <span aria-hidden="true">→</span>
-            </button>
+          <form class="news" action="#" method="post">
+            <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+            <input id="newsEmail" type="email" title="Correo electrónico" required autocomplete="email"
+              placeholder="tu@email.com">
+            <input type="submit" value="→" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
           </form>
         </div>
-
-        <nav class="f-col" aria-label="Información">
-          <h3 data-i18n="col_info">Información</h3>
-          <ul>
-            <li><a href="aviso-legal.html" data-i18n="legal">Aviso legal</a></li>
-            <li><a href="politica-cookies.html" data-i18n="cookies">Cookies</a></li>
-            <li><a href="politica-privacidad.html" data-i18n="privacy">Política de privacidad</a></li>
-          </ul>
-        </nav>
 
         <nav class="f-col" aria-label="Redes sociales">
           <h3 data-i18n="col_follow">Síguenos</h3>
@@ -402,21 +382,6 @@
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
         data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
-
-      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google" title="Continuar con Google">
-        <svg class="google-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-        </svg>
-        <span data-i18n="google_btn">Continuar con Google</span>
-      </button>
-
-      <div class="auth-divider" role="separator" aria-label="O inicia sesión con correo">
-        <span data-i18n="auth_or">o con correo</span>
-      </div>
-
       <form id="loginForm" class="dlg-form" action="#" method="post">
         <div class="field">
           <label for="loginEmail" data-i18n="email">Correo electrónico</label>
@@ -432,7 +397,8 @@
         <p class="hello" id="userHello"></p>
         <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
       </div>
-      <p class="note" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
+      <p class="note" data-i18n="demo">Demostración: no hay servidor, así que no se comprueba la contraseña ni se
+        guarda.</p>
     </div>
   </dialog>
 
