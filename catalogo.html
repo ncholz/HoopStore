@@ -56,7 +56,8 @@
           </ul>
         </div>
 
-        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" title="Favoritos" data-i18n-aria="a_fav">
+        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" title="Favoritos"
+          data-i18n-aria="a_fav">
           <span class="sr" data-i18n="a_fav">Favoritos</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -69,7 +70,8 @@
           <span class="cart-count" id="favCount" hidden>0</span>
         </button>
 
-        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" title="Iniciar sesión" data-i18n-aria="a_user">
+        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" title="Iniciar sesión"
+          data-i18n-aria="a_user">
           <span class="sr" data-i18n="a_user">Iniciar sesión</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -80,7 +82,8 @@
           </span>
         </button>
 
-        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" title="Carrito" data-i18n-aria="a_cart">
+        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" title="Carrito"
+          data-i18n-aria="a_cart">
           <span class="sr" data-i18n="a_cart">Carrito</span>
           <span class="ico" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -128,7 +131,7 @@
               </svg>
             </span>
             <input type="search" id="catalogSearch" title="Buscar productos"
-              placeholder="Buscar por nombre (ej: Air Elite, camiseta...)" aria-label="Buscar productos">
+              placeholder="Buscar por modelo (ej: LeBron, Jordan, Wilson...)" aria-label="Buscar productos">
           </div>
 
           <!-- Filtro con deslizador de precio Mín/Máx -->
@@ -163,20 +166,20 @@
     </section>
 
     <!-- Listado de Productos -->
-    <!-- Listado de Productos -->
-<section class="block" style="padding-top: 16px;" aria-labelledby="productsHeading">
-  <div class="container">
-    <!-- Este H2 mantiene la jerarquía H1 -> H2 -> H3 sin alterar el diseño visual -->
-    <h2 class="sr" id="productsHeading">Productos del catálogo</h2>
+    <section class="block" style="padding-top: 16px;" aria-labelledby="productsHeading">
+      <div class="container">
+        <h2 class="sr" id="productsHeading">Productos del catálogo</h2>
 
-    <div class="grid" id="catalogGrid">
-      <!-- Aquí siguen tus <article class="card"> con sus <h3> -->
+        <div class="grid" id="catalogGrid">
 
-          <!-- ZAPATILLAS -->
+          <!-- ZAPATILLAS 1 -->
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
-            <div class="card-media" data-photo="Foto">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" 
+                alt="Zapatillas Nike LeBron XX Trinity en color rojo y negro" width="400" height="400" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
+                title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -188,15 +191,19 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
-              <h3 class="card-name">Hoop Air Elite</h3>
+              <h3 class="card-name">Nike LeBron XX "Trinity"</h3>
               <p class="price">99,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
+          <!-- ZAPATILLAS 2 -->
           <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
-            <div class="card-media" data-photo="Foto">
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80" 
+                alt="Zapatillas Air Jordan XXXVIII edición FIBA" width="400" height="400" loading="lazy">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
+                title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -208,7 +215,7 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
-              <h3 class="card-name">Court Master Pro</h3>
+              <h3 class="card-name">Air Jordan XXXVIII "FIBA"</h3>
               <p class="price">129,99 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
@@ -216,9 +223,12 @@
 
           <!-- EQUIPACIONES -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
-            <div class="card-media" data-photo="Foto">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" 
+                alt="Camiseta técnica de juego y entrenamiento de baloncesto" width="400" height="400" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
+                title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -230,7 +240,7 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
-              <h3 class="card-name">Camiseta Pro Match</h3>
+              <h3 class="card-name">Camiseta Pro Training</h3>
               <p class="price">59,95 € <span class="old">79,95 €</span></p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
@@ -238,8 +248,11 @@
 
           <!-- ACCESORIOS -->
           <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
-            <div class="card-media" data-photo="Foto">
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=600&q=80" 
+                alt="Balón de baloncesto de cuero compuesto Wilson Evolution" width="400" height="400" loading="lazy">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
+                title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -251,7 +264,7 @@
             </div>
             <div class="card-body">
               <p class="card-meta" data-i18n="nav_acc">Accesorios</p>
-              <h3 class="card-name">Balón Indoor/Outdoor</h3>
+              <h3 class="card-name">Wilson Evolution Ball</h3>
               <p class="price">24,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
@@ -259,9 +272,12 @@
 
           <!-- NBA -->
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
-            <div class="card-media" data-photo="Foto">
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1515523110800-9415d13b84a8?auto=format&fit=crop&w=600&q=80" 
+                alt="Camiseta oficial NBA de Los Angeles Lakers edición City Edition" width="400" height="400" loading="lazy">
               <span class="badge nba">NBA</span>
-              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos" title="Añadir a favoritos">
+              <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
+                title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -273,7 +289,7 @@
             </div>
             <div class="card-body">
               <p class="card-meta">NBA</p>
-              <h3 class="card-name">Camiseta Oficial NBA</h3>
+              <h3 class="card-name">Lakers City Edition</h3>
               <p class="price">89,95 €</p>
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
@@ -295,20 +311,31 @@
           <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
-          <form class="news" action="#" method="post">
-            <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
-            <input id="newsEmail" type="email" title="Correo electrónico" required autocomplete="email" placeholder="tu@email.com">
-            <input type="submit" value="→" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+          <form class="news" id="newsletterForm" action="#" method="post">
+            <div class="news-field">
+              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
+              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
+                placeholder="Tu nombre" data-i18n-ph="ph_name">
+            </div>
+            <div class="news-field">
+              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
+                placeholder="tu@email.com" data-i18n-ph="ph_email">
+            </div>
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme"
+              data-i18n-aria="a_subscribe">
+              <span data-i18n="btn_subscribe">Unirme</span>
+              <span aria-hidden="true">→</span>
+            </button>
           </form>
         </div>
 
         <nav class="f-col" aria-label="Información">
           <h3 data-i18n="col_info">Información</h3>
           <ul>
-            <li><a href="#" data-i18n="about">Sobre Hoop Store</a></li>
-            <li><a href="#" data-i18n="legal">Aviso legal</a></li>
-            <li><a href="#" data-i18n="cookies">Cookies</a></li>
-            <li><a href="#" data-i18n="privacy">Política de privacidad</a></li>
+            <li><a href="aviso-legal.html" data-i18n="legal">Aviso legal</a></li>
+            <li><a href="politica-cookies.html" data-i18n="cookies">Cookies</a></li>
+            <li><a href="politica-privacidad.html" data-i18n="privacy">Política de privacidad</a></li>
           </ul>
         </nav>
 
@@ -316,7 +343,8 @@
           <h3 data-i18n="col_follow">Síguenos</h3>
           <ul class="social-links">
             <li>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"
+                title="Instagram">
                 <span class="sr">Instagram</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -371,8 +399,24 @@
   <!-- Diálogos -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
+        data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
+
+      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google" title="Continuar con Google">
+        <svg class="google-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+        <span data-i18n="google_btn">Continuar con Google</span>
+      </button>
+
+      <div class="auth-divider" role="separator" aria-label="O inicia sesión con correo">
+        <span data-i18n="auth_or">o con correo</span>
+      </div>
+
       <form id="loginForm" class="dlg-form" action="#" method="post">
         <div class="field">
           <label for="loginEmail" data-i18n="email">Correo electrónico</label>
@@ -388,14 +432,14 @@
         <p class="hello" id="userHello"></p>
         <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
       </div>
-      <p class="note" data-i18n="demo">Demostración: no hay servidor, así que no se comprueba la contraseña ni se
-        guarda.</p>
+      <p class="note" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
     </div>
   </dialog>
 
   <dialog id="dlgFav" aria-labelledby="favTitleDlg">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
+        data-i18n-aria="a_close">✕</button>
       <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
       <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos.</p>
       <ul class="fav-list" id="favList" hidden>
@@ -406,7 +450,8 @@
 
   <dialog id="dlgCart" aria-labelledby="cartTitle">
     <div class="dlg">
-      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
+        data-i18n-aria="a_close">✕</button>
       <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
       <div class="ship" id="cartShip">
         <p id="shipText"></p>
