@@ -673,17 +673,8 @@ p {
   transition: transform 0.5s var(--ease);
 }
 .card-media::after {
-  content: attr(data-photo);
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #b4c3ff;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  pointer-events: none;
-  transition: transform 0.4s var(--ease);
+  content: none !important;
+  display: none !important;
 }
 .badge {
   position: absolute;
