@@ -427,6 +427,129 @@ function fmt(n) {
 }
 
 /* =========================================================
+       Sincronización del Checkout con el carrito real
+       ========================================================= */
+(function initCheckout() {
+  const CATALOG_DATA = {
+    p1: {
+      name: 'Air Jordan 1 High "Banned"',
+      price: 119.95,
+      img: "https://upload.wikimedia.org/wikipedia/commons/5/59/Air_Jordan_1_Banned.jpg",
+    },
+    p5: {
+      name: 'Air Jordan IV "Bred"',
+      price: 139.99,
+      img: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Air_Jordan_IV.jpg",
+    },
+    p2: {
+      name: "Equipación Reversible Club",
+      price: 59.95,
+      img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Basketball_jersey.jpg",
+    },
+    p3: {
+      name: "Balón Spalding TF-1000",
+      price: 29.95,
+      img: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png",
+    },
+    p4: {
+      name: "Camiseta NBA Icon Edition",
+      price: 89.95,
+      img: "https://images.pexels.com/photos/2834917/pexels-photo-2834917.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+  };
+
+  const itemsList = document.getElementById("summaryItemsList");
+  const subtotalEl = document.getElementById("chkSubtotal");
+  const shippingEl = document.getElementById("chkShipping");
+  const totalEl = document.getElementById("chkTotal");
+  const form = document.getElementById("orderForm");
+
+  let savedCart = {};
+  try {
+    savedCart = JSON.parse(localStorage.getItem("hoopstore-cart")) || {};
+  } catch (e) {
+    savedCart = {};
+  }
+
+  const ids = Object.keys(savedCart).filter((id) => savedCart[id] > 0);
+
+  if (ids.length === 0) {
+    itemsList.innerHTML =
+      '<li class="summary-empty">Tu cesta está vacía. <a href="catalogo.html" style="text-decoration: underline; color: var(--secondary);">Explora el catálogo aquí</a>.</li>';
+    subtotalEl.textContent = "0,00 €";
+    shippingEl.textContent = "0,00 €";
+    totalEl.textContent = "0,00 €";
+    document.getElementById("btnPlaceOrder").disabled = true;
+    return;
+  }
+
+  itemsList.innerHTML = "";
+  let subtotal = 0;
+
+  ids.forEach((id) => {
+    const item = CATALOG_DATA[id] || {
+      name: "Producto " + id,
+      price: 50.0,
+      img: "",
+    };
+    const qty = savedCart[id];
+    const linePrice = item.price * qty;
+    subtotal += linePrice;
+
+    const li = document.createElement("li");
+    li.className = "summary-item";
+    li.innerHTML = `
+          <img src="${item.img}" alt="" width="56" height="56" class="sum-thumb">
+          <div class="sum-info">
+            <strong>${item.name}</strong>
+            <small>Cantidad: ${qty} × ${item.price.toFixed(2)} €</small>
+          </div>
+          <span class="sum-price">${linePrice.toFixed(2)} €</span>
+        `;
+    itemsList.appendChild(li);
+  });
+
+  const isFree = subtotal >= 60;
+  const shipping = isFree ? 0 : 4.95;
+  const total = subtotal + shipping;
+
+  subtotalEl.textContent = subtotal.toFixed(2) + " €";
+  shippingEl.textContent = isFree ? "Gratis" : "4,95 €";
+  totalEl.textContent = total.toFixed(2) + " €";
+
+  // Validación accesible del pedido
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      alert(
+        "Por favor, rellena correctamente todos los campos obligatorios (*).",
+      );
+      return;
+    }
+
+    const btn = document.getElementById("btnPlaceOrder");
+    btn.disabled = true;
+    btn.textContent = "Procesando pago...";
+
+    setTimeout(() => {
+      localStorage.removeItem("hoopstore-cart");
+      itemsList.innerHTML =
+        '<li class="summary-empty">¡Pedido completado con éxito!</li>';
+      form.innerHTML = `
+            <div class="order-success">
+              <h2 style="color: var(--secondary); margin-bottom: 12px;">¡Gracias por tu compra!</h2>
+              <p>Hemos enviado la confirmación y el seguimiento de tu envío al correo indicado.</p>
+              <p style="margin-top: 16px;">Plazo estimado de entrega: <strong>24 / 48 horas</strong>.</p>
+              <a href="index.html" class="btn btn-primary" style="margin-top: 24px;">Volver a la portada</a>
+            </div>
+          `;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 1200);
+  });
+})();
+
+/* =========================================================
    2. Aviso (toast)
    ========================================================= */
 const toast = $("toast");
@@ -696,8 +819,9 @@ $("btnCart").addEventListener("click", () => {
   renderCart();
   openDialog(dlgCart);
 });
-$("btnCheckout").addEventListener("click", () => showToast(t("t_checkout")));
-
+$("btnCheckout").addEventListener("click", () => {
+  window.location.href = "../checkout.html";
+});
 /* =========================================================
    8. Favoritos
    ========================================================= */
@@ -808,8 +932,7 @@ $("loginForm").addEventListener("submit", async (e) => {
 
     // Verificación exacta de correo y contraseña
     const usuarioValido = usuarios.find(
-      (u) =>
-        u.email.toLowerCase() === emailVal && u.password === passVal,
+      (u) => u.email.toLowerCase() === emailVal && u.password === passVal,
     );
 
     if (usuarioValido) {
@@ -826,10 +949,7 @@ $("loginForm").addEventListener("submit", async (e) => {
     }
   } catch (err) {
     // Modo de respaldo si no hay servidor local HTTP (fallback seguro)
-    if (
-      emailVal === "profe@hoopstore.com" &&
-      passVal === "12345"
-    ) {
+    if (emailVal === "profe@hoopstore.com" && passVal === "12345") {
       user = "Profesor";
       store.set(KEYS.user, user);
       e.target.reset();
