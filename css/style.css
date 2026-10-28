@@ -30,6 +30,216 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+
+/* ===== 14. Página de Checkout ===== */
+.checkout-container {
+  padding-block: 48px 80px;
+}
+
+.checkout-header {
+  margin-bottom: 36px;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.checkout-form {
+  display: grid;
+  gap: 28px;
+}
+
+.form-section {
+  border: 1px solid var(--n300);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: var(--white);
+  margin: 0;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  padding-inline: 8px;
+  color: var(--ink);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.field-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--secondary);
+  cursor: pointer;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pay-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  border: 2px solid var(--n300);
+  border-radius: 12px;
+  background: var(--n050);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.pay-card:hover {
+  border-color: var(--secondary);
+}
+
+.pay-card input[type="radio"]:checked + span {
+  color: var(--secondary);
+}
+
+.btn-submit-order {
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+}
+
+/* Resumen lateral */
+.summary-card {
+  position: sticky;
+  top: 100px;
+  border: 1px solid var(--n300);
+  border-radius: var(--radius);
+  padding: 28px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(17, 18, 20, 0.04);
+}
+
+.summary-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.summary-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--n300);
+  padding-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sum-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--blue-tint);
+  border: 1px solid var(--n300);
+}
+
+.sum-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sum-info strong {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.sum-info small {
+  color: var(--n700);
+  font-size: 12px;
+}
+
+.sum-price {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.summary-totals {
+  padding-block: 20px;
+  display: grid;
+  gap: 10px;
+  border-bottom: 1px solid var(--n300);
+}
+
+.sum-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.sum-row.total {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 6px;
+}
+
+.guarantee-box {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--n700);
+  display: grid;
+  gap: 8px;
+}
+
+.order-success {
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--secondary);
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+  .payment-options {
+    grid-template-columns: 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== 2. Base ===== */
 * {
   box-sizing: border-box;
@@ -735,7 +945,10 @@ p {
   height: 20px;
   stroke: currentColor;
   fill: none;
-  transition: transform 0.2s var(--ease), fill 0.2s ease, stroke 0.2s ease;
+  transition:
+    transform 0.2s var(--ease),
+    fill 0.2s ease,
+    stroke 0.2s ease;
 }
 
 .wish[aria-pressed="true"] {
@@ -818,7 +1031,9 @@ p {
   color: var(--ink);
   font-family: var(--font);
   font-size: 15px;
-  transition: border-color 0.2s, background-color 0.2s;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 .catalog-search-box input:focus {
   outline: none;
@@ -1258,58 +1473,58 @@ dialog[open]::backdrop {
     color: var(--white);
   }
 
-   /* Redes sociales en horizontal */
-.social-links {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.social-links li {
-  margin: 0;
-  padding: 0;
-}
-
-.social-links a {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #1b1d21;
-  border: 1px solid #2a2d33;
-  color: var(--white);
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    color 0.2s,
-    transform 0.2s var(--ease);
-}
-
-.social-links a svg {
-  display: block;
-  width: 22px;
-  height: 22px;
-}
-
-@media (hover: hover) {
-  .social-links a:hover {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    color: var(--white);
-    transform: translateY(-3px);
+  /* Redes sociales en horizontal */
+  .social-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-}
 
-.social-links a:focus-visible {
-  outline: 3px solid var(--acid);
-  outline-offset: 2px;
-}
+  .social-links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-links a {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1b1d21;
+    border: 1px solid #2a2d33;
+    color: var(--white);
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s var(--ease);
+  }
+
+  .social-links a svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (hover: hover) {
+    .social-links a:hover {
+      background: var(--secondary);
+      border-color: var(--secondary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+  }
+
+  .social-links a:focus-visible {
+    outline: 3px solid var(--acid);
+    outline-offset: 2px;
+  }
 
   .brand:hover img {
     transform: scale(1.07) rotate(-4deg);
