@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finalizar compra · Hoop Store</title>
+  <meta name="description"
+    content="Tramita tu pedido de baloncesto de forma segura en Hoop Store: envío en 24/48 horas y pago protegido.">
+  <meta name="theme-color" content="#111214">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="javascript/geo-schema.js" defer></script>
+</head>
+
+<body>
+
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+  <div class="announce" data-i18n="announce">Entrega gratuita desde 60 € · Envío en 24/48 h</div>
+
+  <header class="site-header">
+    <div class="container header-in">
+      <a class="brand" href="index.html" aria-label="Hoop Store" title="Hoop Store">
+        <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="70" height="64">
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="index.html" data-i18n="nav_home">Inicio</a>
+        <a href="catalogo.html?categoria=zapatillas" data-i18n="nav_shoes">Zapatillas</a>
+        <a href="catalogo.html?categoria=equipaciones" data-i18n="nav_kits">Equipaciones</a>
+        <a href="catalogo.html?categoria=accesorios" data-i18n="nav_acc">Accesorios</a>
+        <a href="catalogo.html?categoria=nba" data-i18n="nav_nba">NBA</a>
+      </nav>
+
+      <div class="utils">
+        <div class="lang">
+          <button class="icon-btn lang-btn" id="btnLang" type="button" aria-expanded="false" aria-controls="langMenu"
+            aria-label="Idioma" title="Idioma" data-i18n-aria="a_lang">
+            <span class="ico" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </span>
+            <span id="langLabel">ES</span>
+          </button>
+          <ul class="lang-menu" id="langMenu" hidden>
+            <li><button type="button" data-lang="es" aria-current="true">Español</button></li>
+            <li><button type="button" data-lang="en">English</button></li>
+            <li><button type="button" data-lang="ca">Català</button></li>
+            <li><button type="button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+
+        <button class="icon-btn" id="btnFav" type="button" aria-label="Favoritos" title="Favoritos"
+          data-i18n-aria="a_fav">
+          <span class="sr" data-i18n="a_fav">Favoritos</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </span>
+          <span class="cart-count" id="favCount" hidden>0</span>
+        </button>
+
+        <button class="icon-btn" id="btnUser" type="button" aria-label="Iniciar sesión" title="Iniciar sesión"
+          data-i18n-aria="a_user">
+          <span class="sr" data-i18n="a_user">Iniciar sesión</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+        </button>
+
+        <button class="icon-btn" id="btnCart" type="button" aria-label="Carrito" title="Carrito"
+          data-i18n-aria="a_cart">
+          <span class="sr" data-i18n="a_cart">Carrito</span>
+          <span class="ico" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </span>
+          <span class="cart-count" id="cartCount" hidden>0</span>
+        </button>
+
+        <button class="burger" id="btnMenu" type="button" aria-expanded="false" aria-controls="nav"
+          aria-label="Abrir menú" title="Abrir menú">
+          <span class="sr">Abrir menú</span>
+          <svg class="burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container checkout-container">
+      
+      <header class="checkout-header">
+        <h1 class="t-h2" id="checkoutTitle">Finalizar compra</h1>
+        <p class="lead">Completa tus datos de envío y pago para recibir tu equipamiento oficial de baloncesto.</p>
+      </header>
+
+      <div class="checkout-layout">
+        
+        <!-- Formulario Principal -->
+        <section class="checkout-main" aria-labelledby="formHeading">
+          <h2 class="sr" id="formHeading">Formulario de pedido</h2>
+
+          <form id="orderForm" class="checkout-form" novalidate>
+
+            <!-- 1. Datos de Contacto -->
+            <fieldset class="form-section">
+              <legend class="section-title">1. Datos de contacto</legend>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="cEmail">Correo electrónico <span aria-hidden="true">*</span></label>
+                  <input type="email" id="cEmail" name="email" required autocomplete="email" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="field full">
+                  <label for="cPhone">Teléfono de contacto <span aria-hidden="true">*</span></label>
+                  <input type="tel" id="cPhone" name="phone" required autocomplete="tel" placeholder="+34 600 000 000">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 2. Dirección de Envío -->
+            <fieldset class="form-section">
+              <legend class="section-title">2. Dirección de envío</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="cName">Nombre <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cName" name="firstname" required autocomplete="given-name" placeholder="Tu nombre">
+                </div>
+                <div class="field">
+                  <label for="cLastName">Apellidos <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cLastName" name="lastname" required autocomplete="family-name" placeholder="Tus apellidos">
+                </div>
+                <div class="field full">
+                  <label for="cAddress">Dirección y número <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cAddress" name="address" required autocomplete="street-address" placeholder="C/ Gran Vía, 12, 3º B">
+                </div>
+                <div class="field">
+                  <label for="cZip">Código Postal <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cZip" name="postal-code" required autocomplete="postal-code" placeholder="28001">
+                </div>
+                <div class="field">
+                  <label for="cCity">Ciudad <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cCity" name="city" required autocomplete="address-level2" placeholder="Madrid">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- 3. Método de Pago -->
+            <fieldset class="form-section">
+              <legend class="section-title">3. Método de pago seguro</legend>
+
+              <div class="payment-options" role="radiogroup" aria-label="Seleccionar método de pago">
+                <label class="pay-card active">
+                  <input type="radio" name="payMethod" value="card" checked>
+                  <span>Tarjeta (Visa / Mastercard)</span>
+                </label>
+                <label class="pay-card">
+                  <input type="radio" name="payMethod" value="paypal">
+                  <span>PayPal</span>
+                </label>
+                <label class="pay-card">
+                  <input type="radio" name="payMethod" value="applepay">
+                  <span>Apple Pay</span>
+                </label>
+              </div>
+
+              <!-- Campos de Tarjeta -->
+              <div class="form-grid" id="cardFields" style="margin-top: 16px;">
+                <div class="field full">
+                  <label for="cCardNumber">Número de tarjeta <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cCardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+                <div class="field">
+                  <label for="cCardExp">Caducidad (MM/AA) <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cCardExp" placeholder="MM/AA" maxlength="5">
+                </div>
+                <div class="field">
+                  <label for="cCardCvc">CVC <span aria-hidden="true">*</span></label>
+                  <input type="text" id="cCardCvc" inputmode="numeric" placeholder="123" maxlength="4">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Aceptación legal -->
+            <div class="field-check">
+              <input type="checkbox" id="legalTerms" required>
+              <label for="legalTerms">
+                He leído y acepto el <a href="aviso-legal.html" target="_blank" rel="noopener">Aviso legal</a> y la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit-order" id="btnPlaceOrder">
+              Confirmar pedido y pagar
+            </button>
+          </form>
+        </section>
+
+        <!-- Resumen Lateral del Pedido -->
+        <aside class="checkout-sidebar" aria-labelledby="summaryHeading">
+          <div class="summary-card">
+            <h2 id="summaryHeading" class="summary-title">Resumen de tu pedido</h2>
+
+            <ul class="summary-items" id="summaryItemsList">
+              <li class="summary-empty">Cargando productos de tu cesta...</li>
+            </ul>
+
+            <div class="summary-totals">
+              <div class="sum-row">
+                <span>Subtotal</span>
+                <strong id="chkSubtotal">0,00 €</strong>
+              </div>
+              <div class="sum-row">
+                <span>Envío (24/48 h)</span>
+                <strong id="chkShipping">0,00 €</strong>
+              </div>
+              <div class="sum-row total">
+                <span>Total a pagar</span>
+                <strong id="chkTotal">0,00 €</strong>
+              </div>
+            </div>
+
+            <div class="guarantee-box">
+              <p>🔒 <strong>Pago 100% protegido</strong> con cifrado SSL de 256 bits.</p>
+              <p>📦 Devolución gratuita en un plazo de 30 días.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="site-footer dark">
+    <div class="container">
+      <div class="footer-top">
+        <div class="f-brand">
+          <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
+          <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
+          <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
+          <form class="news" id="newsletterForm" action="#" method="post">
+            <div class="news-field">
+              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
+              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
+                placeholder="Tu nombre" data-i18n-ph="ph_name">
+            </div>
+            <div class="news-field">
+              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
+                placeholder="tu@email.com" data-i18n-ph="ph_email">
+            </div>
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+              <span data-i18n="btn_subscribe">Unirme</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+
+        <nav class="f-col" aria-label="Información">
+          <h3 data-i18n="col_info">Información</h3>
+          <ul>
+            <li><a href="aviso-legal.html" data-i18n="legal">Aviso legal</a></li>
+            <li><a href="politica-cookies.html" data-i18n="cookies">Cookies</a></li>
+            <li><a href="politica-privacidad.html" data-i18n="privacy">Política de privacidad</a></li>
+          </ul>
+        </nav>
+
+        <nav class="f-col" aria-label="Redes sociales">
+          <h3 data-i18n="col_follow">Síguenos</h3>
+          <ul class="social-links">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="sr">Instagram</span></a></li>
+            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><span class="sr">TikTok</span></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><span class="sr">YouTube</span></a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X"><span class="sr">X</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="f-bottom">
+        <span data-i18n="rights">© 2026 Hoop Store. Todos los derechos reservados.</span>
+        <span data-i18n="secure">Pago seguro · Visa · Mastercard · Apple Pay · PayPal</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Diálogos (mantiene la sincronización del header) -->
+  <dialog id="dlgUser" aria-labelledby="userTitle">
+    <div class="dlg">
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
+      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google">
+        <span>Continuar con Google</span>
+      </button>
+      <form id="loginForm" class="dlg-form" action="#" method="post">
+        <div class="field">
+          <label for="loginEmail" data-i18n="email">Correo electrónico</label>
+          <input type="email" id="loginEmail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="loginPassword" data-i18n="password">Contraseña</label>
+          <input type="password" id="loginPassword" required autocomplete="current-password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Entrar">
+      </form>
+      <div id="userIn" class="dlg-form" hidden>
+        <p class="hello" id="userHello"></p>
+        <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgFav" aria-labelledby="favTitleDlg">
+    <div class="dlg">
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
+      <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos.</p>
+      <ul class="fav-list" id="favList" hidden><li hidden>-</li></ul>
+    </div>
+  </dialog>
+
+  <dialog id="dlgCart" aria-labelledby="cartTitle">
+    <div class="dlg">
+      <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
+      <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
+      <div class="cart-empty-box" id="cartEmpty"><p class="fav-empty" data-i18n="cart_empty">Tu carrito está vacío.</p></div>
+      <ul class="fav-list" id="cartList" hidden><li hidden>-</li></ul>
+      <div class="cart-foot" id="cartFoot">
+        <p class="sum"><span data-i18n="total">Total</span><span id="sumTotal"></span></p>
+        <button class="btn btn-primary" type="button" id="btnCheckout" data-i18n="checkout">Finalizar compra</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="javascript/script.js"></script>
+  <script>
+    
+  </script>
+</body>
+</html>
