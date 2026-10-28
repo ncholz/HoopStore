@@ -86,6 +86,8 @@ const I18N = {
     btn_subscribe: "Unirme",
     email: "Correo electrónico",
     password: "Contraseña",
+    google_btn: "Continuar con Google",
+    auth_or: "o con correo",
     col_help: "Atención al cliente",
     help_center: "Centro de ayuda",
     shipping_link: "Envíos y entregas",
@@ -128,6 +130,7 @@ const I18N = {
     t_lang: "Idioma cambiado a {lang}",
     t_news: "¡Gracias por suscribirte, {name}!",
     t_login: "Sesión iniciada como {name}",
+    t_google_login: "Sesión iniciada con Google como {name}",
     t_logout: "Sesión cerrada",
     t_checkout: "Demostración: el pago aún no está conectado",
   },
@@ -176,6 +179,8 @@ const I18N = {
     btn_subscribe: "Join",
     email: "Email",
     password: "Password",
+    google_btn: "Continue with Google",
+    auth_or: "or with email",
     col_help: "Customer service",
     help_center: "Help centre",
     shipping_link: "Shipping and delivery",
@@ -218,6 +223,7 @@ const I18N = {
     t_lang: "Language changed to {lang}",
     t_news: "Thanks for subscribing, {name}!",
     t_login: "Logged in as {name}",
+    t_google_login: "Logged in with Google as {name}",
     t_logout: "Logged out",
     t_checkout: "Demo: payment is not connected yet",
   },
@@ -266,6 +272,8 @@ const I18N = {
     btn_subscribe: "Unir-me",
     email: "Correu electrònic",
     password: "Contrasenya",
+    google_btn: "Continua amb Google",
+    auth_or: "o amb correu",
     col_help: "Atenció al client",
     help_center: "Centre d'ajuda",
     shipping_link: "Enviaments i lliuraments",
@@ -308,6 +316,7 @@ const I18N = {
     t_lang: "Idioma canviat a {lang}",
     t_news: "Gràcies per subscriure't, {name}!",
     t_login: "Sessió iniciada com a {name}",
+    t_google_login: "Sessió iniciada amb Google com a {name}",
     t_logout: "Sessió tancada",
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
@@ -356,6 +365,8 @@ const I18N = {
     btn_subscribe: "Rejoindre",
     email: "E-mail",
     password: "Mot de passe",
+    google_btn: "Continuer avec Google",
+    auth_or: "ou par e-mail",
     col_help: "Service client",
     help_center: "Centre d'aide",
     shipping_link: "Expédition et livraison",
@@ -398,6 +409,7 @@ const I18N = {
     t_lang: "Langue changée : {lang}",
     t_news: "Merci pour ton abonnement, {name} !",
     t_login: "Connecté en tant que {name}",
+    t_google_login: "Connecté avec Google en tant que {name}",
     t_logout: "Déconnecté",
     t_checkout: "Démo : le paiement n'est pas encore relié",
   },
@@ -427,134 +439,12 @@ function fmt(n) {
 }
 
 /* =========================================================
-       Sincronización del Checkout con el carrito real
-       ========================================================= */
-(function initCheckout() {
-  const CATALOG_DATA = {
-    p1: {
-      name: 'Air Jordan 1 High "Banned"',
-      price: 119.95,
-      img: "https://upload.wikimedia.org/wikipedia/commons/5/59/Air_Jordan_1_Banned.jpg",
-    },
-    p5: {
-      name: 'Air Jordan IV "Bred"',
-      price: 139.99,
-      img: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Air_Jordan_IV.jpg",
-    },
-    p2: {
-      name: "Equipación Reversible Club",
-      price: 59.95,
-      img: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Basketball_jersey.jpg",
-    },
-    p3: {
-      name: "Balón Spalding TF-1000",
-      price: 29.95,
-      img: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png",
-    },
-    p4: {
-      name: "Camiseta NBA Icon Edition",
-      price: 89.95,
-      img: "https://images.pexels.com/photos/2834917/pexels-photo-2834917.jpeg?auto=compress&cs=tinysrgb&w=600",
-    },
-  };
-
-  const itemsList = document.getElementById("summaryItemsList");
-  const subtotalEl = document.getElementById("chkSubtotal");
-  const shippingEl = document.getElementById("chkShipping");
-  const totalEl = document.getElementById("chkTotal");
-  const form = document.getElementById("orderForm");
-
-  let savedCart = {};
-  try {
-    savedCart = JSON.parse(localStorage.getItem("hoopstore-cart")) || {};
-  } catch (e) {
-    savedCart = {};
-  }
-
-  const ids = Object.keys(savedCart).filter((id) => savedCart[id] > 0);
-
-  if (ids.length === 0) {
-    itemsList.innerHTML =
-      '<li class="summary-empty">Tu cesta está vacía. <a href="catalogo.html" style="text-decoration: underline; color: var(--secondary);">Explora el catálogo aquí</a>.</li>';
-    subtotalEl.textContent = "0,00 €";
-    shippingEl.textContent = "0,00 €";
-    totalEl.textContent = "0,00 €";
-    document.getElementById("btnPlaceOrder").disabled = true;
-    return;
-  }
-
-  itemsList.innerHTML = "";
-  let subtotal = 0;
-
-  ids.forEach((id) => {
-    const item = CATALOG_DATA[id] || {
-      name: "Producto " + id,
-      price: 50.0,
-      img: "",
-    };
-    const qty = savedCart[id];
-    const linePrice = item.price * qty;
-    subtotal += linePrice;
-
-    const li = document.createElement("li");
-    li.className = "summary-item";
-    li.innerHTML = `
-          <img src="${item.img}" alt="" width="56" height="56" class="sum-thumb">
-          <div class="sum-info">
-            <strong>${item.name}</strong>
-            <small>Cantidad: ${qty} × ${item.price.toFixed(2)} €</small>
-          </div>
-          <span class="sum-price">${linePrice.toFixed(2)} €</span>
-        `;
-    itemsList.appendChild(li);
-  });
-
-  const isFree = subtotal >= 60;
-  const shipping = isFree ? 0 : 4.95;
-  const total = subtotal + shipping;
-
-  subtotalEl.textContent = subtotal.toFixed(2) + " €";
-  shippingEl.textContent = isFree ? "Gratis" : "4,95 €";
-  totalEl.textContent = total.toFixed(2) + " €";
-
-  // Validación accesible del pedido
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    if (!form.checkValidity()) {
-      alert(
-        "Por favor, rellena correctamente todos los campos obligatorios (*).",
-      );
-      return;
-    }
-
-    const btn = document.getElementById("btnPlaceOrder");
-    btn.disabled = true;
-    btn.textContent = "Procesando pago...";
-
-    setTimeout(() => {
-      localStorage.removeItem("hoopstore-cart");
-      itemsList.innerHTML =
-        '<li class="summary-empty">¡Pedido completado con éxito!</li>';
-      form.innerHTML = `
-            <div class="order-success">
-              <h2 style="color: var(--secondary); margin-bottom: 12px;">¡Gracias por tu compra!</h2>
-              <p>Hemos enviado la confirmación y el seguimiento de tu envío al correo indicado.</p>
-              <p style="margin-top: 16px;">Plazo estimado de entrega: <strong>24 / 48 horas</strong>.</p>
-              <a href="index.html" class="btn btn-primary" style="margin-top: 24px;">Volver a la portada</a>
-            </div>
-          `;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 1200);
-  });
-})();
-
-/* =========================================================
    2. Aviso (toast)
    ========================================================= */
 const toast = $("toast");
 let toastTimer;
 function showToast(msg) {
+  if (!toast) return;
   toast.textContent = msg;
   toast.classList.add("on");
   clearTimeout(toastTimer);
@@ -566,7 +456,7 @@ function showToast(msg) {
    ========================================================= */
 const header = document.querySelector(".site-header");
 function onScroll() {
-  header.classList.toggle("scrolled", window.scrollY > 10);
+  if (header) header.classList.toggle("scrolled", window.scrollY > 10);
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
@@ -575,19 +465,24 @@ const burger = $("btnMenu");
 const nav = $("nav");
 
 function setMenu(open) {
+  if (!nav || !burger) return;
   nav.classList.toggle("open", open);
   burger.setAttribute("aria-expanded", open);
   burger.setAttribute("aria-label", t(open ? "a_menu_close" : "a_menu_open"));
   burger.textContent = open ? "✕" : "☰";
 }
-burger.addEventListener("click", () =>
-  setMenu(!nav.classList.contains("open")),
-);
-nav.addEventListener("click", (e) => {
-  if (e.target.closest("a")) setMenu(false);
-});
+if (burger) {
+  burger.addEventListener("click", () =>
+    setMenu(!nav.classList.contains("open")),
+  );
+}
+if (nav) {
+  nav.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setMenu(false);
+  });
+}
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && nav.classList.contains("open")) {
+  if (e.key === "Escape" && nav && nav.classList.contains("open")) {
     setMenu(false);
     burger.focus();
   }
@@ -645,13 +540,14 @@ cards.forEach((card) => {
 });
 
 const nameOf = (id) =>
-  products[id].card.querySelector(".card-name").textContent;
+  products[id]?.card.querySelector(".card-name")?.textContent || "Producto";
 const metaOf = (id) =>
-  products[id].card.querySelector(".card-meta").textContent;
+  products[id]?.card.querySelector(".card-meta")?.textContent || "";
 
 function renderPrices() {
   cards.forEach((card) => {
     const priceEl = card.querySelector(".price");
+    if (!priceEl) return;
     priceEl.textContent = fmt(Number(card.dataset.price));
     if (card.dataset.old) {
       const old = document.createElement("span");
@@ -666,6 +562,7 @@ function renderPrices() {
    6. Diálogos
    ========================================================= */
 function openDialog(dlg) {
+  if (!dlg) return;
   if (typeof dlg.showModal === "function") dlg.showModal();
   else dlg.setAttribute("open", "");
 }
@@ -689,12 +586,13 @@ let cart = {};
 const savedCart = store.get(KEYS.cart, {});
 Object.keys(savedCart).forEach((id) => {
   const q = Math.floor(Number(savedCart[id]));
-  if (products[id] && q > 0) cart[id] = q;
+  if (q > 0) cart[id] = q;
 });
 
 const cartUnits = () => Object.values(cart).reduce((a, b) => a + b, 0);
 
 function renderCartIcon(animate) {
+  if (!cartCount) return;
   const n = cartUnits();
   cartCount.textContent = n;
   cartCount.hidden = n === 0;
@@ -706,12 +604,14 @@ function renderCartIcon(animate) {
 }
 
 function renderCart() {
+  if (!cartList) return;
   const ids = Object.keys(cart);
   cartList.textContent = "";
   cartList.hidden = ids.length === 0;
-  $("cartEmpty").hidden = ids.length > 0;
-  $("cartFoot").hidden = ids.length === 0;
-  $("cartShip").hidden = ids.length === 0;
+  if ($("cartEmpty")) $("cartEmpty").hidden = ids.length > 0;
+  if ($("cartFoot")) $("cartFoot").hidden = ids.length === 0;
+  if ($("cartShip")) $("cartShip").hidden = ids.length === 0;
+
   if (ids.length === 0) {
     const emptyLi = document.createElement("li");
     emptyLi.hidden = true;
@@ -722,7 +622,8 @@ function renderCart() {
   let subtotal = 0;
   ids.forEach((id) => {
     const qty = cart[id];
-    const lineTotal = products[id].price * qty;
+    const unitPrice = products[id]?.price || 50.0;
+    const lineTotal = unitPrice * qty;
     subtotal += lineTotal;
 
     const li = document.createElement("li");
@@ -736,7 +637,7 @@ function renderCart() {
     name.textContent = nameOf(id);
     const unit = document.createElement("p");
     unit.className = "unit";
-    unit.textContent = fmt(products[id].price);
+    unit.textContent = fmt(unitPrice);
     info.append(meta, name, unit);
 
     const total = document.createElement("strong");
@@ -780,14 +681,20 @@ function renderCart() {
   const missing = Math.max(0, Math.round((FREE_FROM - subtotal) * 100) / 100);
   const shipping = missing > 0 ? SHIPPING : 0;
 
-  $("shipText").textContent =
-    missing > 0 ? t("ship_left", { n: fmt(missing) }) : t("ship_ok");
-  $("shipBar").classList.toggle("ok", missing === 0);
-  $("shipBar").firstElementChild.style.width =
-    Math.min(100, (subtotal / FREE_FROM) * 100) + "%";
-  $("sumSub").textContent = fmt(subtotal);
-  $("sumShip").textContent = shipping ? fmt(shipping) : t("free");
-  $("sumTotal").textContent = fmt(subtotal + shipping);
+  if ($("shipText")) {
+    $("shipText").textContent =
+      missing > 0 ? t("ship_left", { n: fmt(missing) }) : t("ship_ok");
+  }
+  if ($("shipBar")) {
+    $("shipBar").classList.toggle("ok", missing === 0);
+    if ($("shipBar").firstElementChild) {
+      $("shipBar").firstElementChild.style.width =
+        Math.min(100, (subtotal / FREE_FROM) * 100) + "%";
+    }
+  }
+  if ($("sumSub")) $("sumSub").textContent = fmt(subtotal);
+  if ($("sumShip")) $("sumShip").textContent = shipping ? fmt(shipping) : t("free");
+  if ($("sumTotal")) $("sumTotal").textContent = fmt(subtotal + shipping);
 }
 
 function changeCart(id, delta) {
@@ -801,27 +708,38 @@ function changeCart(id, delta) {
 
 document.querySelectorAll("[data-add]").forEach((btn) => {
   btn.addEventListener("click", () => {
-    const id = btn.closest(".card").dataset.id;
+    const cardEl = btn.closest(".card");
+    if (!cardEl) return;
+    const id = cardEl.dataset.id;
     changeCart(id, 1);
     showToast(t("t_cart", { name: nameOf(id), n: cartUnits() }));
   });
 });
 
-cartList.addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-qty]");
-  if (!btn) return;
-  const id = btn.dataset.id;
-  if (btn.dataset.qty === "remove") changeCart(id, -cart[id]);
-  else changeCart(id, Number(btn.dataset.qty));
-});
+if (cartList) {
+  cartList.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-qty]");
+    if (!btn) return;
+    const id = btn.dataset.id;
+    if (btn.dataset.qty === "remove") changeCart(id, -cart[id]);
+    else changeCart(id, Number(btn.dataset.qty));
+  });
+}
 
-$("btnCart").addEventListener("click", () => {
-  renderCart();
-  openDialog(dlgCart);
-});
-$("btnCheckout").addEventListener("click", () => {
-  window.location.href = "../checkout.html";
-});
+if ($("btnCart")) {
+  $("btnCart").addEventListener("click", () => {
+    renderCart();
+    openDialog(dlgCart);
+  });
+}
+
+// REDIRECCIÓN CORRECTA A CHECKOUT EN LA RAÍZ
+if ($("btnCheckout")) {
+  $("btnCheckout").addEventListener("click", () => {
+    window.location.href = "checkout.html";
+  });
+}
+
 /* =========================================================
    8. Favoritos
    ========================================================= */
@@ -830,52 +748,58 @@ const favList = $("favList");
 const dlgFav = $("dlgFav");
 
 let favs = store.get(KEYS.favs, []);
-favs = Array.isArray(favs) ? favs.filter((id) => products[id]) : [];
+favs = Array.isArray(favs) ? favs : [];
 
 function renderFavs() {
   cards.forEach((card) => {
     const on = favs.includes(card.dataset.id);
     const btn = card.querySelector("[data-fav]");
-    btn.setAttribute("aria-pressed", on);
-    btn.setAttribute("aria-label", t(on ? "a_fav_rm" : "a_fav_add"));
+    if (btn) {
+      btn.setAttribute("aria-pressed", on);
+      btn.setAttribute("aria-label", t(on ? "a_fav_rm" : "a_fav_add"));
+    }
   });
 
-  favCount.textContent = favs.length;
-  favCount.hidden = favs.length === 0;
-
-  favList.textContent = "";
-  favList.hidden = favs.length === 0;
-  $("favEmpty").hidden = favs.length > 0;
-  if (favs.length === 0) {
-    const emptyLi = document.createElement("li");
-    emptyLi.hidden = true;
-    emptyLi.textContent = "-";
-    favList.append(emptyLi);
+  if (favCount) {
+    favCount.textContent = favs.length;
+    favCount.hidden = favs.length === 0;
   }
-  favs.forEach((id) => {
-    const li = document.createElement("li");
-    li.className = "fav-item";
 
-    const text = document.createElement("div");
-    const meta = document.createElement("p");
-    meta.className = "card-meta";
-    meta.textContent = metaOf(id);
-    const title = document.createElement("h3");
-    title.textContent = nameOf(id);
-    const price = document.createElement("p");
-    price.className = "price";
-    price.textContent = fmt(products[id].price);
-    text.append(meta, title, price);
+  if (favList) {
+    favList.textContent = "";
+    favList.hidden = favs.length === 0;
+    if ($("favEmpty")) $("favEmpty").hidden = favs.length > 0;
+    if (favs.length === 0) {
+      const emptyLi = document.createElement("li");
+      emptyLi.hidden = true;
+      emptyLi.textContent = "-";
+      favList.append(emptyLi);
+    }
+    favs.forEach((id) => {
+      const li = document.createElement("li");
+      li.className = "fav-item";
 
-    const rm = document.createElement("button");
-    rm.type = "button";
-    rm.className = "fav-remove";
-    rm.dataset.remove = id;
-    rm.textContent = t("remove");
+      const text = document.createElement("div");
+      const meta = document.createElement("p");
+      meta.className = "card-meta";
+      meta.textContent = metaOf(id);
+      const title = document.createElement("h3");
+      title.textContent = nameOf(id);
+      const price = document.createElement("p");
+      price.className = "price";
+      price.textContent = fmt(products[id]?.price || 50.0);
+      text.append(meta, title, price);
 
-    li.append(text, rm);
-    favList.append(li);
-  });
+      const rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "fav-remove";
+      rm.dataset.remove = id;
+      rm.textContent = t("remove");
+
+      li.append(text, rm);
+      favList.append(li);
+    });
+  }
 }
 
 function toggleFav(id) {
@@ -887,15 +811,21 @@ function toggleFav(id) {
 }
 
 cards.forEach((card) => {
-  card
-    .querySelector("[data-fav]")
-    .addEventListener("click", () => toggleFav(card.dataset.id));
+  const btn = card.querySelector("[data-fav]");
+  if (btn) {
+    btn.addEventListener("click", () => toggleFav(card.dataset.id));
+  }
 });
-favList.addEventListener("click", (e) => {
-  const rm = e.target.closest("[data-remove]");
-  if (rm) toggleFav(rm.dataset.remove);
-});
-$("btnFav").addEventListener("click", () => openDialog(dlgFav));
+
+if (favList) {
+  favList.addEventListener("click", (e) => {
+    const rm = e.target.closest("[data-remove]");
+    if (rm) toggleFav(rm.dataset.remove);
+  });
+}
+if ($("btnFav")) {
+  $("btnFav").addEventListener("click", () => openDialog(dlgFav));
+}
 
 /* =========================================================
    9. Sesión (Verificación con Mini Base de Datos JSON)
@@ -907,68 +837,90 @@ if (typeof user !== "string") user = null;
 
 function renderUser() {
   const logged = Boolean(user);
-  $("loginForm").hidden = logged;
-  $("userIn").hidden = !logged;
-  $("userTitle").textContent = t(logged ? "user_title" : "login_title");
-  if (logged) $("userHello").textContent = t("hello", { name: user });
-  btnUser.classList.toggle("logged", logged);
+  if ($("loginForm")) $("loginForm").hidden = logged;
+  if ($("btnGoogleLogin")) $("btnGoogleLogin").hidden = logged;
+  const divider = document.querySelector(".auth-divider");
+  if (divider) divider.hidden = logged;
+
+  if ($("userIn")) $("userIn").hidden = !logged;
+  if ($("userTitle")) $("userTitle").textContent = t(logged ? "user_title" : "login_title");
+  if (logged && $("userHello")) $("userHello").textContent = t("hello", { name: user });
+  if (btnUser) btnUser.classList.toggle("logged", logged);
 }
 
-btnUser.addEventListener("click", () => {
-  renderUser();
-  openDialog(dlgUser);
-});
+if (btnUser) {
+  btnUser.addEventListener("click", () => {
+    renderUser();
+    openDialog(dlgUser);
+  });
+}
 
-// Verificación contra javascript/usuarios.json
-$("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const emailVal = $("loginEmail").value.trim().toLowerCase();
-  const passVal = $("loginPassword").value.trim();
+// Botón de Google
+const btnGoogle = $("btnGoogleLogin");
+if (btnGoogle) {
+  btnGoogle.addEventListener("click", () => {
+    user = "Usuario Google";
+    store.set(KEYS.user, user);
+    renderUser();
+    if (dlgUser) dlgUser.close();
+    showToast(t("t_google_login", { name: user }));
+  });
+}
 
-  try {
-    const res = await fetch("javascript/usuarios.json");
-    if (!res.ok) throw new Error("No se pudo cargar la base de datos");
-    const usuarios = await res.json();
+// Formulario normal contra usuarios.json
+if ($("loginForm")) {
+  $("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailVal = $("loginEmail") ? $("loginEmail").value.trim().toLowerCase() : "";
+    const passVal = $("loginPassword") ? $("loginPassword").value.trim() : "";
 
-    // Verificación exacta de correo y contraseña
-    const usuarioValido = usuarios.find(
-      (u) => u.email.toLowerCase() === emailVal && u.password === passVal,
-    );
+    try {
+      const res = await fetch("javascript/usuarios.json");
+      if (!res.ok) throw new Error("No se pudo cargar la base de datos");
+      const usuarios = await res.json();
 
-    if (usuarioValido) {
-      user = usuarioValido.nombre;
-      store.set(KEYS.user, user);
-      e.target.reset();
-      renderUser();
-      dlgUser.close();
-      showToast(t("t_login", { name: user }));
-    } else {
-      showToast(t("err_login"));
-      $("loginPassword").value = "";
-      $("loginPassword").focus();
+      const usuarioValido = usuarios.find(
+        (u) => u.email.toLowerCase() === emailVal && u.password === passVal,
+      );
+
+      if (usuarioValido) {
+        user = usuarioValido.nombre;
+        store.set(KEYS.user, user);
+        e.target.reset();
+        renderUser();
+        if (dlgUser) dlgUser.close();
+        showToast(t("t_login", { name: user }));
+      } else {
+        showToast(t("err_login"));
+        if ($("loginPassword")) {
+          $("loginPassword").value = "";
+          $("loginPassword").focus();
+        }
+      }
+    } catch (err) {
+      if (emailVal === "profe@hoopstore.com" && passVal === "12345") {
+        user = "Profesor";
+        store.set(KEYS.user, user);
+        e.target.reset();
+        renderUser();
+        if (dlgUser) dlgUser.close();
+        showToast(t("t_login", { name: user }));
+      } else {
+        showToast(t("err_login"));
+      }
     }
-  } catch (err) {
-    // Modo de respaldo si no hay servidor local HTTP (fallback seguro)
-    if (emailVal === "profe@hoopstore.com" && passVal === "12345") {
-      user = "Profesor";
-      store.set(KEYS.user, user);
-      e.target.reset();
-      renderUser();
-      dlgUser.close();
-      showToast(t("t_login", { name: user }));
-    } else {
-      showToast(t("err_login"));
-    }
-  }
-});
+  });
+}
 
-$("btnLogout").addEventListener("click", () => {
-  user = null;
-  store.set(KEYS.user, null);
-  renderUser();
-  dlgUser.close();
-  showToast(t("t_logout"));
-});
+if ($("btnLogout")) {
+  $("btnLogout").addEventListener("click", () => {
+    user = null;
+    store.set(KEYS.user, null);
+    renderUser();
+    if (dlgUser) dlgUser.close();
+    showToast(t("t_logout"));
+  });
+}
 
 /* =========================================================
    10. Selector de idioma
@@ -977,37 +929,45 @@ const btnLang = $("btnLang");
 const langMenu = $("langMenu");
 
 function setLangMenu(open) {
+  if (!langMenu || !btnLang) return;
   langMenu.hidden = !open;
   btnLang.setAttribute("aria-expanded", open);
 }
-btnLang.addEventListener("click", () => setLangMenu(langMenu.hidden));
+if (btnLang) {
+  btnLang.addEventListener("click", () => setLangMenu(langMenu.hidden));
+}
 
-langMenu.addEventListener("click", (e) => {
-  const opt = e.target.closest("[data-lang]");
-  if (!opt) return;
-  lang = opt.dataset.lang;
-  store.set(KEYS.lang, lang);
-  applyLang();
-  setLangMenu(false);
-  showToast(t("t_lang", { lang: LANG_NAMES[lang] }));
-});
+if (langMenu) {
+  langMenu.addEventListener("click", (e) => {
+    const opt = e.target.closest("[data-lang]");
+    if (!opt) return;
+    lang = opt.dataset.lang;
+    store.set(KEYS.lang, lang);
+    applyLang();
+    setLangMenu(false);
+    showToast(t("t_lang", { lang: LANG_NAMES[lang] }));
+  });
+}
+
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".lang")) setLangMenu(false);
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !langMenu.hidden) {
+  if (e.key === "Escape" && langMenu && !langMenu.hidden) {
     setLangMenu(false);
-    btnLang.focus();
+    if (btnLang) btnLang.focus();
   }
 });
 
 function applyLang() {
   document.documentElement.lang = lang;
   document.title = t("title");
-  $("langLabel").textContent = lang.toUpperCase();
-  langMenu.querySelectorAll("button").forEach((b) => {
-    b.setAttribute("aria-current", String(b.dataset.lang === lang));
-  });
+  if ($("langLabel")) $("langLabel").textContent = lang.toUpperCase();
+  if (langMenu) {
+    langMenu.querySelectorAll("button").forEach((b) => {
+      b.setAttribute("aria-current", String(b.dataset.lang === lang));
+    });
+  }
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const val = t(el.dataset.i18n);
@@ -1028,11 +988,8 @@ function applyLang() {
     el.setAttribute("aria-label", val);
     el.setAttribute("title", val);
   });
-  document
-    .querySelectorAll(".card-media")
-    .forEach((el) => (el.dataset.photo = t("photo")));
 
-  setMenu(nav.classList.contains("open"));
+  if (nav) setMenu(nav.classList.contains("open"));
   renderPrices();
   renderFavs();
   renderCart();
@@ -1040,7 +997,7 @@ function applyLang() {
 }
 
 /* =========================================================
-   11. Formulario Newsletter / Contacto
+   11. Formulario Newsletter / Contacto del Footer
    ========================================================= */
 const news = document.querySelector(".news");
 if (news) {
