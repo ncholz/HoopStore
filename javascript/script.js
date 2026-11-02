@@ -558,6 +558,169 @@ function renderPrices() {
   });
 }
 
+function runCheckoutLogic() {
+      // Catálogo real sincronizado con los productos vigentes de la tienda
+      const REAL_CATALOG = {
+        p1: {
+          name: 'Nike Precision 6',
+          price: 99.95,
+          img: 'https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png'
+        },
+        p2: {
+          name: 'Equipación Joma Final II',
+          price: 59.95,
+          img: 'https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766'
+        },
+        p3: {
+          name: 'Spalding NBA Official Game Ball',
+          price: 24.95,
+          img: 'https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325'
+        },
+        p4: {
+          name: 'Camiseta Boston Celtics',
+          price: 89.95,
+          img: 'https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png'
+        },
+        p5: {
+          name: 'Air Jordan IV "Bred"',
+          price: 139.99,
+          img: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Air_Jordan_IV.jpg'
+        }
+      };
+
+      const itemsList = document.getElementById('summaryItemsList');
+      const subtotalEl = document.getElementById('chkSubtotal');
+      const shippingEl = document.getElementById('chkShipping');
+      const totalEl = document.getElementById('chkTotal');
+      const form = document.getElementById('orderForm');
+      const submitBtn = document.getElementById('btnPlaceOrder');
+
+      // Leer carrito desde localStorage
+      let cartData = {};
+      try {
+        cartData = JSON.parse(localStorage.getItem('hoopstore-cart')) || {};
+      } catch (e) {
+        cartData = {};
+      }
+
+      const activeIds = Object.keys(cartData).filter(id => Number(cartData[id]) > 0);
+
+      // Si no hay productos en la cesta
+      if (activeIds.length === 0) {
+        itemsList.innerHTML = `
+          <li class="summary-empty" style="text-align: center; padding: 24px 0; color: var(--n700);">
+            Tu cesta está vacía.<br>
+            <a href="catalogo.html" style="display: inline-block; margin-top: 12px; font-weight: 700; color: var(--secondary); text-decoration: underline;">
+              Ir al catálogo para añadir artículos →
+            </a>
+          </li>
+        `;
+        subtotalEl.textContent = '0,00 €';
+        shippingEl.textContent = '0,00 €';
+        totalEl.textContent = '0,00 €';
+        if (submitBtn) submitBtn.disabled = true;
+        return;
+      }
+
+      // Renderizar líneas del resumen
+      itemsList.innerHTML = '';
+      let subtotal = 0;
+
+      activeIds.forEach(id => {
+        const product = REAL_CATALOG[id] || { name: 'Artículo ' + id, price: 49.95, img: '' };
+        const qty = Number(cartData[id]);
+        const lineTotal = product.price * qty;
+        subtotal += lineTotal;
+
+        const li = document.createElement('li');
+        li.className = 'summary-item';
+        li.innerHTML = `
+          <img src="${product.img}" alt="" width="56" height="56" class="sum-thumb">
+          <div class="sum-info">
+            <strong>${product.name}</strong>
+            <small>${qty} unidad${qty > 1 ? 'es' : ''} × ${product.price.toFixed(2)} €</small>
+          </div>
+          <span class="sum-price">${lineTotal.toFixed(2)} €</span>
+        `;
+        itemsList.appendChild(li);
+      });
+
+      const isFreeShipping = subtotal >= 60;
+      const shippingCost = isFreeShipping ? 0 : 4.95;
+      const totalOrder = subtotal + shippingCost;
+
+      subtotalEl.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
+      shippingEl.textContent = isFreeShipping ? 'Gratis' : '4,95 €';
+      totalEl.textContent = totalOrder.toFixed(2).replace('.', ',') + ' €';
+
+      // Alternar visualización según el método de pago
+      const payRadios = document.querySelectorAll('input[name="payMethod"]');
+      const cardFields = document.getElementById('cardFields');
+      const altPayNote = document.getElementById('altPayNote');
+
+      payRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          const isCard = radio.value === 'card';
+          if (cardFields) cardFields.style.display = isCard ? 'grid' : 'none';
+          if (altPayNote) altPayNote.style.display = isCard ? 'none' : 'block';
+
+          // Resaltar tarjeta seleccionada
+          document.querySelectorAll('.pay-card').forEach(card => card.classList.remove('active'));
+          radio.closest('.pay-card')?.classList.add('active');
+        });
+      });
+
+      // Procesar pedido al enviar
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validar campos requeridos nativos
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Si es tarjeta, validar los campos extra
+        const selectedPay = document.querySelector('input[name="payMethod"]:checked')?.value;
+        if (selectedPay === 'card') {
+          const num = document.getElementById('cCardNumber').value.trim();
+          const exp = document.getElementById('cCardExp').value.trim();
+          const cvc = document.getElementById('cCardCvc').value.trim();
+          if (!num || !exp || !cvc) {
+            alert('Por favor, introduce los datos completos de tu tarjeta de crédito/débito.');
+            return;
+          }
+        }
+
+        // Simular tramitación
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Procesando pago seguro...';
+
+        setTimeout(() => {
+          // Vaciar el carrito en storage
+          localStorage.removeItem('hoopstore-cart');
+          
+          // Mensaje de éxito claro y accesible
+          document.querySelector('.checkout-layout').innerHTML = `
+            <div class="order-success" style="grid-column: 1 / -1; background: var(--white); border: 2px solid var(--secondary); padding: 48px 32px; border-radius: var(--radius); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+              <span style="font-size: 52px; display: block; margin-bottom: 12px;">🏀</span>
+              <h2 class="t-h2" style="font-size: 32px; color: var(--ink); margin-bottom: 12px;">¡Pedido confirmado con éxito!</h2>
+              <p style="font-size: 17px; color: var(--n700); max-width: 50ch; margin-inline: auto;">
+                Hemos registrado tu compra por un total de <strong>${totalOrder.toFixed(2).replace('.', ',')} €</strong>. Te hemos enviado la factura y el número de seguimiento a tu correo.
+              </p>
+              <div style="margin-top: 24px; padding: 14px; background: var(--blue-tint); border-radius: 12px; display: inline-block; font-weight: 700; color: var(--blue-dark);">
+                Entrega estimada: 24 / 48 horas laborales
+              </div>
+              <div style="margin-top: 32px;">
+                <a href="index.html" class="btn btn-primary">Volver a la tienda</a>
+              </div>
+            </div>
+          `;
+          window.scrollTo({ top: 100, behavior: 'smooth' });
+        }, 1200);
+      });
+    }
+
 /* =========================================================
    6. Diálogos
    ========================================================= */
@@ -693,7 +856,8 @@ function renderCart() {
     }
   }
   if ($("sumSub")) $("sumSub").textContent = fmt(subtotal);
-  if ($("sumShip")) $("sumShip").textContent = shipping ? fmt(shipping) : t("free");
+  if ($("sumShip"))
+    $("sumShip").textContent = shipping ? fmt(shipping) : t("free");
   if ($("sumTotal")) $("sumTotal").textContent = fmt(subtotal + shipping);
 }
 
@@ -843,8 +1007,10 @@ function renderUser() {
   if (divider) divider.hidden = logged;
 
   if ($("userIn")) $("userIn").hidden = !logged;
-  if ($("userTitle")) $("userTitle").textContent = t(logged ? "user_title" : "login_title");
-  if (logged && $("userHello")) $("userHello").textContent = t("hello", { name: user });
+  if ($("userTitle"))
+    $("userTitle").textContent = t(logged ? "user_title" : "login_title");
+  if (logged && $("userHello"))
+    $("userHello").textContent = t("hello", { name: user });
   if (btnUser) btnUser.classList.toggle("logged", logged);
 }
 
@@ -871,7 +1037,9 @@ if (btnGoogle) {
 if ($("loginForm")) {
   $("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const emailVal = $("loginEmail") ? $("loginEmail").value.trim().toLowerCase() : "";
+    const emailVal = $("loginEmail")
+      ? $("loginEmail").value.trim().toLowerCase()
+      : "";
     const passVal = $("loginPassword") ? $("loginPassword").value.trim() : "";
 
     try {
@@ -925,6 +1093,10 @@ if ($("btnLogout")) {
 /* =========================================================
    10. Selector de idioma
    ========================================================= */
+
+
+
+   
 const btnLang = $("btnLang");
 const langMenu = $("langMenu");
 
