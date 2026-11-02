@@ -114,14 +114,14 @@
       
       <header class="checkout-header">
         <h1 class="t-h2" id="checkoutTitle">Finalizar compra</h1>
-        <p class="lead">Completa tus datos de envío y pago para recibir tu equipamiento oficial de baloncesto.</p>
+        <p class="lead" style="margin-top: 12px; font-size: 17px; color: var(--n700);">Completa tus datos de envío y pago para tramitar tu pedido oficial de baloncesto.</p>
       </header>
 
       <div class="checkout-layout">
         
         <!-- Formulario Principal -->
         <section class="checkout-main" aria-labelledby="formHeading">
-          <h2 class="sr" id="formHeading">Formulario de pedido</h2>
+          <h2 class="sr" id="formHeading">Formulario de tramitación de pedido</h2>
 
           <form id="orderForm" class="checkout-form" novalidate>
 
@@ -142,7 +142,7 @@
 
             <!-- 2. Dirección de Envío -->
             <fieldset class="form-section">
-              <legend class="section-title">2. Dirección de envío</legend>
+              <legend class="section-title">2. Dirección de entrega</legend>
               <div class="form-grid">
                 <div class="field">
                   <label for="cName">Nombre <span aria-hidden="true">*</span></label>
@@ -158,36 +158,36 @@
                 </div>
                 <div class="field">
                   <label for="cZip">Código Postal <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cZip" name="postal-code" required autocomplete="postal-code" placeholder="28001">
+                  <input type="text" id="cZip" name="postal-code" required autocomplete="postal-code" placeholder="26001">
                 </div>
                 <div class="field">
                   <label for="cCity">Ciudad <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cCity" name="city" required autocomplete="address-level2" placeholder="Madrid">
+                  <input type="text" id="cCity" name="city" required autocomplete="address-level2" placeholder="Logroño">
                 </div>
               </div>
             </fieldset>
 
-            <!-- 3. Método de Pago -->
+            <!-- 3. Método de Pago Seguro -->
             <fieldset class="form-section">
               <legend class="section-title">3. Método de pago seguro</legend>
 
               <div class="payment-options" role="radiogroup" aria-label="Seleccionar método de pago">
-                <label class="pay-card active">
+                <label class="pay-card active" id="payOptCard">
                   <input type="radio" name="payMethod" value="card" checked>
-                  <span>Tarjeta (Visa / Mastercard)</span>
+                  <span>💳 Tarjeta (Visa / Mastercard)</span>
                 </label>
-                <label class="pay-card">
+                <label class="pay-card" id="payOptPaypal">
                   <input type="radio" name="payMethod" value="paypal">
-                  <span>PayPal</span>
+                  <span>🅿️ PayPal</span>
                 </label>
-                <label class="pay-card">
+                <label class="pay-card" id="payOptApple">
                   <input type="radio" name="payMethod" value="applepay">
-                  <span>Apple Pay</span>
+                  <span> Apple Pay</span>
                 </label>
               </div>
 
-              <!-- Campos de Tarjeta -->
-              <div class="form-grid" id="cardFields" style="margin-top: 16px;">
+              <!-- Campos específicos de Tarjeta -->
+              <div class="form-grid" id="cardFields" style="margin-top: 18px;">
                 <div class="field full">
                   <label for="cCardNumber">Número de tarjeta <span aria-hidden="true">*</span></label>
                   <input type="text" id="cCardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
@@ -201,10 +201,15 @@
                   <input type="text" id="cCardCvc" inputmode="numeric" placeholder="123" maxlength="4">
                 </div>
               </div>
+
+              <!-- Mensaje alternativo si eligen PayPal o Apple Pay -->
+              <div id="altPayNote" style="display: none; padding: 16px; margin-top: 16px; border-radius: 12px; background: var(--blue-tint); color: var(--blue-dark); font-size: 14px; font-weight: 700;">
+                Serás redirigido a la pasarela segura correspondiente al confirmar el pedido.
+              </div>
             </fieldset>
 
             <!-- Aceptación legal -->
-            <div class="field-check">
+            <div class="field-check" style="margin-top: 8px;">
               <input type="checkbox" id="legalTerms" required>
               <label for="legalTerms">
                 He leído y acepto el <a href="aviso-legal.html" target="_blank" rel="noopener">Aviso legal</a> y la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.
@@ -242,8 +247,9 @@
             </div>
 
             <div class="guarantee-box">
-              <p>🔒 <strong>Pago 100% protegido</strong> con cifrado SSL de 256 bits.</p>
-              <p>📦 Devolución gratuita en un plazo de 30 días.</p>
+              <p>🔒 <strong>Pago 100% protegido</strong> con cifrado SSL.</p>
+              <p>📦 <strong>Envío gratis</strong> en pedidos a partir de 60 €.</p>
+              <p>🔄 Plazo de cambio y devolución de 30 días.</p>
             </div>
           </div>
         </aside>
@@ -290,10 +296,48 @@
         <nav class="f-col" aria-label="Redes sociales">
           <h3 data-i18n="col_follow">Síguenos</h3>
           <ul class="social-links">
-            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="sr">Instagram</span></a></li>
-            <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><span class="sr">TikTok</span></a></li>
-            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><span class="sr">YouTube</span></a></li>
-            <li><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X"><span class="sr">X</span></a></li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                <span class="sr">Instagram</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
+                <span class="sr">TikTok</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+                <span class="sr">YouTube</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                  </path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X" title="X">
+                <span class="sr">X</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                </svg>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -305,7 +349,7 @@
     </div>
   </footer>
 
-  <!-- Diálogos (mantiene la sincronización del header) -->
+  <!-- Diálogos -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
@@ -355,10 +399,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Scripts -->
+  <!-- Todo el comportamiento se delega a script.js -->
   <script src="javascript/script.js"></script>
-  <script>
-    
-  </script>
 </body>
+
 </html>
