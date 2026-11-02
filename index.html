@@ -12,16 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .card-media.product-photo{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f3f3f1;min-height:250px;aspect-ratio:4/3}
-    .card-media.product-photo .product-image{display:block;box-sizing:border-box;width:100%;height:100%;min-height:250px;object-fit:contain;padding:10px;mix-blend-mode:multiply;transition:transform .3s ease}
-    .card-media.product-photo .product-image[src*="harden-volume-9-sin-fondo"],
-    .card-media.product-photo .product-image[src*="boston-celtics"]{mix-blend-mode:normal}
-    .card:hover .card-media.product-photo .product-image{transform:scale(1.035)}
-    .card-media.product-photo .badge,.card-media.product-photo .wish{z-index:2}
-    @media(max-width:600px){.card-media.product-photo,.card-media.product-photo .product-image{min-height:210px}}
-  </style>
-
   <script src="javascript/geo-schema.js" defer></script>
 </head>
 
@@ -177,7 +167,9 @@
         <div class="grid">
 
           <article class="card reveal" data-id="p1" data-price="99.95">
-            <div class="card-media product-photo"><img class="product-image" src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png" alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png"
+                alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -199,7 +191,9 @@
           </article>
 
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95">
-            <div class="card-media product-photo"><img class="product-image" src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766" alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766"
+                alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -221,7 +215,9 @@
           </article>
 
           <article class="card reveal" data-id="p3" data-price="24.95">
-            <div class="card-media product-photo"><img class="product-image" src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325" alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325"
+                alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
@@ -242,7 +238,9 @@
           </article>
 
           <article class="card reveal" data-id="p4" data-price="89.95">
-            <div class="card-media product-photo"><img class="product-image" src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png" alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png"
+                alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
               <span class="badge nba">NBA</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -267,6 +265,78 @@
       </div>
     </section>
 
+    <!-- SECCIÓN DE RESEÑAS -->
+    <section class="block" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="block-head">
+          <div>
+            <h2 class="t-h2" id="reviewsTitle">Opiniones de la comunidad</h2>
+            <p style="margin-top: 10px; color: #374151; font-weight: 700; font-size: 15px;">
+              Puntuación media de 4.9/5 basada en más de 1.200 jugadores y clubes.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+
+          <article class="review-card reveal">
+            <div>
+              <div class="review-stars" aria-hidden="true">★★★★★</div>
+              <span class="sr">Valoración: 5 de 5 estrellas</span>
+              <p class="review-text">
+                "Las Nike Precision 6 tienen un agarre brutal en parqué. El envío tardó menos de 24 horas en llegar a casa y la talla coincidía exactamente con la guía."
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="review-avatar" aria-hidden="true">MR</div>
+              <div class="review-info">
+                <strong>Marcos R.</strong>
+                <span class="verified">✓ Compra verificada</span>
+                <span class="review-product">Compró: Nike Precision 6</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div>
+              <div class="review-stars" aria-hidden="true">★★★★★</div>
+              <span class="sr">Valoración: 5 de 5 estrellas</span>
+              <p class="review-text">
+                "Pedimos las equipaciones Joma para todo el equipo sénior del club. El tejido transpira de diez y la estampación de los dorsales tiene una calidad impecable tras varios lavados."
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="review-avatar" aria-hidden="true">AL</div>
+              <div class="review-info">
+                <strong>Álvaro L.</strong>
+                <span class="verified">✓ Compra verificada</span>
+                <span class="review-product">Compró: Equipación Joma Final II</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div>
+              <div class="review-stars" aria-hidden="true">★★★★★</div>
+              <span class="sr">Valoración: 5 de 5 estrellas</span>
+              <p class="review-text">
+                "La camiseta Swingman de los Celtics es 100% original con todas las etiquetas oficiales NBA. Se agradece encontrar una tienda especializada gestionada por gente que juega."
+              </p>
+            </div>
+            <div class="review-author">
+              <div class="review-avatar" aria-hidden="true">SL</div>
+              <div class="review-info">
+                <strong>Sofía L.</strong>
+                <span class="verified">✓ Compra verificada</span>
+                <span class="review-product">Compró: Camiseta Boston Celtics</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer dark">
@@ -276,11 +346,21 @@
           <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
-          <form class="news" action="#" method="post">
-            <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
-            <input id="newsEmail" type="email" title="Correo electrónico" required autocomplete="email"
-              placeholder="tu@email.com">
-            <input type="submit" value="→" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+          <form class="news" id="newsletterForm" action="#" method="post">
+            <div class="news-field">
+              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
+              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
+                placeholder="Tu nombre" data-i18n-ph="ph_name">
+            </div>
+            <div class="news-field">
+              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
+                placeholder="tu@email.com" data-i18n-ph="ph_email">
+            </div>
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+              <span data-i18n="btn_subscribe">Unirme</span>
+              <span aria-hidden="true">→</span>
+            </button>
           </form>
         </div>
 
@@ -357,6 +437,20 @@
         data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
 
+      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google" title="Continuar con Google">
+        <svg class="google-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+        <span data-i18n="google_btn">Continuar con Google</span>
+      </button>
+
+      <div class="auth-divider" role="separator" aria-label="O inicia sesión con correo">
+        <span data-i18n="auth_or">o con correo</span>
+      </div>
+
       <form id="loginForm" class="dlg-form" action="#" method="post">
         <div class="field">
           <label for="loginEmail" data-i18n="email">Correo electrónico</label>
@@ -374,8 +468,7 @@
         <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
       </div>
 
-      <p class="note" data-i18n="demo">Demostración: no hay servidor, así que no se comprueba la contraseña ni se
-        guarda.</p>
+      <p class="note" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
     </div>
   </dialog>
 
@@ -385,8 +478,7 @@
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
         data-i18n-aria="a_close">✕</button>
       <h2 id="favTitleDlg" data-i18n="fav_dlg">Mis favoritos</h2>
-      <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos. Pulsa el corazón de un
-        producto para guardarlo aquí.</p>
+      <p class="fav-empty" id="favEmpty" data-i18n="fav_empty">Todavía no tienes favoritos.</p>
       <ul class="fav-list" id="favList" hidden>
         <li hidden>-</li>
       </ul>
