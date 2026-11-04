@@ -12,53 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .card-media.product-photo {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #f3f3f1;
-      min-height: 250px;
-      aspect-ratio: 4/3
-    }
-
-    .card-media.product-photo .product-image {
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      object-fit: contain;
-      padding: 10px;
-      mix-blend-mode: multiply;
-      transition: transform .3s ease
-    }
-
-    .card-media.product-photo .product-image[src*="harden-volume-9-sin-fondo"],
-    .card-media.product-photo .product-image[src*="boston-celtics"] {
-      mix-blend-mode: normal
-    }
-
-    .card:hover .card-media.product-photo .product-image {
-      transform: scale(1.035)
-    }
-
-    .card-media.product-photo .badge,
-    .card-media.product-photo .wish {
-      z-index: 2
-    }
-
-    @media(max-width:600px) {
-
-      .card-media.product-photo,
-      .card-media.product-photo .product-image {
-        min-height: 210px
-      }
-    }
-  </style>
-
+  <script src="javascript/geo-schema.js" defer></script>
 </head>
 
 <body>
@@ -89,8 +43,7 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                </path>
+                <ellipse cx="12" cy="12" rx="4.5" ry="10"></ellipse>
               </svg>
             </span>
             <span id="langLabel">ES</span>
@@ -162,7 +115,7 @@
     <!-- Encabezado de Catálogo con Buscador y Deslizador de Precio -->
     <section class="catalog-header">
       <div class="container">
-        <h1 class="t-h2" id="catalogTitle">Catálogo Completo</h1>
+        <h1 class="t-h2" id="catalogTitle" data-i18n="cat_all_title">Catálogo Completo</h1>
 
         <!-- Barra de herramientas: Buscador y Slider de Precio -->
         <div class="catalog-toolbar">
@@ -178,22 +131,23 @@
               </svg>
             </span>
             <input type="search" id="catalogSearch" title="Buscar productos"
-              placeholder="Buscar por nombre (ej: Nike Precision, camiseta...)" aria-label="Buscar productos">
+              placeholder="Buscar por nombre (ej: Nike Precision, camiseta...)" data-i18n-ph="ph_search"
+              aria-label="Buscar productos">
           </div>
 
           <!-- Filtro con deslizador de precio Mín/Máx -->
           <div class="catalog-price-filter">
             <div class="price-info">
-              <span>Rango de precio:</span>
+              <span data-i18n="price_range">Rango de precio:</span>
               <strong id="priceDisplay">0 € – 200 €</strong>
             </div>
             <div class="price-slider-wrap">
               <div class="slider-field">
-                <label for="priceMin">Mín</label>
+                <label for="priceMin" data-i18n="lbl_min">Mín</label>
                 <input type="range" id="priceMin" title="Precio mínimo" min="0" max="200" step="5" value="0">
               </div>
               <div class="slider-field">
-                <label for="priceMax">Máx</label>
+                <label for="priceMax" data-i18n="lbl_max">Máx</label>
                 <input type="range" id="priceMax" title="Precio máximo" min="0" max="200" step="5" value="200">
               </div>
             </div>
@@ -203,28 +157,26 @@
 
         <!-- Filtros por categoría -->
         <div class="filters-bar" role="toolbar" aria-label="Filtros de categoría">
-          <button class="filter-btn active" type="button" data-filter="todos">Todos</button>
-          <button class="filter-btn" type="button" data-filter="zapatillas">Zapatillas</button>
-          <button class="filter-btn" type="button" data-filter="equipaciones">Equipaciones</button>
-          <button class="filter-btn" type="button" data-filter="accesorios">Accesorios</button>
+          <button class="filter-btn active" type="button" data-filter="todos" data-i18n="filter_all">Todos</button>
+          <button class="filter-btn" type="button" data-filter="zapatillas" data-i18n="nav_shoes">Zapatillas</button>
+          <button class="filter-btn" type="button" data-filter="equipaciones" data-i18n="nav_kits">Equipaciones</button>
+          <button class="filter-btn" type="button" data-filter="accesorios" data-i18n="nav_acc">Accesorios</button>
           <button class="filter-btn" type="button" data-filter="nba">NBA</button>
         </div>
       </div>
     </section>
 
     <!-- Listado de Productos -->
-    <!-- Listado de Productos -->
     <section class="block" style="padding-top: 16px;" aria-labelledby="productsHeading">
       <div class="container">
-        <!-- Este H2 mantiene la jerarquía H1 -> H2 -> H3 sin alterar el diseño visual -->
         <h2 class="sr" id="productsHeading">Productos del catálogo</h2>
 
         <div class="grid" id="catalogGrid">
-          <!-- Aquí siguen tus <article class="card"> con sus <h3> -->
 
           <!-- ZAPATILLAS -->
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png"
                 alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
@@ -272,7 +224,8 @@
 
           <!-- EQUIPACIONES -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766"
                 alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
@@ -297,7 +250,8 @@
 
           <!-- ACCESORIOS -->
           <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325"
                 alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
@@ -321,7 +275,8 @@
 
           <!-- NBA -->
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png"
                 alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
               <span class="badge nba">NBA</span>
@@ -346,7 +301,7 @@
 
         </div>
 
-        <p class="empty-catalog" id="emptyMessage" hidden>No se han encontrado productos con estos filtros.</p>
+        <p class="empty-catalog" id="emptyMessage" data-i18n="empty_cat" hidden>No se han encontrado productos con estos filtros.</p>
       </div>
     </section>
 
@@ -444,12 +399,32 @@
     </div>
   </footer>
 
-  <!-- Diálogos -->
+  <!-- Diálogo Sesión -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
         data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
+
+      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google"
+        title="Continuar con Google">
+        <svg class="google-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4"
+            d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" />
+          <path fill="#34A853"
+            d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" />
+          <path fill="#FBBC05"
+            d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+          <path fill="#EA4335"
+            d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+        </svg>
+        <span data-i18n="google_btn">Continuar con Google</span>
+      </button>
+
+      <div class="auth-divider" role="separator" aria-label="O inicia sesión con correo">
+        <span data-i18n="auth_or">o con correo</span>
+      </div>
+
       <form id="loginForm" class="dlg-form" action="#" method="post">
         <div class="field">
           <label for="loginEmail" data-i18n="email">Correo electrónico</label>
@@ -461,15 +436,17 @@
         </div>
         <input class="btn btn-primary" type="submit" value="Entrar" title="Entrar" data-i18n="login_btn">
       </form>
+
       <div id="userIn" class="dlg-form" hidden>
         <p class="hello" id="userHello"></p>
         <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
       </div>
-      <p class="note" data-i18n="demo">Demostración: no hay servidor, así que no se comprueba la contraseña ni se
-        guarda.</p>
+
+      <p class="note" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
     </div>
   </dialog>
 
+  <!-- Diálogo Favoritos -->
   <dialog id="dlgFav" aria-labelledby="favTitleDlg">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
@@ -482,22 +459,27 @@
     </div>
   </dialog>
 
+  <!-- Diálogo Carrito -->
   <dialog id="dlgCart" aria-labelledby="cartTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
         data-i18n-aria="a_close">✕</button>
       <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
+
       <div class="ship" id="cartShip">
         <p id="shipText"></p>
         <div class="bar" id="shipBar"><span class="bar-fill"></span></div>
       </div>
+
       <div class="cart-empty-box" id="cartEmpty">
         <p class="fav-empty" data-i18n="cart_empty">Tu carrito está vacío.</p>
         <button class="btn btn-primary" type="button" data-close data-i18n="cart_continue">Seguir comprando</button>
       </div>
+
       <ul class="fav-list" id="cartList" hidden>
         <li hidden>-</li>
       </ul>
+
       <div class="cart-foot" id="cartFoot">
         <p class="sum"><span data-i18n="subtotal">Subtotal</span><span id="sumSub"></span></p>
         <p class="sum"><span data-i18n="shipping">Envío</span><span id="sumShip"></span></p>
