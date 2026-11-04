@@ -13,13 +13,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .card-media.product-photo{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f3f3f1;min-height:250px;aspect-ratio:4/3}
-    .card-media.product-photo .product-image{display:block;box-sizing:border-box;width:100%;height:100%;min-height:250px;object-fit:contain;padding:10px;mix-blend-mode:multiply;transition:transform .3s ease}
+    .card-media.product-photo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #f3f3f1;
+      min-height: 250px;
+      aspect-ratio: 4/3
+    }
+
+    .card-media.product-photo .product-image {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: contain;
+      padding: 10px;
+      mix-blend-mode: multiply;
+      transition: transform .3s ease
+    }
+
     .card-media.product-photo .product-image[src*="harden-volume-9-sin-fondo"],
-    .card-media.product-photo .product-image[src*="boston-celtics"]{mix-blend-mode:normal}
-    .card:hover .card-media.product-photo .product-image{transform:scale(1.035)}
-    .card-media.product-photo .badge,.card-media.product-photo .wish{z-index:2}
-    @media(max-width:600px){.card-media.product-photo,.card-media.product-photo .product-image{min-height:210px}}
+    .card-media.product-photo .product-image[src*="boston-celtics"] {
+      mix-blend-mode: normal
+    }
+
+    .card:hover .card-media.product-photo .product-image {
+      transform: scale(1.035)
+    }
+
+    .card-media.product-photo .badge,
+    .card-media.product-photo .wish {
+      z-index: 2
+    }
+
+    @media(max-width:600px) {
+
+      .card-media.product-photo,
+      .card-media.product-photo .product-image {
+        min-height: 210px
+      }
+    }
   </style>
 
 </head>
@@ -187,7 +224,9 @@
 
           <!-- ZAPATILLAS -->
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
-            <div class="card-media product-photo"><img class="product-image" src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png" alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png"
+                alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -210,10 +249,8 @@
 
           <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
             <div class="card-media product-photo">
-              <img class="product-image"
-     src="imagenes/harden-volume-9-uno-12.png"
-     alt="adidas Harden Volume 9"
-     loading="lazy">
+              <img class="product-image" src="imagenes/harden-volume-9-uno-12.png" alt="adidas Harden Volume 9"
+                loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
@@ -235,7 +272,9 @@
 
           <!-- EQUIPACIONES -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
-            <div class="card-media product-photo"><img class="product-image" src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766" alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766"
+                alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -258,7 +297,9 @@
 
           <!-- ACCESORIOS -->
           <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
-            <div class="card-media product-photo"><img class="product-image" src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325" alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325"
+                alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
                 <span class="sr">Añadir a favoritos</span>
@@ -280,7 +321,9 @@
 
           <!-- NBA -->
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
-            <div class="card-media product-photo"><img class="product-image" src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png" alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
+            <div class="card-media product-photo"><img class="product-image"
+                src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png"
+                alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
               <span class="badge nba">NBA</span>
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
                 title="Añadir a favoritos">
@@ -317,13 +360,32 @@
           <img src="imagenes/transparent-logo.png" alt="Hoop Store" width="104" height="96" loading="lazy">
           <h2 data-i18n="news_title">Entrena tu bandeja de entrada.</h2>
           <p data-i18n="news_sub">Novedades, drops y acceso anticipado.</p>
-          <form class="news" action="#" method="post">
-            <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
-            <input id="newsEmail" type="email" title="Correo electrónico" required autocomplete="email"
-              placeholder="tu@email.com">
-            <input type="submit" value="→" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+          <form class="news" id="newsletterForm" action="#" method="post">
+            <div class="news-field">
+              <label class="sr" for="newsName" data-i18n="name">Nombre</label>
+              <input id="newsName" name="name" type="text" title="Tu nombre" required autocomplete="name"
+                placeholder="Tu nombre" data-i18n-ph="ph_name">
+            </div>
+            <div class="news-field">
+              <label class="sr" for="newsEmail" data-i18n="email">Correo electrónico</label>
+              <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
+                placeholder="tu@email.com" data-i18n-ph="ph_email">
+            </div>
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+              <span data-i18n="btn_subscribe">Unirme</span>
+              <span aria-hidden="true">→</span>
+            </button>
           </form>
         </div>
+
+        <nav class="f-col" aria-label="Información">
+          <h3 data-i18n="col_info">Información</h3>
+          <ul>
+            <li><a href="aviso-legal.html" data-i18n="legal">Aviso legal</a></li>
+            <li><a href="politica-cookies.html" data-i18n="cookies">Cookies</a></li>
+            <li><a href="politica-privacidad.html" data-i18n="privacy">Política de privacidad</a></li>
+          </ul>
+        </nav>
 
         <nav class="f-col" aria-label="Redes sociales">
           <h3 data-i18n="col_follow">Síguenos</h3>
