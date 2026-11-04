@@ -45,6 +45,9 @@ const KEYS = {
 /* =========================================================
    1. Idiomas
    ========================================================= */
+/* =========================================================
+   1. Idiomas (limpio sin reseñas)
+   ========================================================= */
 const I18N = {
   es: {
     title: "Hoop Store · Tienda de baloncesto",
@@ -139,84 +142,7 @@ const I18N = {
     t_google_login: "Sesión iniciada con Google como {name}",
     t_logout: "Sesión cerrada",
     t_checkout: "Demostración: el pago aún no está conectado",
-
-    /* Barra Catálogo */
-    cat_all_title: "Catálogo Completo",
-    ph_search: "Buscar por nombre (ej: Nike Precision, camiseta...)",
-    price_range: "Rango de precio:",
-    lbl_min: "Mín",
-    lbl_max: "Máx",
-    filter_all: "Todos",
-    empty_cat: "No se han encontrado productos con estos filtros.",
-
-    /* Reseñas */
-    rev_title: "Opiniones de la comunidad",
-    rev_sub:
-      "Puntuación media de 4.9/5 basada en más de 1.200 jugadores y clubes.",
-    rev_rating_sr: "Valoración: 5 de 5 estrellas",
-    rev_verified: "✓ Compra verificada",
-    rev_text_1:
-      '"Las Nike Precision 6 tienen un agarre brutal en parqué. El envío tardó menos de 24 horas en llegar a casa y la talla coincidía exactamente con la guía."',
-    rev_bought_1: "Compró: Nike Precision 6",
-    rev_text_2:
-      '"Pedimos las equipaciones Joma para todo el equipo sénior del club. El tejido transpira de diez y la estampación de los dorsales tiene una calidad impecable tras varios lavados."',
-    rev_bought_2: "Compró: Equipación Joma Final II",
-    rev_text_3:
-      '"La camiseta Swingman de los Celtics es 100% original con todas las etiquetas oficiales NBA. Se agradece encontrar una tienda especializada gestionada por gente que juega."',
-    rev_bought_3: "Compró: Camiseta Boston Celtics",
-
-    /* Política de Cookies */
-    ck_title: "Política de Cookies",
-    ck_h2_1: "1. ¿Qué son las cookies y el almacenamiento local?",
-    ck_p_1:
-      "Una cookie es un pequeño archivo que se almacena en el navegador del usuario al visitar una página. En Hoop Store utilizamos tecnologías como localStorage para recordar tus preferencias de navegación sin almacenar datos bancarios ni sensibles.",
-    ck_h2_2: "2. Cookies y datos técnicos utilizados",
-    ck_li_1: "Recuerda el idioma seleccionado (ES, EN, CA, FR).",
-    ck_li_2: "Mantiene los productos añadidos a tu cesta durante la compra.",
-    ck_li_3: "Guarda tu lista de productos favoritos marcados con corazón.",
-    ck_li_4: "Conserva tu sesión iniciada de manera local.",
-    ck_h2_3: "3. Cómo deshabilitar las cookies",
-    ck_p_3:
-      "Puedes restringir o eliminar las cookies y elementos locales mediante la configuración de tu navegador (Chrome, Firefox, Safari, Edge). Ten en cuenta que si deshabilitas el almacenamiento local, el carrito y la selección de idioma no podrán guardarse entre visitas.",
-
-    /* Política de Privacidad */
-    pr_title: "Política de Privacidad",
-    pr_h2_1: "1. Responsable del tratamiento",
-    pr_p_1:
-      "El responsable del tratamiento de los datos recogidos en este sitio web es Hoop Store S.L., con domicilio en C/ Baloncesto 23, 28001 Madrid. Delegado de Protección de Datos: privacidad@hoopstore.com.",
-    pr_h2_2: "2. Finalidad del tratamiento de datos",
-    pr_p_2:
-      "Tratamos los datos que nos facilitas con las siguientes finalidades:",
-    pr_li_1: "Gestionar la creación y acceso a tu cuenta de usuario.",
-    pr_li_2: "Tramitar pedidos, envíos y facturación de productos comprados.",
-    pr_li_3:
-      "Atender dudas, solicitudes o incidencias mediante nuestro centro de ayuda.",
-    pr_li_4:
-      "Enviar el boletín de novedades y ofertas si te has suscrito voluntariamente.",
-    pr_h2_3: "3. Legitimación",
-    pr_p_3:
-      "La base legal para el tratamiento de tus datos es la ejecución del contrato de compraventa al tramitar pedidos, y el consentimiento expreso al registrarte o suscribirte a nuestra newsletter.",
-    pr_h2_4: "4. Derechos de los usuarios",
-    pr_p_4:
-      "Tienes derecho a acceder, rectificar y suprimir tus datos, así como a limitar u oponerte a su tratamiento solicitándolo a través del correo privacidad@hoopstore.com adjuntando copia de tu documento de identidad.",
-
-    /* Aviso Legal */
-    al_title: "Aviso Legal",
-    al_h2_1: "1. Datos identificativos",
-    al_p_1a:
-      "En cumplimiento con el deber de información estipulado en la legislación vigente, se informa de que este sitio web pertenece a Hoop Store S.L., con NIF B-12345678, domicilio social en C/ Baloncesto 23, 28001 Madrid (España), e inscrita en el Registro Mercantil.",
-    al_p_1b: "Correo electrónico de contacto: contacto@hoopstore.com.",
-    al_h2_2: "2. Condiciones de uso",
-    al_p_2:
-      "El acceso y uso de este portal atribuye la condición de usuario, aceptando de manera plena y sin reservas el presente Aviso Legal. El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que Hoop Store ofrece a través de su plataforma digital.",
-    al_h2_3: "3. Propiedad intelectual e industrial",
-    al_p_3:
-      "Todos los contenidos del sitio web, incluyendo textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a Hoop Store o a terceros colaboradores, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos.",
-    al_h2_4: "4. Exclusión de garantías y responsabilidad",
-    al_p_4:
-      "Hoop Store no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.",
   },
-
   en: {
     title: "Hoop Store · Basketball shop",
     skip: "Skip to content",
@@ -309,80 +235,7 @@ const I18N = {
     t_google_login: "Logged in with Google as {name}",
     t_logout: "Logged out",
     t_checkout: "Demo: payment is not connected yet",
-
-    /* Barra Catálogo */
-    cat_all_title: "Full Catalog",
-    ph_search: "Search by name (e.g. Nike Precision, jersey...)",
-    price_range: "Price range:",
-    lbl_min: "Min",
-    lbl_max: "Max",
-    filter_all: "All",
-    empty_cat: "No products found matching these filters.",
-
-    /* Reseñas */
-    rev_title: "Community Reviews",
-    rev_sub: "Average rating of 4.9/5 based on over 1,200 players and clubs.",
-    rev_rating_sr: "Rating: 5 out of 5 stars",
-    rev_verified: "✓ Verified purchase",
-    rev_text_1:
-      '"The Nike Precision 6 has incredible grip on hardwood floors. Delivery arrived in under 24 hours and sizing was spot on."',
-    rev_bought_1: "Purchased: Nike Precision 6",
-    rev_text_2:
-      '"We ordered the Joma kits for our senior squad. The fabric is very breathable and the printed numbers hold up perfectly after multiple washes."',
-    rev_bought_2: "Purchased: Joma Final II Kit",
-    rev_text_3:
-      '"The Celtics Swingman jersey is 100% authentic with official NBA tags. Great to support a basketball-focused shop run by real players."',
-    rev_bought_3: "Purchased: Boston Celtics Jersey",
-
-    /* Política de Cookies */
-    ck_title: "Cookie Policy",
-    ck_h2_1: "1. What are cookies and local storage?",
-    ck_p_1:
-      "A cookie is a small file stored in your browser when visiting a website. At Hoop Store we use technologies like localStorage to remember your preferences without storing sensitive or banking data.",
-    ck_h2_2: "2. Technical cookies and data used",
-    ck_li_1: "Remembers the selected language (ES, EN, CA, FR).",
-    ck_li_2: "Retains the products added to your basket during checkout.",
-    ck_li_3: "Stores your wishlist of favourite products marked with a heart.",
-    ck_li_4: "Keeps your local session active.",
-    ck_h2_3: "3. How to disable cookies",
-    ck_p_3:
-      "You can restrict or remove cookies and local storage in your browser settings (Chrome, Firefox, Safari, Edge). Please note that if you disable local storage, your cart and language will not be saved between visits.",
-
-    /* Política de Privacidad */
-    pr_title: "Privacy Policy",
-    pr_h2_1: "1. Data Controller",
-    pr_p_1:
-      "The data controller for information collected on this website is Hoop Store S.L., located at C/ Baloncesto 23, 28001 Madrid. Data Protection Officer: privacidad@hoopstore.com.",
-    pr_h2_2: "2. Purpose of processing",
-    pr_p_2: "We process your personal data for the following purposes:",
-    pr_li_1: "Manage user account creation and access.",
-    pr_li_2: "Process orders, shipments, and invoicing for purchased items.",
-    pr_li_3: "Handle inquiries and support through our help centre.",
-    pr_li_4: "Deliver newsletter updates and offers if subscribed.",
-    pr_h2_3: "3. Lawful basis",
-    pr_p_3:
-      "The legal basis for processing your data is contract execution when fulfilling orders and your consent when creating an account or subscribing to our newsletter.",
-    pr_h2_4: "4. User rights",
-    pr_p_4:
-      "You have the right to access, rectify, or erase your data, and to restrict or object to its processing by writing to privacidad@hoopstore.com with a copy of your ID.",
-
-    /* Aviso Legal */
-    al_title: "Legal Notice",
-    al_h2_1: "1. Identification details",
-    al_p_1a:
-      "In compliance with statutory disclosure obligations, this website is operated by Hoop Store S.L., Tax ID B-12345678, registered address at C/ Baloncesto 23, 28001 Madrid (Spain), registered in the Commercial Registry.",
-    al_p_1b: "Contact email: contacto@hoopstore.com.",
-    al_h2_2: "2. Terms of use",
-    al_p_2:
-      "Access and use of this website grant you user status and imply acceptance of this Legal Notice. The user agrees to make appropriate use of the platform and its digital services.",
-    al_h2_3: "3. Intellectual and industrial property",
-    al_p_3:
-      "All site content, including texts, photos, graphics, source code, and design, belongs to Hoop Store or its licensors. No exploitation rights are transferred to the user.",
-    al_h2_4: "4. Disclaimer of warranties and liability",
-    al_p_4:
-      "Hoop Store shall not be liable for damages resulting from technical unavailability, errors, omissions, or malicious programs, despite having adopted security measures.",
   },
-
   ca: {
     title: "Hoop Store · Botiga de bàsquet",
     skip: "Salta al contingut",
@@ -448,7 +301,7 @@ const I18N = {
     user_title: "El teu compte",
     hello: "Hola, {name}",
     logout: "Tanca la sessió",
-    demo: "Mini base de dades JSON: prova amb profe@hoopstore.com i 12345.",
+    demo: "Mini base de dades JSON: prova amb profe@hoopstore.com y 12345.",
     err_login: "Correu o contrasenya incorrectes.",
     fav_dlg: "Els meus preferits",
     fav_empty:
@@ -475,82 +328,7 @@ const I18N = {
     t_google_login: "Sessió iniciada amb Google com a {name}",
     t_logout: "Sessió tancada",
     t_checkout: "Demostració: el pagament encara no està connectat",
-
-    /* Barra Catálogo */
-    cat_all_title: "Catàleg Complet",
-    ph_search: "Cerca per nom (ex: Nike Precision, samarreta...)",
-    price_range: "Rang de preu:",
-    lbl_min: "Mín",
-    lbl_max: "Màx",
-    filter_all: "Tots",
-    empty_cat: "No s'han trobat productes amb aquests filtres.",
-
-    /* Reseñas */
-    rev_title: "Opinions de la comunitat",
-    rev_sub:
-      "Puntuació mitjana de 4.9/5 basada en més de 1.200 jugadors i clubs.",
-    rev_rating_sr: "Valoració: 5 de 5 estrelles",
-    rev_verified: "✓ Compra verificada",
-    rev_text_1:
-      '"Les Nike Precision 6 tenen una adherència brutal a pista. La comanda va trigar menys de 24 hores a arribar i la talla coincidia amb la guia."',
-    rev_bought_1: "Ha comprat: Nike Precision 6",
-    rev_text_2:
-      '"Vam demanar les equipacions Joma per al sènior del club. El teixit transpira molt bé i l\'estampació dels dorsals té una qualitat excel·lent."',
-    rev_bought_2: "Ha comprat: Equipació Joma Final II",
-    rev_text_3:
-      '"La samarreta Swingman dels Celtics és 100% oficial amb totes les etiquetes NBA. S\'agraeix trobar una botiga portada per gent que juga."',
-    rev_bought_3: "Ha comprat: Samarreta Boston Celtics",
-
-    /* Política de Cookies */
-    ck_title: "Política de Galetes",
-    ck_h2_1: "1. Què són les galetes i l'emmagatzematge local?",
-    ck_p_1:
-      "Una galeta és un petit fitxer emmagatzemat al navegador en visitar una pàgina. A Hoop Store fem servir localStorage per recordar les teves preferències sense desar dades bancàries ni sensibles.",
-    ck_h2_2: "2. Galetes i dades tècniques utilitzades",
-    ck_li_1: "Recorda l'idioma seleccionat (ES, EN, CA, FR).",
-    ck_li_2: "Manté els productes afegits a la cistella durant la compra.",
-    ck_li_3: "Desa la llista de preferits marcats amb cor.",
-    ck_li_4: "Conserva la teva sessió iniciada de manera local.",
-    ck_h2_3: "3. Com desactivar les galetes",
-    ck_p_3:
-      "Pots restringir o eliminar les galetes des de la configuració del teu navegador (Chrome, Firefox, Safari, Edge). Si desactives l'emmagatzematge, la cistella i l'idioma no es podran guardar.",
-
-    /* Política de Privacidad */
-    pr_title: "Política de Privacitat",
-    pr_h2_1: "1. Responsable del tractament",
-    pr_p_1:
-      "El responsable del tractament de les dades recollides és Hoop Store S.L., amb domicili al C/ Baloncesto 23, 28001 Madrid. Delegat de Protecció de Dades: privacidad@hoopstore.com.",
-    pr_h2_2: "2. Finalitat del tractament de dades",
-    pr_p_2: "Tractem les dades que ens facilites amb les finalitats següents:",
-    pr_li_1: "Gestionar la creació i l'accés al teu compte d'usuari.",
-    pr_li_2: "Tramitar comandes, enviaments i facturació de productes.",
-    pr_li_3:
-      "Atendre consultes i incidències mitjançant el nostre centre d'ajuda.",
-    pr_li_4: "Enviar el butlletí de novetats i ofertes si t'hi has subscrit.",
-    pr_h2_3: "3. Legitimació",
-    pr_p_3:
-      "La base legal és l'execució del contracte de compravenda en tramitar comandes i el consentiment en registrar-te o subscriure't al butlletí.",
-    pr_h2_4: "4. Drets dels usuaris",
-    pr_p_4:
-      "Tens dret a accedir, rectificar i suprimir les teves dades a través del correu privacidad@hoopstore.com aportant còpia del document d'identitat.",
-
-    /* Aviso Legal */
-    al_title: "Avís Legal",
-    al_h2_1: "1. Dades identificatives",
-    al_p_1a:
-      "En compliment de la legislació vigent, s'informa que aquest lloc web pertany a Hoop Store S.L., amb NIF B-12345678, domicili social al C/ Baloncesto 23, 28001 Madrid (Espanya).",
-    al_p_1b: "Correu de contacte: contacto@hoopstore.com.",
-    al_h2_2: "2. Condicions d'ús",
-    al_p_2:
-      "L'accés i ús d'aquest portal atribueix la condició d'usuari i implica l'acceptació plena d'aquest Avís Legal.",
-    al_h2_3: "3. Propietat intel·lectual i industrial",
-    al_p_3:
-      "Tots els continguts del lloc web pertanyen a Hoop Store o tercers col·laboradors, sense que se'n cedeixin els drets d'explotació.",
-    al_h2_4: "4. Exclusió de garanties i responsabilitat",
-    al_p_4:
-      "Hoop Store no es fa responsable de possibles errors, falta de disponibilitat de la web o transmissió de virus informàtics malgrat les mesures adoptades.",
   },
-
   fr: {
     title: "Hoop Store · Boutique de basket",
     skip: "Aller au contenu",
@@ -616,7 +394,7 @@ const I18N = {
     user_title: "Ton compte",
     hello: "Salut, {name}",
     logout: "Se déconnecter",
-    demo: "Mini base de données JSON : teste avec profe@hoopstore.com et 12345.",
+    demo: "Mini base de données JSON : teste avec profe@hoopstore.com y 12345.",
     err_login: "E-mail ou mot de passe incorrect.",
     fav_dlg: "Mes favoris",
     fav_empty:
@@ -643,78 +421,6 @@ const I18N = {
     t_google_login: "Connecté avec Google en tant que {name}",
     t_logout: "Déconnecté",
     t_checkout: "Démo : le paiement n'est pas encore relié",
-
-    /* Barra Catálogo */
-    cat_all_title: "Catalogue Complet",
-    ph_search: "Rechercher par nom (ex. : Nike Precision, maillot...)",
-    price_range: "Fourchette de prix :",
-    lbl_min: "Min",
-    lbl_max: "Max",
-    filter_all: "Tous",
-    empty_cat: "Aucun produit trouvé avec ces filtres.",
-
-    /* Reseñas */
-    rev_title: "Avis de la communauté",
-    rev_sub: "Note moyenne de 4.9/5 basée sur plus de 1 200 joueurs et clubs.",
-    rev_rating_sr: "Note : 5 sur 5 étoiles",
-    rev_verified: "✓ Achat vérifié",
-    rev_text_1:
-      '"Les Nike Precision 6 offrent une adhérence redoutable sur parquet. Livraison en moins de 24 heures et taille parfaitement conforme."',
-    rev_bought_1: "Acheté : Nike Precision 6",
-    rev_text_2:
-      '"Nous avons commandé les tenues Joma pour notre équipe senior. Tissu très respirant et flocage des numéros irréprochable après lavage."',
-    rev_bought_2: "Acheté : Tenue Joma Final II",
-    rev_text_3:
-      '"Le maillot Swingman des Celtics est 100% officiel avec toutes les étiquettes NBA. Un vrai plaisir de commander chez des passionnés de basket."',
-    rev_bought_3: "Acheté : Maillot Boston Celtics",
-
-    /* Politique de Cookies */
-    ck_title: "Politique de Cookies",
-    ck_h2_1: "1. Que sont les cookies et le stockage local ?",
-    ck_p_1:
-      "Un cookie est un fichier stocké dans votre navigateur lors de votre visite. Chez Hoop Store, nous utilisons localStorage pour mémoriser vos préférences sans stocker de données bancaires sensibles.",
-    ck_h2_2: "2. Données techniques et cookies utilisés",
-    ck_li_1: "Mémorise la langue sélectionnée (ES, EN, CA, FR).",
-    ck_li_2: "Conserve vos articles dans le panier pendant vos achats.",
-    ck_li_3: "Enregistre vos favoris marqués avec un cœur.",
-    ck_li_4: "Maintient votre session active localement.",
-    ck_h2_3: "3. Comment désactiver les cookies",
-    ck_p_3:
-      "Vous pouvez désactiver les cookies dans les paramètres de votre navigateur (Chrome, Firefox, Safari, Edge). Sans stockage local, le panier et la langue ne pourront être sauvegardés.",
-
-    /* Politique de Confidentialité */
-    pr_title: "Politique de Confidentialité",
-    pr_h2_1: "1. Responsable du traitement",
-    pr_p_1:
-      "Le responsable du traitement des données est Hoop Store S.L., C/ Baloncesto 23, 28001 Madrid. Délégué à la protection des données : privacidad@hoopstore.com.",
-    pr_h2_2: "2. Finalité du traitement",
-    pr_p_2: "Nous traitons vos données personnelles aux fins suivantes :",
-    pr_li_1: "Gérer la création et l'accès à votre compte client.",
-    pr_li_2: "Traiter les commandes, expéditions et factures.",
-    pr_li_3: "Répondre à vos demandes via notre centre d'aide.",
-    pr_li_4: "Envoyer notre lettre d'information si vous vous êtes abonné.",
-    pr_h2_3: "3. Base légale",
-    pr_p_3:
-      "La base légale repose sur l'exécution du contrat d'achat et votre consentement exprès lors de votre inscription.",
-    pr_h2_4: "4. Droits des utilisateurs",
-    pr_p_4:
-      "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à privacidad@hoopstore.com avec une pièce d'identité.",
-
-    /* Mentions Légales */
-    al_title: "Mentions Légales",
-    al_h2_1: "1. Mentions obligatoires",
-    al_p_1a:
-      "Conformément à la législation en vigueur, ce site est la propriété de Hoop Store S.L., NIF B-12345678, siège social à C/ Baloncesto 23, 28001 Madrid (Espagne).",
-    al_p_1b: "E-mail de contact : contacto@hoopstore.com.",
-    al_h2_2: "2. Conditions d'utilisation",
-    al_p_2:
-      "L'accès au site implique l'acceptation pleine et entière des présentes conditions d'utilisation.",
-    al_h2_3: "3. Propriété intellectuelle",
-    al_p_3:
-      "Tous les contenus du site restent la propriété exclusive de Hoop Store ou de ses partenaires.",
-    al_h2_4: "4. Limitation de responsabilité",
-    al_p_4:
-      "Hoop Store ne pourra être tenue responsable des interruptions de service ou des dommages causés par des tiers.",
   },
 };
 
