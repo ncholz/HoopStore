@@ -1079,6 +1079,7 @@ if (news) {
           : `catalogo.html?categoria=${currentCategory}`;
       window.history.replaceState({}, "", newUrl);
       filterCatalog();
+      updateActiveNavLink();
     });
   });
 
@@ -1297,7 +1298,37 @@ if (news) {
 })();
 
 /* =========================================================
+   13.5. Enlace activo en el menú de navegación
+   ========================================================= */
+function updateActiveNavLink() {
+  const navLinks = document.querySelectorAll(".nav a");
+  if (!navLinks.length) return;
+
+  const pathname = window.location.pathname.split("/").pop() || "index.html";
+  const searchParams = new URLSearchParams(window.location.search);
+  const cat = searchParams.get("categoria");
+
+  navLinks.forEach((link) => {
+    link.removeAttribute("aria-current");
+    const linkHref = link.getAttribute("href");
+
+    if (cat && linkHref === `catalogo.html?categoria=${cat}`) {
+      link.setAttribute("aria-current", "page");
+    } else if (
+      !cat &&
+      (pathname === "index.html" || pathname === "") &&
+      linkHref === "index.html"
+    ) {
+      link.setAttribute("aria-current", "page");
+    } else if (!cat && linkHref === pathname) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+}
+
+/* =========================================================
    14. Arranque global
    ========================================================= */
 renderCartIcon(false);
 applyLang();
+updateActiveNavLink();
