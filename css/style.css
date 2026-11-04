@@ -1156,19 +1156,23 @@ p {
   color: #c3c7cf;
 }
 
-/* Formulario newsletter corregido */
+/* Formulario newsletter compacto y alineado */
 .news {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  max-width: 460px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr auto;
+  gap: 8px;
+  max-width: 520px;
+  align-items: center;
 }
+
 .news .news-field {
-  flex: 1 1 140px;
+  width: 100%;
 }
+
 .news input {
   width: 100%;
-  padding: 10px 14px;
+  height: 42px;
+  padding: 0 14px;
   border: 2px solid #3a3e45;
   border-radius: 8px;
   background: #1b1d21;
@@ -1179,14 +1183,16 @@ p {
   outline: none;
   transition: border-color 0.2s;
 }
+
 .news input::placeholder {
   color: #9aa0ab;
 }
+
 .news input:focus {
   border-color: var(--acid);
 }
+
 .news button.news-submit {
-  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1206,9 +1212,23 @@ p {
     color 0.2s,
     transform 0.25s var(--ease);
 }
+
 .news button.news-submit:hover {
   transform: translateY(-2px);
 }
+
+/* En móvil se apilan juntos sin huecos */
+@media (max-width: 768px) {
+  .news {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    max-width: 100%;
+  }
+  .news button.news-submit {
+    width: 100%;
+  }
+}
+
 
 /* Columnas de enlaces */
 .f-col h3 {
