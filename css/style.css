@@ -1125,6 +1125,7 @@ p {
 }
 
 /* ===== 6. Footer ===== */
+/* ===== 6. Footer ===== */
 .site-footer {
   margin-top: auto;
   border-top: 3px solid var(--secondary);
@@ -1134,6 +1135,7 @@ p {
   grid-template-columns: 5fr 2fr 2fr 2fr;
   gap: var(--gap);
   padding-block: 64px 48px;
+  align-items: start;
 }
 .f-brand img {
   height: 96px;
@@ -1151,50 +1153,61 @@ p {
   color: #c3c7cf;
 }
 
+/* Formulario newsletter corregido */
 .news {
   display: flex;
-  gap: 8px;
-  max-width: 420px;
-  padding: 6px 6px 6px 22px;
-  border: 2px solid #3a3e45;
-  border-radius: 999px;
-  background: #1b1d21;
-  transition: border-color 0.2s;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 460px;
 }
-.news:focus-within {
-  border-color: var(--acid);
+.news .news-field {
+  flex: 1 1 140px;
 }
 .news input {
-  flex: 1;
-  min-width: 0;
-  border: 0;
-  background: transparent;
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #3a3e45;
+  border-radius: 8px;
+  background: #1b1d21;
   color: var(--white);
   font: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
 }
 .news input::placeholder {
   color: #9aa0ab;
 }
-.news input:focus-visible {
-  outline: none;
+.news input:focus {
+  border-color: var(--acid);
 }
-.news button {
+.news button.news-submit {
   flex: none;
-  width: 44px;
-  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
   border: 0;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--primary);
   color: var(--ink);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
   transition:
     background-color 0.2s,
     color 0.2s,
     transform 0.25s var(--ease);
 }
+.news button.news-submit:hover {
+  transform: translateY(-2px);
+}
 
+/* Columnas de enlaces */
 .f-col h3 {
   margin-bottom: 16px;
   font-size: 12px;
@@ -1212,12 +1225,47 @@ p {
 .f-col a {
   display: inline-block;
   font-size: 15px;
+  color: inherit;
   text-decoration: none;
   transition:
     color 0.2s,
     transform 0.25s var(--ease);
 }
+.f-col a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
 
+/* Iconos de Redes Sociales */
+.social-links {
+  display: flex !important;
+  flex-direction: row;
+  gap: 12px;
+}
+.social-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #1b1d21;
+  border: 1px solid #3a3e45;
+  border-radius: 50%;
+  color: var(--white);
+}
+.social-links li a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Barra inferior */
 .f-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -1227,6 +1275,24 @@ p {
   border-top: 1px solid #2a2d33;
   font-size: 13px;
   color: #b4b9c2;
+}
+
+/* Adaptación responsive */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .news {
+    flex-direction: column;
+  }
+  .news button.news-submit {
+    width: 100%;
+  }
 }
 
 /* ===== 7. Diálogos (sesión, favoritos, carrito) ===== */
