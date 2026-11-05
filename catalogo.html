@@ -2,12 +2,15 @@
 <html lang="es">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo · Hoop Store</title>
   <meta name="description"
     content="Catálogo completo de productos de baloncesto: zapatillas, equipaciones, accesorios y NBA.">
   <meta name="theme-color" content="#111214">
+  <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
@@ -117,10 +120,9 @@
       <div class="container">
         <h1 class="t-h2" id="catalogTitle" data-i18n="cat_all_title">Catálogo Completo</h1>
 
-        <!-- Barra de herramientas: Buscador y Slider de Precio -->
         <div class="catalog-toolbar">
 
-          <!-- Buscador de artículos -->
+          <!-- Buscador -->
           <div class="catalog-search-box">
             <label class="sr" for="catalogSearch">Buscar productos</label>
             <span class="search-icon" aria-hidden="true">
@@ -135,7 +137,7 @@
               aria-label="Buscar productos">
           </div>
 
-          <!-- Filtro con deslizador de precio Mín/Máx -->
+          <!-- Filtro de precio -->
           <div class="catalog-price-filter">
             <div class="price-info">
               <span data-i18n="price_range">Rango de precio:</span>
@@ -173,7 +175,7 @@
 
         <div class="grid" id="catalogGrid">
 
-          <!-- ZAPATILLAS -->
+          <!-- ZAPATILLAS: Nike Precision 6 -->
           <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
             <div class="card-media product-photo">
               <img class="product-image"
@@ -195,10 +197,23 @@
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
               <h3 class="card-name">Nike Precision 6</h3>
               <p class="price">99,95 €</p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="40">40</button>
+                  <button type="button" class="btn-size" data-size="41">41</button>
+                  <button type="button" class="btn-size" data-size="42">42</button>
+                  <button type="button" class="btn-size" data-size="43">43</button>
+                  <button type="button" class="btn-size" data-size="44">44</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
+          <!-- ZAPATILLAS: adidas Harden -->
           <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
             <div class="card-media product-photo">
               <img class="product-image" src="imagenes/harden-volume-9-uno-12.png" alt="adidas Harden Volume 9"
@@ -218,11 +233,23 @@
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
               <h3 class="card-name">adidas Harden Volume 9</h3>
               <p class="price">129,99 €</p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="40">40</button>
+                  <button type="button" class="btn-size" data-size="41">41</button>
+                  <button type="button" class="btn-size" data-size="42">42</button>
+                  <button type="button" class="btn-size" data-size="43">43</button>
+                  <button type="button" class="btn-size" data-size="44">44</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- EQUIPACIONES -->
+          <!-- EQUIPACIONES: Joma -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
             <div class="card-media product-photo">
               <img class="product-image"
@@ -244,11 +271,22 @@
               <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
               <h3 class="card-name">Equipación Joma Final II</h3>
               <p class="price">59,95 € <span class="old">79,95 €</span></p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="S">S</button>
+                  <button type="button" class="btn-size" data-size="M">M</button>
+                  <button type="button" class="btn-size" data-size="L">L</button>
+                  <button type="button" class="btn-size" data-size="XL">XL</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
-          <!-- ACCESORIOS -->
+          <!-- ACCESORIOS: Balón Spalding -->
           <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
             <div class="card-media product-photo">
               <img class="product-image"
@@ -273,7 +311,7 @@
             </div>
           </article>
 
-          <!-- NBA -->
+          <!-- NBA: Camiseta Boston Celtics -->
           <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
             <div class="card-media product-photo">
               <img class="product-image"
@@ -295,6 +333,17 @@
               <p class="card-meta">NBA</p>
               <h3 class="card-name">Camiseta Boston Celtics</h3>
               <p class="price">89,95 €</p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="S">S</button>
+                  <button type="button" class="btn-size" data-size="M">M</button>
+                  <button type="button" class="btn-size" data-size="L">L</button>
+                  <button type="button" class="btn-size" data-size="XL">XL</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
@@ -307,7 +356,6 @@
 
   </main>
 
-  <!-- Pie de página -->
   <footer class="site-footer dark">
     <div class="container">
       <div class="footer-top">
@@ -399,7 +447,7 @@
     </div>
   </footer>
 
-  <!-- Diálogo Sesión -->
+  <!-- Sesión -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
@@ -446,7 +494,7 @@
     </div>
   </dialog>
 
-  <!-- Diálogo Favoritos -->
+  <!-- Favoritos -->
   <dialog id="dlgFav" aria-labelledby="favTitleDlg">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
@@ -459,7 +507,7 @@
     </div>
   </dialog>
 
-  <!-- Diálogo Carrito -->
+  <!-- Carrito -->
   <dialog id="dlgCart" aria-labelledby="cartTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar"
@@ -491,7 +539,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Script base de la tienda -->
   <script src="javascript/script.js"></script>
 </body>
 
