@@ -50,6 +50,8 @@ const KEYS = {
    ========================================================= */
 const I18N = {
   es: {
+    rev_verified: "✓ Compra verificada",
+rev_bought: "Compró:",
     rev_title: "Opiniones de la comunidad",
     title: "Hoop Store · Tienda de baloncesto",
     skip: "Saltar al contenido",
@@ -145,6 +147,8 @@ const I18N = {
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    rev_verified: "✓ Verified purchase",
+rev_bought: "Purchased:",
     rev_title: "Community Reviews",
     title: "Hoop Store · Basketball shop",
     skip: "Skip to content",
@@ -239,6 +243,8 @@ const I18N = {
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    rev_verified: "✓ Compra verificada",
+rev_bought: "Va comprar:",
     rev_title: "Opinions de la comunitat",
     title: "Hoop Store · Botiga de bàsquet",
     skip: "Salta al contingut",
@@ -333,6 +339,8 @@ const I18N = {
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    rev_verified: "✓ Compra verificada",
+rev_bought: "Va comprar:",
     rev_title: "Avis de la communauté",
     title: "Hoop Store · Boutique de basket",
     skip: "Aller au contenu",
