@@ -2,12 +2,14 @@
 <html lang="es">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Finalizar compra · Hoop Store</title>
-  <meta name="description"
-    content="Tramita tu pedido de baloncesto de forma segura en Hoop Store: envío en 24/48 horas y pago protegido.">
+  <title>Finalizar Compra · Hoop Store</title>
+  <meta name="description" content="Finaliza tu pedido en Hoop Store de forma rápida y segura.">
   <meta name="theme-color" content="#111214">
+  <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
@@ -43,8 +45,7 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                </path>
+                <ellipse cx="12" cy="12" rx="4.5" ry="10"></ellipse>
               </svg>
             </span>
             <span id="langLabel">ES</span>
@@ -64,7 +65,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
             </svg>
           </span>
           <span class="cart-count" id="favCount" hidden>0</span>
@@ -112,146 +114,138 @@
 
   <main id="main" tabindex="-1">
     <div class="container checkout-container">
-      
+
       <header class="checkout-header">
-        <h1 class="t-h2" id="checkoutTitle">Finalizar compra</h1>
-        <p class="lead" style="margin-top: 12px; font-size: 17px; color: var(--n700);">Completa tus datos de envío y pago para tramitar tu pedido oficial de baloncesto.</p>
+        <h1 class="t-h2" data-i18n="chk_header_title">Finalizar Compra</h1>
+        <p style="margin-top: 8px; color: var(--n700);" data-i18n="chk_header_sub">Completa tus datos para tramitar el envío.</p>
       </header>
 
       <div class="checkout-layout">
-        
-        <!-- Formulario Principal -->
-        <section class="checkout-main" aria-labelledby="formHeading">
-          <h2 class="sr" id="formHeading">Formulario de tramitación de pedido</h2>
 
-          <form id="orderForm" class="checkout-form" novalidate>
+        <!-- Formulario principal de compra -->
+        <form id="orderForm" class="checkout-form" novalidate>
 
-            <!-- 1. Datos de Contacto -->
-            <fieldset class="form-section">
-              <legend class="section-title">1. Datos de contacto</legend>
-              <div class="form-grid">
-                <div class="field full">
-                  <label for="cEmail">Correo electrónico <span aria-hidden="true">*</span></label>
-                  <input type="email" id="cEmail" name="email" required autocomplete="email" placeholder="ejemplo@correo.com">
-                </div>
-                <div class="field full">
-                  <label for="cPhone">Teléfono de contacto <span aria-hidden="true">*</span></label>
-                  <input type="tel" id="cPhone" name="phone" required autocomplete="tel" placeholder="+34 600 000 000">
-                </div>
+          <!-- 1. Datos de contacto -->
+          <fieldset class="form-section">
+            <legend class="section-title" data-i18n="chk_sec_contact">1. Datos de contacto</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="cName" data-i18n="chk_lbl_fname">Nombre</label>
+                <input type="text" id="cName" required autocomplete="given-name">
               </div>
-            </fieldset>
-
-            <!-- 2. Dirección de Envío -->
-            <fieldset class="form-section">
-              <legend class="section-title">2. Dirección de entrega</legend>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="cName">Nombre <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cName" name="firstname" required autocomplete="given-name" placeholder="Tu nombre">
-                </div>
-                <div class="field">
-                  <label for="cLastName">Apellidos <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cLastName" name="lastname" required autocomplete="family-name" placeholder="Tus apellidos">
-                </div>
-                <div class="field full">
-                  <label for="cAddress">Dirección y número <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cAddress" name="address" required autocomplete="street-address" placeholder="C/ Gran Vía, 12, 3º B">
-                </div>
-                <div class="field">
-                  <label for="cZip">Código Postal <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cZip" name="postal-code" required autocomplete="postal-code" placeholder="26001">
-                </div>
-                <div class="field">
-                  <label for="cCity">Ciudad <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cCity" name="city" required autocomplete="address-level2" placeholder="Logroño">
-                </div>
+              <div class="field">
+                <label for="cSurname" data-i18n="chk_lbl_lname">Apellidos</label>
+                <input type="text" id="cSurname" required autocomplete="family-name">
               </div>
-            </fieldset>
-
-            <!-- 3. Método de Pago Seguro -->
-            <fieldset class="form-section">
-              <legend class="section-title">3. Método de pago seguro</legend>
-
-              <div class="payment-options" role="radiogroup" aria-label="Seleccionar método de pago">
-                <label class="pay-card active" id="payOptCard">
-                  <input type="radio" name="payMethod" value="card" checked>
-                  <span>💳 Tarjeta (Visa / Mastercard)</span>
-                </label>
-                <label class="pay-card" id="payOptPaypal">
-                  <input type="radio" name="payMethod" value="paypal">
-                  <span>🅿️ PayPal</span>
-                </label>
-                <label class="pay-card" id="payOptApple">
-                  <input type="radio" name="payMethod" value="applepay">
-                  <span> Apple Pay</span>
-                </label>
+              <div class="field full">
+                <label for="cEmail" data-i18n="chk_lbl_email">Correo electrónico</label>
+                <input type="email" id="cEmail" required autocomplete="email">
               </div>
-
-              <!-- Campos específicos de Tarjeta -->
-              <div class="form-grid" id="cardFields" style="margin-top: 18px;">
-                <div class="field full">
-                  <label for="cCardNumber">Número de tarjeta <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cCardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
-                </div>
-                <div class="field">
-                  <label for="cCardExp">Caducidad (MM/AA) <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cCardExp" placeholder="MM/AA" maxlength="5">
-                </div>
-                <div class="field">
-                  <label for="cCardCvc">CVC <span aria-hidden="true">*</span></label>
-                  <input type="text" id="cCardCvc" inputmode="numeric" placeholder="123" maxlength="4">
-                </div>
+              <div class="field full">
+                <label for="cPhone" data-i18n="chk_lbl_phone">Teléfono</label>
+                <input type="tel" id="cPhone" required autocomplete="tel">
               </div>
+            </div>
+          </fieldset>
 
-              <!-- Mensaje alternativo si eligen PayPal o Apple Pay -->
-              <div id="altPayNote" style="display: none; padding: 16px; margin-top: 16px; border-radius: 12px; background: var(--blue-tint); color: var(--blue-dark); font-size: 14px; font-weight: 700;">
-                Serás redirigido a la pasarela segura correspondiente al confirmar el pedido.
+          <!-- 2. Dirección de entrega -->
+          <fieldset class="form-section">
+            <legend class="section-title" data-i18n="chk_sec_shipping">2. Dirección de entrega</legend>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="cAddress" data-i18n="chk_lbl_address">Dirección y número</label>
+                <input type="text" id="cAddress" required autocomplete="street-address">
               </div>
-            </fieldset>
+              <div class="field">
+                <label for="cCity" data-i18n="chk_lbl_city">Ciudad</label>
+                <input type="text" id="cCity" required autocomplete="address-level2">
+              </div>
+              <div class="field">
+                <label for="cZip" data-i18n="chk_lbl_zip">Código Postal</label>
+                <input type="text" id="cZip" required pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code">
+              </div>
+              <div class="field full">
+                <label for="cProvince" data-i18n="chk_lbl_province">Provincia</label>
+                <input type="text" id="cProvince" required placeholder="Ej: La Rioja, Madrid..." data-i18n-ph="chk_ph_province">
+              </div>
+              <div class="field full field-check">
+                <input type="checkbox" id="cSave" checked>
+                <label for="cSave" data-i18n="chk_save_info">Guardar esta información para futuras compras</label>
+              </div>
+            </div>
+          </fieldset>
 
-            <!-- Aceptación legal -->
-            <div class="field-check" style="margin-top: 8px;">
-              <input type="checkbox" id="legalTerms" required>
-              <label for="legalTerms">
-                He leído y acepto el <a href="aviso-legal.html" target="_blank" rel="noopener">Aviso legal</a> y la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.
+          <!-- 3. Método de pago -->
+          <fieldset class="form-section">
+            <legend class="section-title" data-i18n="chk_sec_payment">3. Método de pago</legend>
+
+            <div class="payment-options">
+              <label class="pay-card active">
+                <input type="radio" name="payMethod" value="card" checked>
+                <span data-i18n="chk_pay_card">Tarjeta de crédito</span>
+              </label>
+              <label class="pay-card">
+                <input type="radio" name="payMethod" value="paypal">
+                <span data-i18n="chk_pay_paypal">PayPal</span>
+              </label>
+              <label class="pay-card">
+                <input type="radio" name="payMethod" value="bizum">
+                <span data-i18n="chk_pay_bizum">Bizum</span>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-submit-order" id="btnPlaceOrder">
-              Confirmar pedido y pagar
-            </button>
-          </form>
-        </section>
-
-        <!-- Resumen Lateral del Pedido -->
-        <aside class="checkout-sidebar" aria-labelledby="summaryHeading">
-          <div class="summary-card">
-            <h2 id="summaryHeading" class="summary-title">Resumen de tu pedido</h2>
-
-            <ul class="summary-items" id="summaryItemsList">
-              <li class="summary-empty">Cargando productos de tu cesta...</li>
-            </ul>
-
-            <div class="summary-totals">
-              <div class="sum-row">
-                <span>Subtotal</span>
-                <strong id="chkSubtotal">0,00 €</strong>
+            <div id="cardFields" class="form-grid" style="margin-top: 20px;">
+              <div class="field full">
+                <label for="cCardNumber" data-i18n="chk_lbl_cnum">Número de tarjeta</label>
+                <input type="text" id="cCardNumber" placeholder="4548 •••• •••• ••••" maxlength="19">
               </div>
-              <div class="sum-row">
-                <span>Envío (24/48 h)</span>
-                <strong id="chkShipping">0,00 €</strong>
+              <div class="field">
+                <label for="cCardExp" data-i18n="chk_lbl_cexp">Caducidad (MM/AA)</label>
+                <input type="text" id="cCardExp" placeholder="12/28" maxlength="5">
               </div>
-              <div class="sum-row total">
-                <span>Total a pagar</span>
-                <strong id="chkTotal">0,00 €</strong>
+              <div class="field">
+                <label for="cCardCvc" data-i18n="chk_lbl_ccvc">CVC</label>
+                <input type="text" id="cCardCvc" placeholder="123" maxlength="3">
               </div>
             </div>
 
-            <div class="guarantee-box">
-              <p>🔒 <strong>Pago 100% protegido</strong> con cifrado SSL.</p>
-              <p>📦 <strong>Envío gratis</strong> en pedidos a partir de 60 €.</p>
-              <p>🔄 Plazo de cambio y devolución de 30 días.</p>
+            <div id="altPayNote" class="note" style="display: none; margin-top: 16px;">
+              <p data-i18n="chk_alt_pay_note">Serás redirigido a la pasarela de pago seguro tras confirmar el pedido.</p>
             </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary btn-submit-order" id="btnPlaceOrder" data-i18n="chk_btn_submit">
+            Pagar y confirmar pedido
+          </button>
+        </form>
+
+        <!-- Resumen del pedido en el lateral -->
+        <aside class="summary-card" aria-labelledby="summaryTitle">
+          <h2 class="summary-title" id="summaryTitle" data-i18n="chk_summary_title">Resumen de tu pedido</h2>
+
+          <ul class="summary-items" id="summaryItemsList">
+            <!-- Rellenado dinámicamente con JavaScript -->
+          </ul>
+
+          <div class="summary-totals">
+            <div class="sum-row">
+              <span data-i18n="chk_subtotal_lbl">Subtotal</span>
+              <strong id="chkSubtotal">0,00 €</strong>
+            </div>
+            <div class="sum-row">
+              <span data-i18n="chk_shipping_lbl">Envío (24/48 h)</span>
+              <strong id="chkShipping">0,00 €</strong>
+            </div>
+            <div class="sum-row total">
+              <span data-i18n="chk_total_lbl">Total a pagar</span>
+              <strong id="chkTotal">0,00 €</strong>
+            </div>
+          </div>
+
+          <div class="guarantee-box">
+            <p><span aria-hidden="true">🔒</span> <span data-i18n="chk_guar_ssl">Pago 100% protegido con cifrado SSL.</span></p>
+            <p><span aria-hidden="true">📦</span> <span data-i18n="chk_guar_free">Envío gratis en pedidos a partir de 60 €.</span></p>
+            <p><span aria-hidden="true">🔄</span> <span data-i18n="chk_guar_return">Plazo de cambio y devolución de 30 días.</span></p>
           </div>
         </aside>
 
@@ -259,7 +253,6 @@
     </div>
   </main>
 
-  <!-- Pie de página -->
   <footer class="site-footer dark">
     <div class="container">
       <div class="footer-top">
@@ -278,7 +271,8 @@
               <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
                 placeholder="tu@email.com" data-i18n-ph="ph_email">
             </div>
-            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme"
+              data-i18n-aria="a_subscribe">
               <span data-i18n="btn_subscribe">Unirme</span>
               <span aria-hidden="true">→</span>
             </button>
@@ -351,15 +345,16 @@
     </div>
   </footer>
 
-  <!-- Diálogos -->
+  <!-- Modales para el header -->
   <dialog id="dlgUser" aria-labelledby="userTitle">
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="userTitle" data-i18n="login_title">Entra en tu cuenta</h2>
-      <button class="btn-google" type="button" id="btnGoogleLogin" aria-label="Continuar con Google">
-        <span>Continuar con Google</span>
+      <button class="btn-google" type="button" id="btnGoogleLogin">
+        <span data-i18n="google_btn">Continuar con Google</span>
       </button>
-      <form id="loginForm" class="dlg-form" action="#" method="post">
+      <div class="auth-divider"><span data-i18n="auth_or">o con correo</span></div>
+      <form id="loginForm" class="dlg-form">
         <div class="field">
           <label for="loginEmail" data-i18n="email">Correo electrónico</label>
           <input type="email" id="loginEmail" required autocomplete="email">
@@ -368,7 +363,7 @@
           <label for="loginPassword" data-i18n="password">Contraseña</label>
           <input type="password" id="loginPassword" required autocomplete="current-password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Entrar">
+        <input class="btn btn-primary" type="submit" value="Entrar" data-i18n="login_btn">
       </form>
       <div id="userIn" class="dlg-form" hidden>
         <p class="hello" id="userHello"></p>
@@ -390,10 +385,19 @@
     <div class="dlg">
       <button class="dlg-x" type="button" data-close aria-label="Cerrar" title="Cerrar" data-i18n-aria="a_close">✕</button>
       <h2 id="cartTitle" data-i18n="cart_title">Tu carrito</h2>
-      <div class="cart-empty-box" id="cartEmpty"><p class="fav-empty" data-i18n="cart_empty">Tu carrito está vacío.</p></div>
+      <div class="ship" id="cartShip">
+        <p id="shipText"></p>
+        <div class="bar" id="shipBar"><span class="bar-fill"></span></div>
+      </div>
+      <div class="cart-empty-box" id="cartEmpty">
+        <p class="fav-empty" data-i18n="cart_empty">Tu carrito está vacío.</p>
+        <button class="btn btn-primary" type="button" data-close data-i18n="cart_continue">Seguir comprando</button>
+      </div>
       <ul class="fav-list" id="cartList" hidden><li hidden>-</li></ul>
       <div class="cart-foot" id="cartFoot">
-        <p class="sum"><span data-i18n="total">Total</span><span id="sumTotal"></span></p>
+        <p class="sum"><span data-i18n="subtotal">Subtotal</span><span id="sumSub"></span></p>
+        <p class="sum"><span data-i18n="shipping">Envío</span><span id="sumShip"></span></p>
+        <p class="sum total"><span data-i18n="total">Total</span><span id="sumTotal"></span></p>
         <button class="btn btn-primary" type="button" id="btnCheckout" data-i18n="checkout">Finalizar compra</button>
       </div>
     </div>
@@ -401,7 +405,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Todo el comportamiento se delega a script.js -->
   <script src="javascript/script.js"></script>
 </body>
 
