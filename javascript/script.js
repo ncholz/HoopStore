@@ -50,8 +50,108 @@ const KEYS = {
    ========================================================= */
 const I18N = {
   es: {
+    unit_single: "unidad",
+    unit_plural: "unidades",
+    size_prefix: "Talla",
+    /* Política de Cookies */
+    ck_title: "Política de Cookies",
+    ck_h2_1: "1. ¿Qué son las cookies y el almacenamiento local?",
+    ck_p_1:
+      "Una cookie es un pequeño archivo que se almacena en el navegador del usuario al visitar una página. En Hoop Store utilizamos tecnologías como localStorage para recordar tus preferencias de navegación sin almacenar datos bancarios ni sensibles.",
+    ck_h2_2: "2. Cookies y datos técnicos utilizados",
+    ck_li_1: "Recuerda el idioma seleccionado (ES, EN, CA, FR).",
+    ck_li_2: "Mantiene los productos añadidos a tu cesta durante la compra.",
+    ck_li_3: "Guarda tu lista de productos favoritos marcados con corazón.",
+    ck_li_4: "Conserva tu sesión iniciada de manera local.",
+    ck_h2_3: "3. Cómo deshabilitar las cookies",
+    ck_p_3:
+      "Puedes restringir o eliminar las cookies y elementos locales mediante la configuración de tu navegador (Chrome, Firefox, Safari, Edge). Ten en cuenta que si deshabilitas el almacenamiento local, el carrito y la selección de idioma no podrán guardarse entre visitas.",
+
+    /* Política de Privacidad */
+    pr_title: "Política de Privacidad",
+    pr_h2_1: "1. Responsable del tratamiento",
+    pr_p_1:
+      "El responsable del tratamiento de los datos recogidos en este sitio web es Hoop Store S.L., con domicilio en C/ Baloncesto 23, 28001 Madrid. Delegado de Protección de Datos: privacidad@hoopstore.com.",
+    pr_h2_2: "2. Finalidad del tratamiento de datos",
+    pr_p_2:
+      "Tratamos los datos que nos facilitas con las siguientes finalidades:",
+    pr_li_1: "Gestionar la creación y acceso a tu cuenta de usuario.",
+    pr_li_2: "Tramitar pedidos, envíos y facturación de productos comprados.",
+    pr_li_3:
+      "Atender dudas, solicitudes o incidencias mediante nuestro centro de ayuda.",
+    pr_li_4:
+      "Enviar el boletín de novedades y ofertas si te has suscrito voluntariamente.",
+    pr_h2_3: "3. Legitimación",
+    pr_p_3:
+      "La base legal para el tratamiento de tus datos es la ejecución del contrato de compraventa al tramitar pedidos, y el consentimiento expreso al registrarte o suscribirte a nuestra newsletter.",
+    pr_h2_4: "4. Derechos de los usuarios",
+    pr_p_4:
+      "Tienes derecho a acceder, rectificar y suprimir tus datos, así como a limitar u oponerte a su tratamiento solicitándolo a través del correo privacidad@hoopstore.com adjuntando copia de tu documento de identidad.",
+
+    /* Aviso Legal */
+    al_title: "Aviso Legal",
+    al_h2_1: "1. Datos identificativos",
+    al_p_1a:
+      "En cumplimiento con el deber de información estipulado en la legislación vigente, se informa de que este sitio web pertenece a Hoop Store S.L., con NIF B-12345678, domicilio social en C/ Baloncesto 23, 28001 Madrid (España), e inscrita en el Registro Mercantil.",
+    al_p_1b: "Correo electrónico de contacto: contacto@hoopstore.com.",
+    al_h2_2: "2. Condiciones de uso",
+    al_p_2:
+      "El acceso y uso de este portal atribuye la condición de usuario, aceptando de manera plena y sin reservas el presente Aviso Legal. El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que Hoop Store ofrece a través de su plataforma digital.",
+    al_h2_3: "3. Propiedad intelectual e industrial",
+    al_p_3:
+      "Todos los contenidos del sitio web, incluyendo textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a Hoop Store o a terceros colaboradores, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos.",
+    al_h2_4: "4. Exclusión de garantías y responsabilidad",
+    al_p_4:
+      "Hoop Store no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.",
+    /* Barra Catálogo */
+    cat_all_title: "Catálogo Completo",
+    ph_search: "Buscar por nombre (ej: Nike Precision, camiseta...)",
+    price_range: "Rango de precio:",
+    lbl_min: "Mín",
+    lbl_max: "Máx",
+    filter_all: "Todos",
+    empty_cat: "No se han encontrado productos con estos filtros.",
+    /* Checkout */
+    chk_header_title: "Finalizar Compra",
+    chk_header_sub: "Completa tus datos para tramitar el envío.",
+    chk_sec_contact: "1. Datos de contacto",
+    chk_lbl_fname: "Nombre",
+    chk_lbl_lname: "Apellidos",
+    chk_lbl_email: "Correo electrónico",
+    chk_lbl_phone: "Teléfono",
+    chk_sec_shipping: "2. Dirección de entrega",
+    chk_lbl_address: "Dirección y número",
+    chk_lbl_city: "Ciudad",
+    chk_lbl_zip: "Código Postal",
+    chk_lbl_province: "Provincia",
+    chk_ph_province: "Ej: La Rioja, Madrid...",
+    chk_save_info: "Guardar esta información para futuras compras",
+    chk_sec_payment: "3. Método de pago",
+    chk_pay_card: "Tarjeta de crédito",
+    chk_pay_paypal: "PayPal",
+    chk_pay_bizum: "Bizum",
+    chk_lbl_cnum: "Número de tarjeta",
+    chk_lbl_cexp: "Caducidad (MM/AA)",
+    chk_lbl_ccvc: "CVC",
+    chk_alt_pay_note:
+      "Serás redirigido a la pasarela de pago seguro tras confirmar el pedido.",
+    chk_btn_submit: "Pagar y confirmar pedido",
+    chk_summary_title: "Resumen de tu pedido",
+    chk_subtotal_lbl: "Subtotal",
+    chk_shipping_lbl: "Envío (24/48 h)",
+    chk_total_lbl: "Total a pagar",
+    chk_guar_ssl: "Pago 100% protegido con cifrado SSL.",
+    chk_guar_free: "Envío gratis en pedidos a partir de 60 €.",
+    chk_guar_return: "Plazo de cambio y devolución de 30 días.",
+    chk_empty_basket: "Tu cesta está vacía.",
+    chk_go_catalog: "Ir al catálogo para añadir artículos →",
+    chk_success_title: "¡Pedido confirmado con éxito!",
+    chk_success_p1:
+      "Hemos registrado tu compra por un total de {total}. Te hemos enviado la factura y el número de seguimiento a tu correo.",
+    chk_success_est: "Entrega estimada: 24 / 48 horas laborales",
+    chk_success_btn: "Volver a la tienda",
     rev_verified: "✓ Compra verificada",
-rev_bought: "Compró:",
+    rev_bought: "Compró:",
     rev_title: "Opiniones de la comunidad",
     title: "Hoop Store · Tienda de baloncesto",
     skip: "Saltar al contenido",
@@ -147,8 +247,105 @@ rev_bought: "Compró:",
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    unit_single: "unit",
+    unit_plural: "units",
+    size_prefix: "Size",
+    /* Política de Cookies */
+    ck_title: "Cookie Policy",
+    ck_h2_1: "1. What are cookies and local storage?",
+    ck_p_1:
+      "A cookie is a small file stored in your browser when visiting a website. At Hoop Store we use technologies like localStorage to remember your preferences without storing sensitive or banking data.",
+    ck_h2_2: "2. Technical cookies and data used",
+    ck_li_1: "Remembers the selected language (ES, EN, CA, FR).",
+    ck_li_2: "Retains the products added to your basket during checkout.",
+    ck_li_3: "Stores your wishlist of favourite products marked with a heart.",
+    ck_li_4: "Keeps your local session active.",
+    ck_h2_3: "3. How to disable cookies",
+    ck_p_3:
+      "You can restrict or remove cookies and local storage in your browser settings (Chrome, Firefox, Safari, Edge). Please note that if you disable local storage, your cart and language will not be saved between visits.",
+
+    /* Política de Privacidad */
+    pr_title: "Privacy Policy",
+    pr_h2_1: "1. Data Controller",
+    pr_p_1:
+      "The data controller for information collected on this website is Hoop Store S.L., located at C/ Baloncesto 23, 28001 Madrid. Data Protection Officer: privacidad@hoopstore.com.",
+    pr_h2_2: "2. Purpose of processing",
+    pr_p_2: "We process your personal data for the following purposes:",
+    pr_li_1: "Manage user account creation and access.",
+    pr_li_2: "Process orders, shipments, and invoicing for purchased items.",
+    pr_li_3: "Handle inquiries and support through our help centre.",
+    pr_li_4: "Deliver newsletter updates and offers if subscribed.",
+    pr_h2_3: "3. Lawful basis",
+    pr_p_3:
+      "The legal basis for processing your data is contract execution when fulfilling orders and your consent when creating an account or subscribing to our newsletter.",
+    pr_h2_4: "4. User rights",
+    pr_p_4:
+      "You have the right to access, rectify, or erase your data, and to restrict or object to its processing by writing to privacidad@hoopstore.com with a copy of your ID.",
+
+    /* Aviso Legal */
+    al_title: "Legal Notice",
+    al_h2_1: "1. Identification details",
+    al_p_1a:
+      "In compliance with statutory disclosure obligations, this website is operated by Hoop Store S.L., Tax ID B-12345678, registered address at C/ Baloncesto 23, 28001 Madrid (Spain), registered in the Commercial Registry.",
+    al_p_1b: "Contact email: contacto@hoopstore.com.",
+    al_h2_2: "2. Terms of use",
+    al_p_2:
+      "Access and use of this website grant you user status and imply acceptance of this Legal Notice. The user agrees to make appropriate use of the platform and its digital services.",
+    al_h2_3: "3. Intellectual and industrial property",
+    al_p_3:
+      "All site content, including texts, photos, graphics, source code, and design, belongs to Hoop Store or its licensors. No exploitation rights are transferred to the user.",
+    al_h2_4: "4. Disclaimer of warranties and liability",
+    al_p_4:
+      "Hoop Store shall not be liable for damages resulting from technical unavailability, errors, omissions, or malicious programs, despite having adopted security measures.",
+    /* Barra Catálogo */
+    cat_all_title: "Full Catalog",
+    ph_search: "Search by name (e.g. Nike Precision, jersey...)",
+    price_range: "Price range:",
+    lbl_min: "Min",
+    lbl_max: "Max",
+    filter_all: "All",
+    empty_cat: "No products found matching these filters.",
+    /* Checkout */
+    chk_header_title: "Checkout",
+    chk_header_sub: "Complete your details to process delivery.",
+    chk_sec_contact: "1. Contact Information",
+    chk_lbl_fname: "First Name",
+    chk_lbl_lname: "Last Name",
+    chk_lbl_email: "Email Address",
+    chk_lbl_phone: "Phone Number",
+    chk_sec_shipping: "2. Delivery Address",
+    chk_lbl_address: "Street Address & Number",
+    chk_lbl_city: "City",
+    chk_lbl_zip: "Postal Code",
+    chk_lbl_province: "Province / State",
+    chk_ph_province: "e.g. London, Dublin...",
+    chk_save_info: "Save this information for future orders",
+    chk_sec_payment: "3. Payment Method",
+    chk_pay_card: "Credit / Debit Card",
+    chk_pay_paypal: "PayPal",
+    chk_pay_bizum: "Bizum",
+    chk_lbl_cnum: "Card Number",
+    chk_lbl_cexp: "Expiry (MM/YY)",
+    chk_lbl_ccvc: "CVC",
+    chk_alt_pay_note:
+      "You will be redirected to the secure payment portal after confirming your order.",
+    chk_btn_submit: "Pay & Confirm Order",
+    chk_summary_title: "Order Summary",
+    chk_subtotal_lbl: "Subtotal",
+    chk_shipping_lbl: "Shipping (24/48 h)",
+    chk_total_lbl: "Total Due",
+    chk_guar_ssl: "100% secure checkout with SSL encryption.",
+    chk_guar_free: "Free delivery on orders over €60.",
+    chk_guar_return: "30-day exchange and return policy.",
+    chk_empty_basket: "Your basket is empty.",
+    chk_go_catalog: "Go to catalog to add items →",
+    chk_success_title: "Order successfully confirmed!",
+    chk_success_p1:
+      "We have received your purchase for {total}. We have emailed you the receipt and tracking number.",
+    chk_success_est: "Estimated delivery: 24 / 48 business hours",
+    chk_success_btn: "Return to shop",
     rev_verified: "✓ Verified purchase",
-rev_bought: "Purchased:",
+    rev_bought: "Purchased:",
     rev_title: "Community Reviews",
     title: "Hoop Store · Basketball shop",
     skip: "Skip to content",
@@ -243,8 +440,106 @@ rev_bought: "Purchased:",
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    unit_single: "unitat",
+    unit_plural: "unitats",
+    size_prefix: "Talla",
+    /* Política de Cookies */
+    ck_title: "Política de Galetes",
+    ck_h2_1: "1. Què són les galetes i l'emmagatzematge local?",
+    ck_p_1:
+      "Una galeta és un petit fitxer emmagatzemat al navegador en visitar una pàgina. A Hoop Store fem servir localStorage per recordar les teves preferències sense desar dades bancàries ni sensibles.",
+    ck_h2_2: "2. Galetes i dades tècniques utilitzades",
+    ck_li_1: "Recorda l'idioma seleccionat (ES, EN, CA, FR).",
+    ck_li_2: "Manté els productes afegits a la cistella durant la compra.",
+    ck_li_3: "Desa la llista de preferits marcats amb cor.",
+    ck_li_4: "Conserva la teva sessió iniciada de manera local.",
+    ck_h2_3: "3. Com desactivar les galetes",
+    ck_p_3:
+      "Pots restringir o eliminar les galetes des de la configuració del teu navegador (Chrome, Firefox, Safari, Edge). Si desactives l'emmagatzematge, la cistella i l'idioma no es podran guardar.",
+
+    /* Política de Privacidad */
+    pr_title: "Política de Privacitat",
+    pr_h2_1: "1. Responsable del tractament",
+    pr_p_1:
+      "El responsable del tractament de les dades recollides és Hoop Store S.L., amb domicili al C/ Baloncesto 23, 28001 Madrid. Delegat de Protecció de Dades: privacidad@hoopstore.com.",
+    pr_h2_2: "2. Finalitat del tractament de dades",
+    pr_p_2: "Tractem les dades que ens facilites amb les finalitats següents:",
+    pr_li_1: "Gestionar la creació i l'accés al teu compte d'usuari.",
+    pr_li_2: "Tramitar comandes, enviaments i facturació de productes.",
+    pr_li_3:
+      "Atendre consultes i incidències mitjançant el nostre centre d'ajuda.",
+    pr_li_4: "Enviar el butlletí de novetats i ofertes si t'hi has subscrit.",
+    pr_h2_3: "3. Legitimació",
+    pr_p_3:
+      "La base legal és l'execució del contracte de compravenda en tramitar comandes i el consentiment en registrar-te o subscriure't al butlletí.",
+    pr_h2_4: "4. Drets dels usuaris",
+    pr_p_4:
+      "Tens dret a accedir, rectificar i suprimir les teves dades a través del correu privacidad@hoopstore.com aportant còpia del document d'identitat.",
+
+    /* Aviso Legal */
+    al_title: "Avís Legal",
+    al_h2_1: "1. Dades identificatives",
+    al_p_1a:
+      "En compliment de la legislació vigent, s'informa que aquest lloc web pertany a Hoop Store S.L., amb NIF B-12345678, domicili social al C/ Baloncesto 23, 28001 Madrid (Espanya).",
+    al_p_1b: "Correu de contacte: contacto@hoopstore.com.",
+    al_h2_2: "2. Condicions d'ús",
+    al_p_2:
+      "L'accés i ús d'aquest portal atribueix la condició d'usuari i implica l'acceptació plena d'aquest Avís Legal.",
+    al_h2_3: "3. Propietat intel·lectual i industrial",
+    al_p_3:
+      "Tots els continguts del lloc web pertanyen a Hoop Store o tercers col·laboradors, sense que se'n cedeixin els drets d'explotació.",
+    al_h2_4: "4. Exclusió de garanties i responsabilitat",
+    al_p_4:
+      "Hoop Store no es fa responsable de possibles errors, falta de disponibilitat de la web o transmissió de virus informàtics malgrat les mesures adoptades.",
+    /* Barra Catálogo */
+    cat_all_title: "Catàleg Complet",
+    ph_search: "Cerca per nom (ex: Nike Precision, samarreta...)",
+    price_range: "Rang de preu:",
+    lbl_min: "Mín",
+    lbl_max: "Màx",
+    filter_all: "Tots",
+    empty_cat: "No s'han trobat productes amb aquests filtres.",
+    /* Checkout */
+    chk_header_title: "Finalitzar Compra",
+    chk_header_sub: "Completa les teves dades per tramitar l'enviament.",
+    chk_sec_contact: "1. Dades de contacte",
+    chk_lbl_fname: "Nom",
+    chk_lbl_lname: "Cognoms",
+    chk_lbl_email: "Correu electrònic",
+    chk_lbl_phone: "Telèfon",
+    chk_sec_shipping: "2. Adreça de lliurament",
+    chk_lbl_address: "Adreça i número",
+    chk_lbl_city: "Ciutat",
+    chk_lbl_zip: "Codi Postal",
+    chk_lbl_province: "Província",
+    chk_ph_province: "Ex: Barcelona, Girona...",
+    chk_save_info: "Desa aquesta informació per a compres futures",
+    chk_sec_payment: "3. Mètode de pagament",
+    chk_pay_card: "Targeta de crèdit",
+    chk_pay_paypal: "PayPal",
+    chk_pay_bizum: "Bizum",
+    chk_lbl_cnum: "Número de targeta",
+    chk_lbl_cexp: "Caducitat (MM/AA)",
+    chk_lbl_ccvc: "CVC",
+    chk_alt_pay_note:
+      "Seràs redirigit a la passarel·la de pagament segur un cop confirmada la comanda.",
+    chk_btn_submit: "Pagar i confirmar comanda",
+    chk_summary_title: "Resum de la comanda",
+    chk_subtotal_lbl: "Subtotal",
+    chk_shipping_lbl: "Enviament (24/48 h)",
+    chk_total_lbl: "Total a pagar",
+    chk_guar_ssl: "Pagament 100% protegit amb xifratge SSL.",
+    chk_guar_free: "Enviament gratuït en comandes a partir de 60 €.",
+    chk_guar_return: "Termini de devolució i canvi de 30 dies.",
+    chk_empty_basket: "La teva cistella és buida.",
+    chk_go_catalog: "Ves al catàleg per afegir articles →",
+    chk_success_title: "Comanda confirmada amb èxit!",
+    chk_success_p1:
+      "Hem registrat la teva compra per un total de {total}. T'hem enviat la factura i el seguiment al teu correu.",
+    chk_success_est: "Lliurament estimat: 24 / 48 hores laborables",
+    chk_success_btn: "Tornar a la botiga",
     rev_verified: "✓ Compra verificada",
-rev_bought: "Va comprar:",
+    rev_bought: "Va comprar:",
     rev_title: "Opinions de la comunitat",
     title: "Hoop Store · Botiga de bàsquet",
     skip: "Salta al contingut",
@@ -339,8 +634,105 @@ rev_bought: "Va comprar:",
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    unit_single: "unité",
+    unit_plural: "unités",
+    size_prefix: "Taille",
+    /* Política de Cookies */
+    ck_title: "Politique de Cookies",
+    ck_h2_1: "1. Que sont les cookies et le stockage local ?",
+    ck_p_1:
+      "Un cookie est un fichier stocké dans votre navigateur lors de votre visite. Chez Hoop Store, nous utilisons localStorage pour mémoriser vos préférences sans stocker de données bancaires sensibles.",
+    ck_h2_2: "2. Données techniques et cookies utilisés",
+    ck_li_1: "Mémorise la langue sélectionnée (ES, EN, CA, FR).",
+    ck_li_2: "Conserve vos articles dans le panier pendant vos achats.",
+    ck_li_3: "Enregistre vos favoris marqués avec un cœur.",
+    ck_li_4: "Maintient votre session active localement.",
+    ck_h2_3: "3. Comment désactiver les cookies",
+    ck_p_3:
+      "Vous pouvez désactiver les cookies dans les paramètres de votre navigateur (Chrome, Firefox, Safari, Edge). Sans stockage local, le panier et la langue ne pourront être sauvegardés.",
+
+    /* Política de Privacidad */
+    pr_title: "Politique de Confidentialité",
+    pr_h2_1: "1. Responsable du traitement",
+    pr_p_1:
+      "Le responsable du traitement des données est Hoop Store S.L., C/ Baloncesto 23, 28001 Madrid. Délégué à la protection des données : privacidad@hoopstore.com.",
+    pr_h2_2: "2. Finalité du traitement",
+    pr_p_2: "Nous traitons vos données personnelles aux fins suivantes :",
+    pr_li_1: "Gérer la création et l'accès à votre compte client.",
+    pr_li_2: "Traiter les commandes, expéditions et factures.",
+    pr_li_3: "Répondre à vos demandes via notre centre d'aide.",
+    pr_li_4: "Envoyer notre lettre d'information si vous vous êtes abonné.",
+    pr_h2_3: "3. Base légale",
+    pr_p_3:
+      "La base légale repose sur l'exécution du contrat d'achat et votre consentement exprès lors de votre inscription.",
+    pr_h2_4: "4. Droits des utilisateurs",
+    pr_p_4:
+      "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à privacidad@hoopstore.com avec une pièce d'identité.",
+
+    /* Aviso Legal */
+    al_title: "Mentions Légales",
+    al_h2_1: "1. Mentions obligatoires",
+    al_p_1a:
+      "Conformément à la législation en vigueur, ce site est la propriété de Hoop Store S.L., NIF B-12345678, siège social à C/ Baloncesto 23, 28001 Madrid (Espagne).",
+    al_p_1b: "E-mail de contact : contacto@hoopstore.com.",
+    al_h2_2: "2. Conditions d'utilisation",
+    al_p_2:
+      "L'accès au site implique l'acceptation pleine et entière des présentes conditions d'utilisation.",
+    al_h2_3: "3. Propriété intellectuelle",
+    al_p_3:
+      "Tous les contenus du site restent la propriété exclusive de Hoop Store ou de ses partenaires.",
+    al_h2_4: "4. Limitation de responsabilité",
+    al_p_4:
+      "Hoop Store ne pourra être tenue responsable des interruptions de service ou des dommages causés par des tiers.",
+    /* Barra Catálogo */
+    cat_all_title: "Catalogue Complet",
+    ph_search: "Rechercher par nom (ex. : Nike Precision, maillot...)",
+    price_range: "Fourchette de prix :",
+    lbl_min: "Min",
+    lbl_max: "Max",
+    filter_all: "Tous",
+    empty_cat: "Aucun produit trouvé avec ces filtres.",
+    /* Checkout */
+    chk_header_title: "Finaliser la commande",
+    chk_header_sub: "Remplissez vos informations pour préparer l'expédition.",
+    chk_sec_contact: "1. Coordonnées de contact",
+    chk_lbl_fname: "Prénom",
+    chk_lbl_lname: "Nom",
+    chk_lbl_email: "E-mail",
+    chk_lbl_phone: "Téléphone",
+    chk_sec_shipping: "2. Adresse de livraison",
+    chk_lbl_address: "Adresse et numéro",
+    chk_lbl_city: "Ville",
+    chk_lbl_zip: "Code postal",
+    chk_lbl_province: "Département / Région",
+    chk_ph_province: "Ex. : Paris, Lyon...",
+    chk_save_info: "Enregistrer ces coordonnées pour les prochaines commandes",
+    chk_sec_payment: "3. Moyen de paiement",
+    chk_pay_card: "Carte bancaire",
+    chk_pay_paypal: "PayPal",
+    chk_pay_bizum: "Bizum",
+    chk_lbl_cnum: "Numéro de carte",
+    chk_lbl_cexp: "Expiration (MM/AA)",
+    chk_lbl_ccvc: "CVC",
+    chk_alt_pay_note:
+      "Vous serez redirigé vers la passerelle sécurisée après validation de la commande.",
+    chk_btn_submit: "Payer et confirmer la commande",
+    chk_summary_title: "Récapitulatif de commande",
+    chk_subtotal_lbl: "Sous-total",
+    chk_shipping_lbl: "Livraison (24/48 h)",
+    chk_total_lbl: "Total à payer",
+    chk_guar_ssl: "Paiement 100 % sécurisé avec chiffrement SSL.",
+    chk_guar_free: "Livraison offerte dès 60 € d'achat.",
+    chk_guar_return: "Retours et échanges possibles sous 30 jours.",
+    chk_empty_basket: "Votre panier est vide.",
+    chk_go_catalog: "Accéder au catalogue pour ajouter des articles →",
+    chk_success_title: "Commande confirmée avec succès !",
+    chk_success_p1:
+      "Nous avons validé votre achat d'un montant de {total}. La facture et le numéro de suivi vous ont été envoyés par e-mail.",
+    chk_success_est: "Délai de livraison estimé : 24 / 48 h ouvrées",
+    chk_success_btn: "Retourner à la boutique",
     rev_verified: "✓ Compra verificada",
-rev_bought: "Va comprar:",
+    rev_bought: "Va comprar:",
     rev_title: "Avis de la communauté",
     title: "Hoop Store · Boutique de basket",
     skip: "Aller au contenu",
@@ -560,10 +952,18 @@ cards.forEach((card) => {
   };
 });
 
-const nameOf = (id) =>
-  products[id]?.card.querySelector(".card-name")?.textContent || "Producto";
-const metaOf = (id) =>
-  products[id]?.card.querySelector(".card-meta")?.textContent || "";
+const nameOf = (id) => {
+  const [baseId, size] = id.split("__");
+  const baseName =
+    products[baseId]?.card.querySelector(".card-name")?.textContent ||
+    "Producto";
+  return size ? `${baseName} (${size})` : baseName;
+};
+
+const metaOf = (id) => {
+  const [baseId] = id.split("__");
+  return products[baseId]?.card.querySelector(".card-meta")?.textContent || "";
+};
 
 function renderPrices() {
   cards.forEach((card) => {
@@ -578,6 +978,39 @@ function renderPrices() {
     }
   });
 }
+/* =========================================================
+   5.1. Selección de tallas y agrandar tarjeta
+   ========================================================= */
+document.querySelectorAll(".card").forEach((card) => {
+  // Agrandar la tarjeta al pulsar en ella
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("[data-fav]")) return;
+    document.querySelectorAll(".card.expanded").forEach((c) => {
+      if (c !== card) c.classList.remove("expanded");
+    });
+    card.classList.add("expanded");
+  });
+
+  // Marcar la talla seleccionada
+  const sizeBtns = card.querySelectorAll(".btn-size");
+  sizeBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      sizeBtns.forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      card.dataset.selectedSize = btn.dataset.size;
+    });
+  });
+});
+
+// Deshacer el agrandado si pinchas fuera de cualquier tarjeta
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".card")) {
+    document
+      .querySelectorAll(".card.expanded")
+      .forEach((c) => c.classList.remove("expanded"));
+  }
+});
 
 /* =========================================================
    6. Diálogos
@@ -643,7 +1076,8 @@ function renderCart() {
   let subtotal = 0;
   ids.forEach((id) => {
     const qty = cart[id];
-    const unitPrice = products[id]?.price || 50.0;
+    const baseId = id.split("__")[0];
+    const unitPrice = products[baseId]?.price || 50.0;
     const lineTotal = unitPrice * qty;
     subtotal += lineTotal;
 
@@ -729,12 +1163,25 @@ function changeCart(id, delta) {
 }
 
 document.querySelectorAll("[data-add]").forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
     const cardEl = btn.closest(".card");
     if (!cardEl) return;
-    const id = cardEl.dataset.id;
-    changeCart(id, 1);
-    showToast(t("t_cart", { name: nameOf(id), n: cartUnits() }));
+
+    const baseId = cardEl.dataset.id;
+    const hasSizes = cardEl.querySelector(".size-selector");
+    const chosenSize = cardEl.dataset.selectedSize;
+
+    // Si tiene tallas y el usuario no ha pulsado ninguna
+    if (hasSizes && !chosenSize) {
+      cardEl.classList.add("expanded");
+      showToast("Por favor, selecciona una talla antes de añadir");
+      return;
+    }
+
+    const cartItemId = chosenSize ? `${baseId}__${chosenSize}` : baseId;
+    changeCart(cartItemId, 1);
+    showToast(t("t_cart", { name: nameOf(cartItemId), n: cartUnits() }));
   });
 });
 
@@ -1204,9 +1651,9 @@ if (news) {
   if (activeIds.length === 0) {
     itemsList.innerHTML = `
       <li class="summary-empty" style="text-align: center; padding: 24px 0; color: var(--n700);">
-        Tu cesta está vacía.<br>
-        <a href="catalogo.html" style="display: inline-block; margin-top: 12px; font-weight: 700; color: var(--secondary); text-decoration: underline;">
-          Ir al catálogo para añadir artículos →
+        <span data-i18n="chk_empty_basket">${t("chk_empty_basket")}</span><br>
+        <a href="catalogo.html" style="display: inline-block; margin-top: 12px; font-weight: 700; color: var(--secondary); text-decoration: underline;" data-i18n="chk_go_catalog">
+          ${t("chk_go_catalog")}
         </a>
       </li>
     `;
@@ -1221,22 +1668,29 @@ if (news) {
   let subtotal = 0;
 
   activeIds.forEach((id) => {
-    const product = REAL_CATALOG[id] || {
-      name: "Artículo " + id,
+    // Separa el id base de la talla (ej: "p2__XL" -> baseId="p2", size="XL")
+    const [baseId, size] = id.split("__");
+    const product = REAL_CATALOG[baseId] || {
+      name: "Artículo " + baseId,
       price: 49.95,
       img: "",
     };
+
+    const sizeLabel = t("size_prefix");
+    const displayName = size ? `${product.name} (${sizeLabel} ${size})` : product.name;
     const qty = Number(cartData[id]);
     const lineTotal = product.price * qty;
     subtotal += lineTotal;
 
+    const unitWord = qty > 1 ? t("unit_plural") : t("unit_single");
+
     const li = document.createElement("li");
     li.className = "summary-item";
     li.innerHTML = `
-      <img src="${product.img}" alt="" width="56" height="56" class="sum-thumb">
+      <img src="${product.img}" alt="${displayName}" width="56" height="56" class="sum-thumb">
       <div class="sum-info">
-        <strong>${product.name}</strong>
-        <small>${qty} unidad${qty > 1 ? "es" : ""} × ${product.price.toFixed(2)} €</small>
+        <strong>${displayName}</strong>
+        <small>${qty} ${unitWord} × ${product.price.toFixed(2)} €</small>
       </div>
       <span class="sum-price">${lineTotal.toFixed(2)} €</span>
     `;
@@ -1248,7 +1702,7 @@ if (news) {
   const totalOrder = subtotal + shippingCost;
 
   subtotalEl.textContent = subtotal.toFixed(2).replace(".", ",") + " €";
-  shippingEl.textContent = isFreeShipping ? "Gratis" : "4,95 €";
+shippingEl.textContent = isFreeShipping ? t("free") : "4,95 €";
   totalEl.textContent = totalOrder.toFixed(2).replace(".", ",") + " €";
 
   // Alternar opciones de pago
@@ -1310,6 +1764,30 @@ if (news) {
           </div>
           <div style="margin-top: 32px;">
             <a href="index.html" class="btn btn-primary">Volver a la tienda</a>
+          </div>
+        </div>
+      `;
+      window.scrollTo({ top: 100, behavior: "smooth" });
+    }, 1200);
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Procesando pago seguro...";
+
+    setTimeout(() => {
+      localStorage.removeItem("hoopstore-cart");
+
+      const formattedTotal = totalOrder.toFixed(2).replace(".", ",") + " €";
+      document.querySelector(".checkout-layout").innerHTML = `
+        <div class="order-success" style="grid-column: 1 / -1; background: var(--white); border: 2px solid var(--secondary); padding: 48px 32px; border-radius: var(--radius); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+          <span style="font-size: 52px; display: block; margin-bottom: 12px;">🏀</span>
+          <h2 class="t-h2" style="font-size: 32px; color: var(--ink); margin-bottom: 12px;" data-i18n="chk_success_title">${t("chk_success_title")}</h2>
+          <p style="font-size: 17px; color: var(--n700); max-width: 50ch; margin-inline: auto;">
+            ${t("chk_success_p1", { total: `<strong>${formattedTotal}</strong>` })}
+          </p>
+          <div style="margin-top: 24px; padding: 14px; background: var(--blue-tint); border-radius: 12px; display: inline-block; font-weight: 700; color: var(--blue-dark);" data-i18n="chk_success_est">
+            ${t("chk_success_est")}
+          </div>
+          <div style="margin-top: 32px;">
+            <a href="index.html" class="btn btn-primary" data-i18n="chk_success_btn">${t("chk_success_btn")}</a>
           </div>
         </div>
       `;
