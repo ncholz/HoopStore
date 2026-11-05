@@ -50,6 +50,7 @@ const KEYS = {
    ========================================================= */
 const I18N = {
   es: {
+    rev_title: "Opiniones de la comunidad",
     title: "Hoop Store · Tienda de baloncesto",
     skip: "Saltar al contenido",
     announce: "Entrega gratuita desde 60 € · Envío en 24/48 h",
@@ -144,6 +145,7 @@ const I18N = {
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    rev_title: "Community Reviews",
     title: "Hoop Store · Basketball shop",
     skip: "Skip to content",
     announce: "Free delivery over €60 · Shipping in 24/48 h",
@@ -237,6 +239,7 @@ const I18N = {
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    rev_title: "Opinions de la comunitat",
     title: "Hoop Store · Botiga de bàsquet",
     skip: "Salta al contingut",
     announce: "Lliurament gratuït a partir de 60 € · Enviament en 24/48 h",
@@ -330,6 +333,7 @@ const I18N = {
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    rev_title: "Avis de la communauté",
     title: "Hoop Store · Boutique de basket",
     skip: "Aller au contenu",
     announce: "Livraison gratuite dès 60 € · Expédition en 24/48 h",
