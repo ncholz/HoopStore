@@ -2,12 +2,14 @@
 <html lang="es">
 
 <head>
+  <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hoop Store · Tienda de baloncesto</title>
   <meta name="description"
     content="Hoop Store: zapatillas, equipaciones, accesorios y colección oficial NBA para jugadores de baloncesto.">
   <meta name="theme-color" content="#111214">
+  <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
@@ -43,8 +45,7 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                </path>
+                <ellipse cx="12" cy="12" rx="4.5" ry="10"></ellipse>
               </svg>
             </span>
             <span id="langLabel">ES</span>
@@ -120,8 +121,7 @@
           <h1 class="t-hero" id="heroTitle" data-i18n="hero_title">Juega como juegas</h1>
           <p class="lead" data-i18n="lead">Zapatillas, equipaciones y accesorios para jugadores de baloncesto.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="catalogo.html?categoria=zapatillas" data-i18n="btn_shoes">Ver
-              zapatillas</a>
+            <a class="btn btn-primary" href="catalogo.html?categoria=zapatillas" data-i18n="btn_shoes">Ver zapatillas</a>
             <a class="btn btn-secondary" href="catalogo.html?categoria=nba" data-i18n="btn_nba">Colección NBA</a>
           </div>
         </div>
@@ -166,8 +166,10 @@
         </div>
         <div class="grid">
 
+          <!-- Nike Precision 6 -->
           <article class="card reveal" data-id="p1" data-price="99.95">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png"
                 alt="Zapatillas de baloncesto Nike Precision 6" loading="lazy">
               <span class="badge new" data-i18n="b_new">Nuevo</span>
@@ -186,12 +188,26 @@
               <p class="card-meta" data-i18n="nav_shoes">Zapatillas</p>
               <h3 class="card-name">Nike Precision 6</h3>
               <p class="price">99,95 €</p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="40">40</button>
+                  <button type="button" class="btn-size" data-size="41">41</button>
+                  <button type="button" class="btn-size" data-size="42">42</button>
+                  <button type="button" class="btn-size" data-size="43">43</button>
+                  <button type="button" class="btn-size" data-size="44">44</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
+          <!-- Equipación Joma -->
           <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766"
                 alt="Equipación de baloncesto Joma Final II, camiseta y pantalón" loading="lazy">
               <span class="badge sale" data-i18n="b_sale">Oferta</span>
@@ -210,12 +226,25 @@
               <p class="card-meta" data-i18n="nav_kits">Equipaciones</p>
               <h3 class="card-name">Equipación Joma Final II</h3>
               <p class="price">59,95 € <span class="old">79,95 €</span></p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="S">S</button>
+                  <button type="button" class="btn-size" data-size="M">M</button>
+                  <button type="button" class="btn-size" data-size="L">L</button>
+                  <button type="button" class="btn-size" data-size="XL">XL</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
 
+          <!-- Balón Spalding (Sin selector de talla) -->
           <article class="card reveal" data-id="p3" data-price="24.95">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325"
                 alt="Balón oficial de baloncesto Spalding NBA" loading="lazy">
               <button class="wish" type="button" data-fav aria-pressed="false" aria-label="Añadir a favoritos"
@@ -237,8 +266,10 @@
             </div>
           </article>
 
+          <!-- Camiseta Celtics -->
           <article class="card reveal" data-id="p4" data-price="89.95">
-            <div class="card-media product-photo"><img class="product-image"
+            <div class="card-media product-photo">
+              <img class="product-image"
                 src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png"
                 alt="Camiseta NBA Boston Celtics verde, número 11" loading="lazy">
               <span class="badge nba">NBA</span>
@@ -257,6 +288,17 @@
               <p class="card-meta">NBA</p>
               <h3 class="card-name">Camiseta Boston Celtics</h3>
               <p class="price">89,95 €</p>
+
+              <div class="size-selector">
+                <span class="size-label">Talla:</span>
+                <div class="size-options">
+                  <button type="button" class="btn-size" data-size="S">S</button>
+                  <button type="button" class="btn-size" data-size="M">M</button>
+                  <button type="button" class="btn-size" data-size="L">L</button>
+                  <button type="button" class="btn-size" data-size="XL">XL</button>
+                </div>
+              </div>
+
               <button class="btn btn-primary btn-sm" type="button" data-add data-i18n="add">Añadir</button>
             </div>
           </article>
@@ -271,6 +313,9 @@
         <div class="block-head">
           <div>
             <h2 class="t-h2" id="reviewsTitle" data-i18n="rev_title">Opiniones de la comunidad</h2>
+            <p style="margin-top: 10px; color: #374151; font-weight: 700; font-size: 15px;">
+              Puntuación media de 4.9/5 basada en más de 1.200 jugadores y clubes.
+            </p>
           </div>
         </div>
 
@@ -290,7 +335,7 @@
               <div class="review-info">
                 <strong>Marcos R.</strong>
                 <span class="verified" data-i18n="rev_verified">✓ Compra verificada</span>
-                <span class="review-product" data-i18n="rev_bought">Compró:</span> Nike Precision 6
+                <span class="review-product"><span data-i18n="rev_bought">Compró:</span> Nike Precision 6</span>
               </div>
             </div>
           </article>
@@ -308,7 +353,8 @@
               <div class="review-avatar" aria-hidden="true">AL</div>
               <div class="review-info">
                 <strong>Álvaro L.</strong>
-                <span class="review-product" data-i18n="rev_bought">Compró:</span> Equipación Joma Final II
+                <span class="verified" data-i18n="rev_verified">✓ Compra verificada</span>
+                <span class="review-product"><span data-i18n="rev_bought">Compró:</span> Equipación Joma Final II</span>
               </div>
             </div>
           </article>
@@ -326,8 +372,8 @@
               <div class="review-avatar" aria-hidden="true">SL</div>
               <div class="review-info">
                 <strong>Sofía L.</strong>
-                <span class="verified" data-i18n="rev_verified">✓ Compra verificada</span> <span class="review-product"
-                  data-i18n="rev_bought">Compró:</span> Camiseta Boston Celtics
+                <span class="verified" data-i18n="rev_verified">✓ Compra verificada</span>
+                <span class="review-product"><span data-i18n="rev_bought">Compró:</span> Camiseta Boston Celtics</span>
               </div>
             </div>
           </article>
