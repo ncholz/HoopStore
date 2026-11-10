@@ -1,7 +1,12 @@
+# Hoop Store — preferencias de rastreo
 User-agent: *
 Allow: /
 
-# Rastreadores de Motores Generativos (GEO)
+# Búsqueda mediante ChatGPT
+User-agent: OAI-SearchBot
+Allow: /
+
+# Otros rastreadores relacionados con IA (uso y fines diferentes)
 User-agent: GPTBot
 Allow: /
 
@@ -17,4 +22,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://hoopstore.example.com/sitemap.xml
+Sitemap: https://proyectohoopstore.vercel.app/sitemap.xml
