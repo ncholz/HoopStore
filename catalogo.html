@@ -2,13 +2,19 @@
 <html lang="es">
 
 <head>
-    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo · Hoop Store</title>
   <meta name="description"
     content="Catálogo completo de productos de baloncesto: zapatillas, equipaciones, accesorios y NBA.">
+  <link rel="canonical" href="https://proyectohoopstore.vercel.app/catalogo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hoop Store">
+  <meta property="og:url" content="https://proyectohoopstore.vercel.app/catalogo.html">
+  <meta property="og:title" content="Catálogo de baloncesto | Hoop Store">
+  <meta property="og:description" content="Zapatillas, equipaciones, accesorios y artículos NBA en Hoop Store.">
+  <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#111214">
   <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -176,7 +182,7 @@
         <div class="grid" id="catalogGrid">
 
           <!-- ZAPATILLAS: Nike Precision 6 -->
-          <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas">
+          <article class="card reveal" data-id="p1" data-price="99.95" data-categoria="zapatillas" id="producto-p1">
             <div class="card-media product-photo">
               <img class="product-image"
                 src="https://2app.kicksonfire.com/kofapp/upload/events_images/ipad_nike-precision-6-white-malachite-3.png"
@@ -214,7 +220,7 @@
           </article>
 
           <!-- ZAPATILLAS: adidas Harden -->
-          <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas">
+          <article class="card reveal" data-id="p5" data-price="129.99" data-categoria="zapatillas" id="producto-p5">
             <div class="card-media product-photo">
               <img class="product-image" src="imagenes/harden-volume-9-uno-12.png" alt="adidas Harden Volume 9"
                 loading="lazy">
@@ -250,7 +256,8 @@
           </article>
 
           <!-- EQUIPACIONES: Joma -->
-          <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones">
+          <article class="card reveal" data-id="p2" data-price="59.95" data-old="79.95" data-categoria="equipaciones"
+            id="producto-p2">
             <div class="card-media product-photo">
               <img class="product-image"
                 src="https://www.kitking.co.uk/cdn/shop/products/5_900b9b58-7d4f-4bcd-9499-90b625f65220_994x994.png?v=1653985766"
@@ -287,7 +294,7 @@
           </article>
 
           <!-- ACCESORIOS: Balón Spalding -->
-          <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios">
+          <article class="card reveal" data-id="p3" data-price="24.95" data-categoria="accesorios" id="producto-p3">
             <div class="card-media product-photo">
               <img class="product-image"
                 src="https://www.spelexperten.com/bilder/artiklar/zoom/3001510010317_1.jpg?m=1637219325"
@@ -312,7 +319,7 @@
           </article>
 
           <!-- NBA: Camiseta Boston Celtics -->
-          <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba">
+          <article class="card reveal" data-id="p4" data-price="89.95" data-categoria="nba" id="producto-p4">
             <div class="card-media product-photo">
               <img class="product-image"
                 src="https://toppng.com/uploads/preview/ike-nba-boston-celtics-kyrie-irving-road-swingman-boston-celtics-basketball-jersey-11563623935faati81kze.png"
@@ -350,7 +357,8 @@
 
         </div>
 
-        <p class="empty-catalog" id="emptyMessage" data-i18n="empty_cat" hidden>No se han encontrado productos con estos filtros.</p>
+        <p class="empty-catalog" id="emptyMessage" data-i18n="empty_cat" hidden>No se han encontrado productos con estos
+          filtros.</p>
       </div>
     </section>
 
@@ -374,7 +382,8 @@
               <input id="newsEmail" name="email" type="email" title="Correo electrónico" required autocomplete="email"
                 placeholder="tu@email.com" data-i18n-ph="ph_email">
             </div>
-            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme" data-i18n-aria="a_subscribe">
+            <button type="submit" class="news-submit" aria-label="Suscribirme" title="Suscribirme"
+              data-i18n-aria="a_subscribe">
               <span data-i18n="btn_subscribe">Unirme</span>
               <span aria-hidden="true">→</span>
             </button>
