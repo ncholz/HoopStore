@@ -1,26 +1,32 @@
 # Hoop Store
 
-> Tienda online especializada en equipamiento oficial de baloncesto: zapatillas técnicas, equipaciones de juego, accesorios y catálogo oficial NBA.
+> Tienda online especializada en material de baloncesto: zapatillas, equipaciones, balones y artículos NBA. Sitio web oficial del proyecto: https://proyectohoopstore.vercel.app/
 
-## Información de la Empresa
-- Nombre: Hoop Store
-- Especialidad: Calzado técnico de baloncesto, camisetas NBA, balones y equipaciones personalizadas
-- Idiomas: Español, Català, English, Français
-- Envíos: 24/48 horas a Península
-- Envío gratuito: En pedidos iguales o superiores a 60,00 €
-- Tarifa de envío estándar: 4,95 €
-- Métodos de pago: Visa, Mastercard, Apple Pay, PayPal
+## Identidad y navegación
+- Marca del proyecto: Hoop Store
+- Página de inicio: https://proyectohoopstore.vercel.app/
+- Catálogo completo: https://proyectohoopstore.vercel.app/catalogo.html
+- Idiomas seleccionables en la interfaz: español, inglés, catalán y francés.
 
-## Catálogo Principal
-- Zapatillas: Modelos de alto rendimiento para pista cubierta (indoor) y calle/asfalto (outdoor). Ejemplo: Hoop Air Elite (99,95 €), Court Master Pro (129,99 €).
-- Equipaciones: Camisetas técnicas transpirables y conjuntos completos para clubes y particulares. Ejemplo: Camiseta Pro Match (59,95 €).
-- Accesorios: Balones reglamentarios indoor/outdoor, mangas de compresión y mochilas técnicas. Ejemplo: Balón Indoor/Outdoor (24,95 €).
-- Colección NBA: Camisetas y merchandising oficial de franquicias NBA. Ejemplo: Camiseta Oficial NBA (89,95 €).
+## Categorías del catálogo
+- Zapatillas: https://proyectohoopstore.vercel.app/catalogo.html?categoria=zapatillas
+- Equipaciones: https://proyectohoopstore.vercel.app/catalogo.html?categoria=equipaciones
+- Accesorios: https://proyectohoopstore.vercel.app/catalogo.html?categoria=accesorios
+- NBA: https://proyectohoopstore.vercel.app/catalogo.html?categoria=nba
 
-## Enlaces Clave
-- Portada: /index.html
-- Catálogo Completo: /catalogo.html
-- Zapatillas: /catalogo.html?categoria=zapatillas
-- Equipaciones: /catalogo.html?categoria=equipaciones
-- Accesorios: /catalogo.html?categoria=accesorios
-- NBA: /catalogo.html?categoria=nba
+## Productos que figuran en el catálogo
+- Nike Precision 6 — zapatillas de baloncesto — 99,95 EUR.
+- adidas Harden Volume 9 — zapatillas de baloncesto — 129,99 EUR.
+- Equipación Joma Final II — equipaciones — 59,95 EUR (precio anterior mostrado: 79,95 EUR).
+- Spalding NBA Official Game Ball — accesorios — 24,95 EUR.
+- Camiseta Boston Celtics — NBA — 89,95 EUR.
+
+## Información anunciada en la web
+- Envío gratuito desde 60 EUR.
+- Plazo de envío anunciado: 24/48 h.
+- Métodos de pago mostrados en el pie de página: Visa, Mastercard, Apple Pay y PayPal.
+
+## Notas
+- Los precios y condiciones corresponden al contenido HTML revisado el 10 de noviembre de 2026 y pueden cambiar.
+- Las URL con `?categoria=` filtran el catálogo; no son fichas individuales de producto.
+- Este archivo es un resumen orientativo y no sustituye al contenido visible de las páginas ni garantiza que los asistentes de IA lo consulten.
