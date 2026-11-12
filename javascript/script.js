@@ -61,6 +61,11 @@ function accountStorageKey(kind) {
    ========================================================= */
 const I18N = {
   es: {
+    profile_account: "MI PERFIL",
+    profile_summary_title: "Resumen de mi carrito",
+    profile_saved: "GUARDADO",
+    profile_items_label: "Artículos",
+    profile_subtotal_label: "Subtotal",
     profile_email: "Correo de la cuenta:",
     profile_items: "Artículos en el carrito: {count}",
     profile_subtotal: "Subtotal del carrito: {total}",
@@ -263,6 +268,11 @@ const I18N = {
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    profile_account: "MY PROFILE",
+    profile_summary_title: "My cart summary",
+    profile_saved: "SAVED",
+    profile_items_label: "Items",
+    profile_subtotal_label: "Subtotal",
     profile_email: "Account email:",
     profile_items: "Items in cart: {count}",
     profile_subtotal: "Cart subtotal: {total}",
@@ -461,6 +471,11 @@ const I18N = {
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    profile_account: "EL MEU PERFIL",
+    profile_summary_title: "Resum del meu carret",
+    profile_saved: "DESAT",
+    profile_items_label: "Articles",
+    profile_subtotal_label: "Subtotal",
     profile_email: "Correu del compte:",
     profile_items: "Articles al carret: {count}",
     profile_subtotal: "Subtotal del carret: {total}",
@@ -660,6 +675,11 @@ const I18N = {
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    profile_account: "MON PROFIL",
+    profile_summary_title: "Résumé de mon panier",
+    profile_saved: "ENREGISTRÉ",
+    profile_items_label: "Articles",
+    profile_subtotal_label: "Sous-total",
     profile_email: "E-mail du compte :",
     profile_items: "Articles dans le panier : {count}",
     profile_subtotal: "Sous-total du panier : {total}",
@@ -1358,17 +1378,17 @@ function refreshAccountData() {
 function renderProfileInfo() {
   const email = store.get(KEYS.userEmail, "");
   if ($("profileEmail")) {
-    $("profileEmail").textContent = `${t("profile_email")} ${email || "—"}`;
+    $("profileEmail").textContent = email || "—";
   }
   if ($("profileItems")) {
-    $("profileItems").textContent = t("profile_items", { count: cartUnits() });
+    $("profileItems").textContent = String(cartUnits());
   }
   const subtotal = Object.entries(cart).reduce((sum, [id, quantity]) => {
     const baseId = id.split("__")[0];
     return sum + (products[baseId]?.price || 50.0) * quantity;
   }, 0);
   if ($("profileSubtotal")) {
-    $("profileSubtotal").textContent = t("profile_subtotal", { total: fmt(subtotal) });
+    $("profileSubtotal").textContent = fmt(subtotal);
   }
   if ($("profileViewCart")) $("profileViewCart").textContent = t("profile_view_cart");
   if ($("profileCheckout")) {
@@ -1382,6 +1402,7 @@ function renderUser() {
   if ($("loginForm")) $("loginForm").hidden = logged;
 
   if ($("userIn")) $("userIn").hidden = !logged;
+  if ($("loginDemoNote")) $("loginDemoNote").hidden = logged;
   if ($("userTitle"))
     $("userTitle").textContent = t(logged ? "user_title" : "login_title");
   if (logged && $("userHello"))
