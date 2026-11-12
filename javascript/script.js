@@ -61,6 +61,11 @@ function accountStorageKey(kind) {
    ========================================================= */
 const I18N = {
   es: {
+    profile_email: "Correo de la cuenta:",
+    profile_items: "Artículos en el carrito: {count}",
+    profile_subtotal: "Subtotal del carrito: {total}",
+    profile_view_cart: "Ver mi carrito",
+    profile_checkout: "Proceder al pago",
     unit_single: "unidad",
     unit_plural: "unidades",
     size_prefix: "Talla",
@@ -258,6 +263,11 @@ const I18N = {
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    profile_email: "Account email:",
+    profile_items: "Items in cart: {count}",
+    profile_subtotal: "Cart subtotal: {total}",
+    profile_view_cart: "View my cart",
+    profile_checkout: "Proceed to checkout",
     unit_single: "unit",
     unit_plural: "units",
     size_prefix: "Size",
@@ -451,6 +461,11 @@ const I18N = {
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    profile_email: "Correu del compte:",
+    profile_items: "Articles al carret: {count}",
+    profile_subtotal: "Subtotal del carret: {total}",
+    profile_view_cart: "Veure el meu carret",
+    profile_checkout: "Anar al pagament",
     unit_single: "unitat",
     unit_plural: "unitats",
     size_prefix: "Talla",
@@ -645,6 +660,11 @@ const I18N = {
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    profile_email: "E-mail du compte :",
+    profile_items: "Articles dans le panier : {count}",
+    profile_subtotal: "Sous-total du panier : {total}",
+    profile_view_cart: "Voir mon panier",
+    profile_checkout: "Passer au paiement",
     unit_single: "unité",
     unit_plural: "unités",
     size_prefix: "Taille",
@@ -1176,6 +1196,7 @@ function changeCart(id, delta) {
   store.set(accountStorageKey("cart"), cart);
   renderCartIcon(delta > 0);
   renderCart();
+  if (typeof user !== "undefined" && user) renderProfileInfo();
 }
 
 document.querySelectorAll("[data-add]").forEach((btn) => {
@@ -1334,6 +1355,28 @@ function refreshAccountData() {
   renderFavs();
 }
 
+function renderProfileInfo() {
+  const email = store.get(KEYS.userEmail, "");
+  if ($("profileEmail")) {
+    $("profileEmail").textContent = `${t("profile_email")} ${email || "—"}`;
+  }
+  if ($("profileItems")) {
+    $("profileItems").textContent = t("profile_items", { count: cartUnits() });
+  }
+  const subtotal = Object.entries(cart).reduce((sum, [id, quantity]) => {
+    const baseId = id.split("__")[0];
+    return sum + (products[baseId]?.price || 50.0) * quantity;
+  }, 0);
+  if ($("profileSubtotal")) {
+    $("profileSubtotal").textContent = t("profile_subtotal", { total: fmt(subtotal) });
+  }
+  if ($("profileViewCart")) $("profileViewCart").textContent = t("profile_view_cart");
+  if ($("profileCheckout")) {
+    $("profileCheckout").textContent = t("profile_checkout");
+    $("profileCheckout").disabled = cartUnits() === 0;
+  }
+}
+
 function renderUser() {
   const logged = Boolean(user);
   if ($("loginForm")) $("loginForm").hidden = logged;
@@ -1344,12 +1387,28 @@ function renderUser() {
   if (logged && $("userHello"))
     $("userHello").textContent = t("hello", { name: user });
   if (btnUser) btnUser.classList.toggle("logged", logged);
+  if (logged) renderProfileInfo();
 }
 
 if (btnUser) {
   btnUser.addEventListener("click", () => {
     renderUser();
     openDialog(dlgUser);
+  });
+}
+
+// Accesos rápidos del perfil al carrito y a la pantalla de pago.
+if ($("profileViewCart")) {
+  $("profileViewCart").addEventListener("click", () => {
+    if (dlgUser?.open) dlgUser.close();
+    renderCart();
+    openDialog(dlgCart);
+  });
+}
+if ($("profileCheckout")) {
+  $("profileCheckout").addEventListener("click", () => {
+    if (!cartUnits()) return;
+    window.location.href = "checkout.html";
   });
 }
 
