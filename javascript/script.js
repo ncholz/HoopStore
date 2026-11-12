@@ -198,8 +198,6 @@ const I18N = {
     btn_subscribe: "Unirme",
     email: "Correo electrónico",
     password: "Contraseña",
-    google_btn: "Continuar con Google",
-    auth_or: "o con correo",
     col_help: "Atención al cliente",
     help_center: "Centro de ayuda",
     shipping_link: "Envíos y entregas",
@@ -242,7 +240,6 @@ const I18N = {
     t_lang: "Idioma cambiado a {lang}",
     t_news: "¡Gracias por suscribirte, {name}!",
     t_login: "Sesión iniciada como {name}",
-    t_google_login: "Sesión iniciada con Google como {name}",
     t_logout: "Sesión cerrada",
     t_checkout: "Demostración: el pago aún no está conectado",
   },
@@ -391,8 +388,6 @@ const I18N = {
     btn_subscribe: "Join",
     email: "Email",
     password: "Password",
-    google_btn: "Continue with Google",
-    auth_or: "or with email",
     col_help: "Customer service",
     help_center: "Help centre",
     shipping_link: "Shipping and delivery",
@@ -435,7 +430,6 @@ const I18N = {
     t_lang: "Language changed to {lang}",
     t_news: "Thanks for subscribing, {name}!",
     t_login: "Logged in as {name}",
-    t_google_login: "Logged in with Google as {name}",
     t_logout: "Logged out",
     t_checkout: "Demo: payment is not connected yet",
   },
@@ -585,8 +579,6 @@ const I18N = {
     btn_subscribe: "Unir-me",
     email: "Correu electrònic",
     password: "Contrasenya",
-    google_btn: "Continua amb Google",
-    auth_or: "o amb correu",
     col_help: "Atenció al client",
     help_center: "Centre d'ajuda",
     shipping_link: "Enviaments i lliuraments",
@@ -629,7 +621,6 @@ const I18N = {
     t_lang: "Idioma canviat a {lang}",
     t_news: "Gràcies per subscriure't, {name}!",
     t_login: "Sessió iniciada com a {name}",
-    t_google_login: "Sessió iniciada amb Google com a {name}",
     t_logout: "Sessió tancada",
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
@@ -778,8 +769,6 @@ const I18N = {
     btn_subscribe: "Rejoindre",
     email: "E-mail",
     password: "Mot de passe",
-    google_btn: "Continuer avec Google",
-    auth_or: "ou par e-mail",
     col_help: "Service client",
     help_center: "Centre d'aide",
     shipping_link: "Expédition et livraison",
@@ -822,7 +811,6 @@ const I18N = {
     t_lang: "Langue changée : {lang}",
     t_news: "Merci pour ton abonnement, {name} !",
     t_login: "Connecté en tant que {name}",
-    t_google_login: "Connecté avec Google en tant que {name}",
     t_logout: "Déconnecté",
     t_checkout: "Démo : le paiement n'est pas encore relié",
   },
@@ -1306,9 +1294,6 @@ if (typeof user !== "string") user = null;
 function renderUser() {
   const logged = Boolean(user);
   if ($("loginForm")) $("loginForm").hidden = logged;
-  if ($("btnGoogleLogin")) $("btnGoogleLogin").hidden = logged;
-  const divider = document.querySelector(".auth-divider");
-  if (divider) divider.hidden = logged;
 
   if ($("userIn")) $("userIn").hidden = !logged;
   if ($("userTitle"))
@@ -1322,18 +1307,6 @@ if (btnUser) {
   btnUser.addEventListener("click", () => {
     renderUser();
     openDialog(dlgUser);
-  });
-}
-
-// Botón de Google
-const btnGoogle = $("btnGoogleLogin");
-if (btnGoogle) {
-  btnGoogle.addEventListener("click", () => {
-    user = "Usuario Google";
-    store.set(KEYS.user, user);
-    renderUser();
-    if (dlgUser) dlgUser.close();
-    showToast(t("t_google_login", { name: user }));
   });
 }
 
@@ -1677,7 +1650,9 @@ if (news) {
     };
 
     const sizeLabel = t("size_prefix");
-    const displayName = size ? `${product.name} (${sizeLabel} ${size})` : product.name;
+    const displayName = size
+      ? `${product.name} (${sizeLabel} ${size})`
+      : product.name;
     const qty = Number(cartData[id]);
     const lineTotal = product.price * qty;
     subtotal += lineTotal;
@@ -1702,7 +1677,7 @@ if (news) {
   const totalOrder = subtotal + shippingCost;
 
   subtotalEl.textContent = subtotal.toFixed(2).replace(".", ",") + " €";
-shippingEl.textContent = isFreeShipping ? t("free") : "4,95 €";
+  shippingEl.textContent = isFreeShipping ? t("free") : "4,95 €";
   totalEl.textContent = totalOrder.toFixed(2).replace(".", ",") + " €";
 
   // Alternar opciones de pago
