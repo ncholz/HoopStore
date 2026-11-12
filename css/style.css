@@ -1229,7 +1229,6 @@ p {
   }
 }
 
-
 /* Columnas de enlaces */
 .f-col h3 {
   margin-bottom: 16px;
@@ -1781,8 +1780,6 @@ dialog[open]::backdrop {
   }
 }
 
-
-
 /* ===== 15. Contenedores de Fotos de Producto ===== */
 .card-media {
   position: relative;
@@ -1834,7 +1831,6 @@ dialog[open]::backdrop {
     padding: 10px;
   }
 }
-
 
 /* ===== 16. Sección de Reseñas / Comunidad ===== */
 .reviews-grid {
@@ -2223,7 +2219,10 @@ dialog[open]::backdrop {
 /* ===== Selector de Tallas y Expansión de Tarjeta ===== */
 /* ===== Selección de tallas y tarjeta activa ===== */
 .card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -2264,7 +2263,11 @@ dialog[open]::backdrop {
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    transform 0.1s;
 }
 
 .btn-size:hover {
@@ -2278,4 +2281,189 @@ dialog[open]::backdrop {
   border-color: var(--secondary) !important;
   color: var(--white) !important;
   box-shadow: 0 2px 8px rgba(49, 87, 255, 0.4);
+}
+/* =========================================================
+   Perfil de usuario · Hoop Store (guía de estilos v1.0)
+   Diseño aislado: no altera otros diálogos ni productos.
+   ========================================================= */
+#dlgUser .profile-panel {
+  gap: 20px;
+}
+#dlgUser .profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 0 8px;
+  min-width: 0;
+}
+#dlgUser .profile-avatar {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: var(--blue-tint-2);
+  color: var(--blue-dark);
+}
+#dlgUser .profile-avatar svg {
+  width: 32px;
+  height: 32px;
+}
+#dlgUser .profile-identity-text {
+  min-width: 0;
+}
+#dlgUser .profile-eyebrow {
+  margin: 0 0 5px;
+  color: var(--secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+#dlgUser .profile-identity .hello {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+#dlgUser .profile-email {
+  margin-top: 6px;
+  color: var(--n700);
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+#dlgUser .profile-summary {
+  border: 1px solid var(--n300);
+  border-radius: 20px;
+  padding: 20px;
+  background: var(--n050);
+}
+#dlgUser .profile-summary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+#dlgUser .profile-summary-heading h3 {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+#dlgUser .profile-summary-tag {
+  color: var(--blue-dark);
+  background: var(--blue-tint-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  padding: 6px 9px;
+  white-space: nowrap;
+}
+#dlgUser .profile-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+#dlgUser .profile-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--n100);
+  border-radius: 14px;
+}
+#dlgUser .profile-stat-label {
+  color: var(--n700);
+  font-size: 12px;
+  font-weight: 700;
+}
+#dlgUser .profile-stat-value {
+  color: var(--ink);
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+#dlgUser .profile-stat-price {
+  color: var(--primary);
+}
+#dlgUser .profile-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+#dlgUser .profile-actions .btn {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  font-size: 14px;
+}
+#dlgUser .profile-action-cart {
+  background: var(--white);
+  color: var(--blue-dark);
+  border: 2px solid var(--secondary);
+}
+#dlgUser .profile-action-cart:hover {
+  background: var(--blue-tint);
+}
+#dlgUser .profile-action-pay {
+  color: var(--ink);
+}
+#dlgUser .profile-action-pay:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+#dlgUser .profile-logout {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--n300);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s;
+}
+#dlgUser .profile-logout:hover {
+  color: var(--blue-dark);
+  border-color: var(--secondary);
+  background: var(--blue-tint);
+}
+#dlgUser .profile-panel :is(button, a):focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
+}
+@media (max-width: 420px) {
+  #dlgUser .dlg {
+    padding: 24px;
+  }
+  #dlgUser .profile-summary {
+    padding: 16px;
+  }
+  #dlgUser .profile-stat {
+    padding: 12px;
+  }
+  #dlgUser .profile-avatar {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+    border-radius: 14px;
+  }
+  #dlgUser .profile-identity .hello {
+    font-size: 19px;
+  }
+  #dlgUser .profile-summary-heading h3 {
+    font-size: 14px;
+  }
 }
