@@ -1,8 +1,16 @@
 [
   {
     "id": 1,
-    "nombre": "Prueba",
+    "nombre": "Profe",
     "email": "profe@hoopstore.com",
+    "password": "12345"
+  }
+],
+[
+  {
+    "id": 2,
+    "nombre": "Prueba",
+    "email": "preba@hoopstore.com",
     "password": "12345"
   }
 ]
