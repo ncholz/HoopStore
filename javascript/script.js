@@ -34,7 +34,18 @@ const KEYS = {
   cart: "hoopstore-cart",
   favs: "hoopstore-favs",
   user: "hoopstore-user",
+  userEmail: "hoopstore-user-email",
 };
+
+// Cada cuenta utiliza sus propias claves; el visitante mantiene el almacenamiento anterior.
+function accountStorageKey(kind) {
+  const email = store.get(KEYS.userEmail, null);
+  const base = kind === "cart" ? KEYS.cart : KEYS.favs;
+  return typeof email === "string" && email.trim()
+    ? `${base}-user-${encodeURIComponent(email.trim().toLowerCase())}`
+    : base;
+}
+
 
 /* =========================================================
    1. Idiomas
@@ -198,6 +209,8 @@ const I18N = {
     btn_subscribe: "Unirme",
     email: "Correo electrónico",
     password: "Contraseña",
+    google_btn: "Continuar con Google",
+    auth_or: "o con correo",
     col_help: "Atención al cliente",
     help_center: "Centro de ayuda",
     shipping_link: "Envíos y entregas",
@@ -240,6 +253,7 @@ const I18N = {
     t_lang: "Idioma cambiado a {lang}",
     t_news: "¡Gracias por suscribirte, {name}!",
     t_login: "Sesión iniciada como {name}",
+    t_google_login: "Sesión iniciada con Google como {name}",
     t_logout: "Sesión cerrada",
     t_checkout: "Demostración: el pago aún no está conectado",
   },
@@ -388,6 +402,8 @@ const I18N = {
     btn_subscribe: "Join",
     email: "Email",
     password: "Password",
+    google_btn: "Continue with Google",
+    auth_or: "or with email",
     col_help: "Customer service",
     help_center: "Help centre",
     shipping_link: "Shipping and delivery",
@@ -430,6 +446,7 @@ const I18N = {
     t_lang: "Language changed to {lang}",
     t_news: "Thanks for subscribing, {name}!",
     t_login: "Logged in as {name}",
+    t_google_login: "Logged in with Google as {name}",
     t_logout: "Logged out",
     t_checkout: "Demo: payment is not connected yet",
   },
@@ -579,6 +596,8 @@ const I18N = {
     btn_subscribe: "Unir-me",
     email: "Correu electrònic",
     password: "Contrasenya",
+    google_btn: "Continua amb Google",
+    auth_or: "o amb correu",
     col_help: "Atenció al client",
     help_center: "Centre d'ajuda",
     shipping_link: "Enviaments i lliuraments",
@@ -621,6 +640,7 @@ const I18N = {
     t_lang: "Idioma canviat a {lang}",
     t_news: "Gràcies per subscriure't, {name}!",
     t_login: "Sessió iniciada com a {name}",
+    t_google_login: "Sessió iniciada amb Google com a {name}",
     t_logout: "Sessió tancada",
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
@@ -769,6 +789,8 @@ const I18N = {
     btn_subscribe: "Rejoindre",
     email: "E-mail",
     password: "Mot de passe",
+    google_btn: "Continuer avec Google",
+    auth_or: "ou par e-mail",
     col_help: "Service client",
     help_center: "Centre d'aide",
     shipping_link: "Expédition et livraison",
@@ -811,6 +833,7 @@ const I18N = {
     t_lang: "Langue changée : {lang}",
     t_news: "Merci pour ton abonnement, {name} !",
     t_login: "Connecté en tant que {name}",
+    t_google_login: "Connecté avec Google en tant que {name}",
     t_logout: "Déconnecté",
     t_checkout: "Démo : le paiement n'est pas encore relié",
   },
@@ -1025,11 +1048,16 @@ const dlgCart = $("dlgCart");
 const cartList = $("cartList");
 
 let cart = {};
-const savedCart = store.get(KEYS.cart, {});
-Object.keys(savedCart).forEach((id) => {
-  const q = Math.floor(Number(savedCart[id]));
-  if (q > 0) cart[id] = q;
-});
+function loadAccountCart() {
+  cart = {};
+  const savedCart = store.get(accountStorageKey("cart"), {});
+  if (!savedCart || typeof savedCart !== "object" || Array.isArray(savedCart)) return;
+  Object.keys(savedCart).forEach((id) => {
+    const q = Math.floor(Number(savedCart[id]));
+    if (Number.isFinite(q) && q > 0) cart[id] = q;
+  });
+}
+loadAccountCart();
 
 const cartUnits = () => Object.values(cart).reduce((a, b) => a + b, 0);
 
@@ -1145,7 +1173,7 @@ function changeCart(id, delta) {
   const next = (cart[id] || 0) + delta;
   if (next > 0) cart[id] = next;
   else delete cart[id];
-  store.set(KEYS.cart, cart);
+  store.set(accountStorageKey("cart"), cart);
   renderCartIcon(delta > 0);
   renderCart();
 }
@@ -1203,7 +1231,7 @@ const favCount = $("favCount");
 const favList = $("favList");
 const dlgFav = $("dlgFav");
 
-let favs = store.get(KEYS.favs, []);
+let favs = store.get(accountStorageKey("favs"), []);
 favs = Array.isArray(favs) ? favs : [];
 
 function renderFavs() {
@@ -1261,7 +1289,7 @@ function renderFavs() {
 function toggleFav(id) {
   const added = !favs.includes(id);
   favs = added ? [...favs, id] : favs.filter((f) => f !== id);
-  store.set(KEYS.favs, favs);
+  store.set(accountStorageKey("favs"), favs);
   renderFavs();
   showToast(t(added ? "t_fav_add" : "t_fav_rm", { name: nameOf(id) }));
 }
@@ -1289,7 +1317,22 @@ if ($("btnFav")) {
 const dlgUser = $("dlgUser");
 const btnUser = $("btnUser");
 let user = store.get(KEYS.user, null);
-if (typeof user !== "string") user = null;
+// Las sesiones antiguas solo guardaban el nombre y no identificaban la cuenta.
+// Se solicita entrar de nuevo para asociar el carrito con el correo correcto.
+if (typeof user !== "string" || !store.get(KEYS.userEmail, null)) {
+  user = null;
+  store.set(KEYS.user, null);
+  store.set(KEYS.userEmail, null);
+}
+
+function refreshAccountData() {
+  loadAccountCart();
+  favs = store.get(accountStorageKey("favs"), []);
+  if (!Array.isArray(favs)) favs = [];
+  renderCartIcon(false);
+  renderCart();
+  renderFavs();
+}
 
 function renderUser() {
   const logged = Boolean(user);
@@ -1331,6 +1374,8 @@ if ($("loginForm")) {
       if (usuarioValido) {
         user = usuarioValido.nombre;
         store.set(KEYS.user, user);
+        store.set(KEYS.userEmail, emailVal);
+        refreshAccountData();
         e.target.reset();
         renderUser();
         if (dlgUser) dlgUser.close();
@@ -1346,6 +1391,8 @@ if ($("loginForm")) {
       if (emailVal === "profe@hoopstore.com" && passVal === "12345") {
         user = "Profesor";
         store.set(KEYS.user, user);
+        store.set(KEYS.userEmail, emailVal);
+        refreshAccountData();
         e.target.reset();
         renderUser();
         if (dlgUser) dlgUser.close();
@@ -1361,6 +1408,9 @@ if ($("btnLogout")) {
   $("btnLogout").addEventListener("click", () => {
     user = null;
     store.set(KEYS.user, null);
+    store.set(KEYS.userEmail, null);
+    // No se borran las compras pendientes: solo cambia el carrito visible.
+    refreshAccountData();
     renderUser();
     if (dlgUser) dlgUser.close();
     showToast(t("t_logout"));
@@ -1610,12 +1660,7 @@ if (news) {
   const totalEl = document.getElementById("chkTotal");
   const submitBtn = document.getElementById("btnPlaceOrder");
 
-  let cartData = {};
-  try {
-    cartData = JSON.parse(localStorage.getItem("hoopstore-cart")) || {};
-  } catch (e) {
-    cartData = {};
-  }
+  const cartData = store.get(accountStorageKey("cart"), {});
 
   const activeIds = Object.keys(cartData).filter(
     (id) => Number(cartData[id]) > 0,
@@ -1650,9 +1695,7 @@ if (news) {
     };
 
     const sizeLabel = t("size_prefix");
-    const displayName = size
-      ? `${product.name} (${sizeLabel} ${size})`
-      : product.name;
+    const displayName = size ? `${product.name} (${sizeLabel} ${size})` : product.name;
     const qty = Number(cartData[id]);
     const lineTotal = product.price * qty;
     subtotal += lineTotal;
@@ -1677,7 +1720,7 @@ if (news) {
   const totalOrder = subtotal + shippingCost;
 
   subtotalEl.textContent = subtotal.toFixed(2).replace(".", ",") + " €";
-  shippingEl.textContent = isFreeShipping ? t("free") : "4,95 €";
+shippingEl.textContent = isFreeShipping ? t("free") : "4,95 €";
   totalEl.textContent = totalOrder.toFixed(2).replace(".", ",") + " €";
 
   // Alternar opciones de pago
@@ -1726,7 +1769,7 @@ if (news) {
     submitBtn.textContent = "Procesando pago seguro...";
 
     setTimeout(() => {
-      localStorage.removeItem("hoopstore-cart");
+      localStorage.removeItem(accountStorageKey("cart"));
       document.querySelector(".checkout-layout").innerHTML = `
         <div class="order-success" style="grid-column: 1 / -1; background: var(--white); border: 2px solid var(--secondary); padding: 48px 32px; border-radius: var(--radius); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
           <span style="font-size: 52px; display: block; margin-bottom: 12px;">🏀</span>
@@ -1748,7 +1791,7 @@ if (news) {
     submitBtn.textContent = "Procesando pago seguro...";
 
     setTimeout(() => {
-      localStorage.removeItem("hoopstore-cart");
+      localStorage.removeItem(accountStorageKey("cart"));
 
       const formattedTotal = totalOrder.toFixed(2).replace(".", ",") + " €";
       document.querySelector(".checkout-layout").innerHTML = `
