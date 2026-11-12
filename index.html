@@ -129,8 +129,7 @@
           <h1 class="t-hero" id="heroTitle" data-i18n="hero_title">Juega como juegas</h1>
           <p class="lead" data-i18n="lead">Zapatillas, equipaciones y accesorios para jugadores de baloncesto.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="catalogo.html?categoria=zapatillas" data-i18n="btn_shoes">Ver
-              zapatillas</a>
+            <a class="btn btn-primary" href="catalogo.html?categoria=zapatillas" data-i18n="btn_shoes">Ver zapatillas</a>
             <a class="btn btn-secondary" href="catalogo.html?categoria=nba" data-i18n="btn_nba">Colección NBA</a>
           </div>
         </div>
@@ -504,19 +503,39 @@
         <input class="btn btn-primary" type="submit" value="Entrar" title="Entrar" data-i18n="login_btn">
       </form>
 
-      <div id="userIn" class="dlg-form" hidden>
-        <p class="hello" id="userHello"></p>
-        <section aria-label="Resumen de mi cuenta" class="profile-summary">
-          <p id="profileEmail"></p>
-          <p id="profileItems"></p>
-          <p id="profileSubtotal"></p>
-          <button class="btn btn-primary" type="button" id="profileViewCart">Ver mi carrito</button>
-          <button class="btn btn-primary" type="button" id="profileCheckout" disabled>Proceder al pago</button>
+      <div id="userIn" class="dlg-form profile-panel" hidden>
+        <section class="profile-identity" aria-label="Datos de la cuenta">
+          <span class="profile-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+          <div class="profile-identity-text">
+            <p class="profile-eyebrow" data-i18n="profile_account">MI PERFIL</p>
+            <p class="hello" id="userHello"></p>
+            <p class="profile-email" id="profileEmail"></p>
+          </div>
         </section>
-        <button class="btn btn-primary" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
+        <section aria-label="Resumen de mi cuenta" class="profile-summary">
+          <div class="profile-summary-heading">
+            <h3 data-i18n="profile_summary_title">Resumen de mi carrito</h3>
+            <span class="profile-summary-tag" data-i18n="profile_saved">GUARDADO</span>
+          </div>
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <span class="profile-stat-label" data-i18n="profile_items_label">Artículos</span>
+              <strong id="profileItems" class="profile-stat-value">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat-label" data-i18n="profile_subtotal_label">Subtotal</span>
+              <strong id="profileSubtotal" class="profile-stat-value profile-stat-price">0,00 €</strong>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn profile-action-cart" type="button" id="profileViewCart">Ver mi carrito</button>
+            <button class="btn btn-primary profile-action-pay" type="button" id="profileCheckout" disabled>Proceder al pago</button>
+          </div>
+        </section>
+        <button class="profile-logout" type="button" id="btnLogout" data-i18n="logout">Cerrar sesión</button>
       </div>
 
-      <p class="note" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
+      <p class="note" id="loginDemoNote" data-i18n="demo">Mini base de datos JSON: prueba con profe@hoopstore.com y 12345.</p>
     </div>
   </dialog>
 
