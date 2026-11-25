@@ -1,0 +1,20 @@
+.cookie-notice {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: min(390px, calc(100% - 40px));
+  box-sizing: border-box;
+  z-index: 1000;
+  padding: 22px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  background: #fff;
+  color: #111214;
+  box-shadow: 0 8px 30px rgba(0,0,0,.22);
+}
+.cookie-notice h2 { font-size: 19px; margin: 0 0 10px; }
+.cookie-notice p { font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+.cookie-notice-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.cookie-notice-actions a { color: #174578; text-decoration: underline; font-size: 14px; }
+.cookie-notice-actions button { cursor: pointer; }
+.cookie-notice-actions :focus-visible { outline: 3px solid #174578; outline-offset: 3px; }
