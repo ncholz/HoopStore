@@ -35,6 +35,7 @@ const KEYS = {
   favs: "hoopstore-favs",
   user: "hoopstore-user",
   userEmail: "hoopstore-user-email",
+  cookieNotice: "hoopstore-cookie-notice",
 };
 
 // Cada cuenta utiliza sus propias claves; el visitante mantiene el almacenamiento anterior.
@@ -61,6 +62,14 @@ function accountStorageKey(kind) {
    ========================================================= */
 const I18N = {
   es: {
+    cookie_notice_title: "Uso de cookies y almacenamiento local",
+    cookie_notice_text: "Utilizamos almacenamiento local para recordar el idioma, el carrito, los favoritos y la sesión.",
+    cookie_notice_ok: "Entendido",
+    cookie_notice_policy: "Política de cookies",
+    rev_rating: "Valoración: {n} de 5 estrellas",
+    rev_summary: "Puntuación media: {avg}/5 · {count} reseñas mostradas",
+    rev_error: "No se han podido cargar las reseñas.",
+
     profile_account: "MI PERFIL",
     profile_summary_title: "Resumen de mi carrito",
     profile_saved: "GUARDADO",
@@ -268,6 +277,14 @@ const I18N = {
     t_checkout: "Demostración: el pago aún no está conectado",
   },
   en: {
+    cookie_notice_title: "Cookies and local storage",
+    cookie_notice_text: "We use local storage to remember your language, cart, favourites and session.",
+    cookie_notice_ok: "Got it",
+    cookie_notice_policy: "Cookie policy",
+    rev_rating: "Rating: {n} out of 5 stars",
+    rev_summary: "Average rating: {avg}/5 · {count} displayed reviews",
+    rev_error: "Reviews could not be loaded.",
+
     profile_account: "MY PROFILE",
     profile_summary_title: "My cart summary",
     profile_saved: "SAVED",
@@ -471,6 +488,14 @@ const I18N = {
     t_checkout: "Demo: payment is not connected yet",
   },
   ca: {
+    cookie_notice_title: "Galetes i emmagatzematge local",
+    cookie_notice_text: "Fem servir emmagatzematge local per recordar l’idioma, la cistella, els preferits i la sessió.",
+    cookie_notice_ok: "Entesos",
+    cookie_notice_policy: "Política de galetes",
+    rev_rating: "Valoració: {n} de 5 estrelles",
+    rev_summary: "Puntuació mitjana: {avg}/5 · {count} ressenyes mostrades",
+    rev_error: "No s’han pogut carregar les ressenyes.",
+
     profile_account: "EL MEU PERFIL",
     profile_summary_title: "Resum del meu carret",
     profile_saved: "DESAT",
@@ -675,6 +700,14 @@ const I18N = {
     t_checkout: "Demostració: el pagament encara no està connectat",
   },
   fr: {
+    cookie_notice_title: "Cookies et stockage local",
+    cookie_notice_text: "Nous utilisons le stockage local pour mémoriser la langue, le panier, les favoris et la session.",
+    cookie_notice_ok: "Compris",
+    cookie_notice_policy: "Politique de cookies",
+    rev_rating: "Note : {n} sur 5 étoiles",
+    rev_summary: "Note moyenne : {avg}/5 · {count} avis affichés",
+    rev_error: "Impossible de charger les avis.",
+
     profile_account: "MON PROFIL",
     profile_summary_title: "Résumé de mon panier",
     profile_saved: "ENREGISTRÉ",
@@ -1569,6 +1602,7 @@ function applyLang() {
   renderFavs();
   renderCart();
   renderUser();
+  updateReviewsLanguage();
 }
 
 /* =========================================================
@@ -1926,6 +1960,84 @@ function updateActiveNavLink() {
 /* =========================================================
    14. Arranque global
    ========================================================= */
+
+/* Aviso de almacenamiento local: compartido por todas las páginas */
+function initCookieNotice() {
+  if (store.get(KEYS.cookieNotice, false)) return;
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "css/cookies.css";
+  document.head.appendChild(css);
+
+  const notice = document.createElement("aside");
+  notice.className = "cookie-notice";
+  notice.setAttribute("aria-labelledby", "cookieNoticeTitle");
+  notice.innerHTML = `
+    <h2 id="cookieNoticeTitle" data-i18n="cookie_notice_title"></h2>
+    <p data-i18n="cookie_notice_text"></p>
+    <div class="cookie-notice-actions">
+      <a href="politica-cookies.html" data-i18n="cookie_notice_policy"></a>
+      <button type="button" class="btn btn-primary" data-i18n="cookie_notice_ok"></button>
+    </div>`;
+  notice.querySelector("button").addEventListener("click", () => {
+    store.set(KEYS.cookieNotice, true);
+    notice.remove();
+  });
+  document.body.appendChild(notice);
+}
+
+/* Reseñas: lectura del JSON y creación dinámica del DOM */
+let loadedReviews = [];
+let reviewsFailed = false;
+function updateReviewsLanguage() {
+  const summary = $("reviewsSummary");
+  if (!summary) return;
+  if (reviewsFailed) {
+    summary.textContent = t("rev_error");
+  } else if (loadedReviews.length) {
+    const avg = loadedReviews.reduce((sum, r) => sum + r.estrellas, 0) / loadedReviews.length;
+    summary.textContent = t("rev_summary", {avg: avg.toFixed(1), count: loadedReviews.length});
+  }
+  document.querySelectorAll("[data-review-rating]").forEach(el => {
+    el.textContent = t("rev_rating", {n: el.dataset.reviewRating});
+  });
+}
+
+async function loadReviews() {
+  const grid = $("reviewsGrid");
+  if (!grid) return;
+  try {
+    const response = await fetch("javascript/resenas.json");
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    loadedReviews = await response.json();
+    grid.replaceChildren();
+    loadedReviews.forEach(review => {
+      const card = document.createElement("article");
+      card.className = "review-card";
+      card.innerHTML = `<div><div class="review-stars" aria-hidden="true"></div>
+        <span class="sr" data-review-rating></span><p class="review-text" lang="es"></p></div>
+        <div class="review-author"><div class="review-avatar" aria-hidden="true"></div>
+        <div class="review-info"><strong></strong><span class="verified" data-i18n="rev_verified"></span>
+        <span class="review-product"><span data-i18n="rev_bought"></span> <span class="review-product-name"></span></span></div></div>`;
+      card.querySelector(".review-stars").textContent = "★".repeat(review.estrellas) + "☆".repeat(5 - review.estrellas);
+      card.querySelector("[data-review-rating]").dataset.reviewRating = review.estrellas;
+      card.querySelector(".review-text").textContent = '"' + review.texto + '"';
+      card.querySelector(".review-avatar").textContent = review.iniciales;
+      card.querySelector("strong").textContent = review.nombre;
+      card.querySelector(".review-product-name").textContent = review.producto;
+      if (!review.verificada) card.querySelector(".verified").remove();
+      card.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t(el.dataset.i18n));
+      grid.appendChild(card);
+    });
+  } catch (error) {
+    reviewsFailed = true;
+    console.error("Error al cargar reseñas:", error);
+  }
+  updateReviewsLanguage();
+}
+
+initCookieNotice();
 renderCartIcon(false);
 applyLang();
 updateActiveNavLink();
+loadReviews();
